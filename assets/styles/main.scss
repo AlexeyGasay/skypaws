@@ -1,0 +1,110 @@
+@import "fonts";
+@import "transitions";
+@import "reset";
+
+:root {
+  --color-black: #{$black};
+  --color-white: #{$white};
+}
+
+html,
+body {
+  box-sizing: border-box;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  color: $black;
+  font-weight: 400;
+  font-size: $font-size-root-default;
+  font-family: Nunito, Arial, sans-serif !important;
+  font-style: normal;
+  line-height: 1.2;
+  background-color: $grey;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media screen and (min-width: $desktop-min) and (width <= 1439px) {
+    font-size: 1.11vw;
+  }
+
+  @media screen and (width >= $desktop-xl-min) {
+    font-size: 0.833vw;
+  }
+
+  /* @media screen and (width >= 2000px) {
+    font-size: calc($font-size-root-default * 1.2);
+  } */
+}
+
+body.lock {
+  overflow: hidden;
+}
+
+body {
+  @include tablet-max {
+    margin-top: 68px;
+  }
+
+  @include mobile-max {
+    margin-top: 70px;
+  }
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sr-only {
+  @include sr-only;
+}
+
+.select-none {
+  user-select: none;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.dont-break-word {
+  @include dont-break-out;
+}
+
+
+.icon.sprite-icons {
+  max-width: 100%;
+  max-height: 100%;
+  line-height: 0;
+  vertical-align: top;
+}
+
+.desktop-only {
+  @include desktop-only;
+}
+
+.inherit-color {
+  color: inherit;
+}
+
+.scroll-lock {
+  overflow: hidden;
+}
+
+* {
+  font-family: "Nunito Arial", sans-serif !important;
+  -webkit-tap-highlight-color: transparent;
+}

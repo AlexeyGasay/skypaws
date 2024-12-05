@@ -1,0 +1,41 @@
+// color
+$red: #e31e24;
+$black: #0c0c1b;
+$white: #fff;
+$blue: #4d4de7;
+$green: #53b483;
+$orange: #f67b35;
+$purple: #a04bc8;
+$grey: #fafafa;
+
+// Transition
+$transition-default: 0.15s;
+$transition-normal: 0.3s;
+
+// Timing functions
+$timing-function-default: ease;
+
+// container
+$container-max-width: 1920px;
+
+// viewport breakpoint
+$mobile-xs-max: 359px;
+$mobile-max: 575px;
+$mobile-min: 576px;
+$tablet-max: 743px;
+$tablet-min: 744px;
+$desktop-max: 1023px;
+$desktop-min: 1024px;
+$desktop-xl-max: 1889px;
+$desktop-xl-min: 1890px;
+
+// fonts
+$font-size-root-default: 16px;
+
+// z-index
+$z-xs: 10;
+$z-md: 100;
+$z-lg: 1000;
+$z-xl: 10000;
+$z-xl2: 100000;
+$z-xl3: 1000000;

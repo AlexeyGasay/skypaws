@@ -1,0 +1,14 @@
+image: atlassian/default-image:2
+
+pipelines:
+  branches:
+    stage:
+      - step:
+          name: Deploy to stage
+          script:
+            - echo "Deploying to stage server"
+            - pipe: atlassian/ssh-run:0.2.8
+              variables:
+                SSH_USER: '$SSH_USER'
+                SERVER: '$SERVER'
+                COMMAND: '$COMMAND'

@@ -1,0 +1,41 @@
+@use "sass:math";
+@import "variables";
+@import "functions";
+
+@mixin container($max-width: $container-max-width) {
+  display: block;
+  width: 100%;
+  max-width: $max-width;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0 48px;
+
+  @include tablet-max {
+    padding: 0 40px;
+  }
+
+  @include mobile-max {
+    padding: 0 16px;
+  }
+}
+
+@mixin desktop-only() {
+  display: none;
+
+  @include desktop-min {
+    display: block;
+  }
+}
+
+@mixin square($value) {
+  width: $value !important;
+  height: $value !important;
+}
+
+@mixin hover() {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+}

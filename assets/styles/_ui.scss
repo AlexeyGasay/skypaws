@@ -1,0 +1,8 @@
+@mixin error-message {
+  // @include text-s-d;
+  color: $red;
+
+  @include tablet-max {
+    // @include button-m-m;
+  }
+}
