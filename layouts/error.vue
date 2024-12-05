@@ -1,11 +1,8 @@
 <template>
-  <div class="error-layout">
-    Очибка
-  </div>
+  <div class="error-layout">Очибка</div>
 </template>
 
 <script>
-
 export default {
   name: "",
   props: ["error"],

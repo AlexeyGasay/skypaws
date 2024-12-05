@@ -1,9 +1,10 @@
 <template>
   <div class="default-layout">
-    <!--    <the-header class="default-layout__header" />-->
+    <the-header class="default-layout__header" />
     <div class="default-layout__inner">
       <Nuxt />
     </div>
+
     <!--    <the-footer class="default-layout__footer" />-->
 
     <!--    <app-modal-->
@@ -21,13 +22,11 @@
 <script>
 import { mapMutations } from "vuex";
 import { useDebounce } from "@/tools/useDebounce";
+import TheHeader from "@/components/The/TheHeader.vue";
+import UiButton from "@/components/Ui/UiButton.vue";
 
 export default {
-  components: {},
-
-  data() {
-    return {};
-  },
+  components: { TheHeader, UiButton },
 
   created() {
     this.debouncedSetWindowWidth = useDebounce(this.SET_WINDOW_WIDTH, 50);
@@ -73,8 +72,9 @@ export default {
   }
 
   &__header {
-    position: relative;
+    position: fixed;
     z-index: $z-lg;
+    width: 100%;
   }
 
   &__footer {

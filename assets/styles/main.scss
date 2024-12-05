@@ -40,7 +40,7 @@ body.lock {
   overflow: hidden;
 }
 
-body {
+/*  body {
   @include tablet-max {
     margin-top: 68px;
   }
@@ -49,6 +49,7 @@ body {
     margin-top: 70px;
   }
 }
+ */
 
 *,
 *::after,
@@ -105,6 +106,5 @@ a {
 }
 
 * {
-  font-family: "Nunito Arial", sans-serif !important;
   -webkit-tap-highlight-color: transparent;
 }
