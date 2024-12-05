@@ -1,4 +1,4 @@
-# MasterTS Docs
+# SKYPAWS Docs
 
 ## Структура директории
 
@@ -49,8 +49,6 @@
 
 ### Обязательная часть
 - Использование <code>[BEM](https://ru.bem.info/methodology/css/)</code> для написания стилей
-- Использование цветов и типографии из <code>[Дизайн системы](https://www.figma.com/file/6Byfg06oE9SKQU1868IX3Q/%E2%9D%87%EF%B8%8F-%D0%9C%D0%B0%D1%81%D1%82%D0%B5%D1%80-DS?node-id=0%3A1&mode=dev)</code>(миксины уже готовы)
-
 - Использование <code>[GitFlow](https://danielkummer.github.io/git-flow-cheatsheet/index.ru_RU.html)</code>, допустимые заголовки для коммитов:
   
     - feat:     A new feature.
@@ -72,6 +70,7 @@
 
     - AppExample - чистые компоненты на пропсах
     - TheExample - контейнеры с логикой, состоянием и работой api
+    - UiExample - базовые ui компоненты 
 
 ### Опциональная часть
 
@@ -86,12 +85,6 @@
 ## Инструменты
 
 - axios - выборка данных
-- date-fns - хелпер для дат
-
-### Storybook
-- Чтобы запустить Storybook - выполните npm run storybook 
-- Компоненты storybook находятся в /components/Storybook
-- Storybook этой версии написан на React(NuxtLink в нем не обрабатывается - это не сказывается на работу компонента, продолжайте использовать NuxtLink там - где это необходимо)
 
 ## Линтеры и их настройки
 - Линтеры не отключаемы, не получится закоммитить пока не будут решены все 'Errors'
