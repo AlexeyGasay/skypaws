@@ -39,3 +39,32 @@
     }
   }
 }
+
+@mixin gradient-border-mask-content($border-width, $border-color) {
+  & {
+    position: absolute;
+    background: $border-color border-box;
+    border: $border-width solid transparent;
+    border-radius: inherit;
+    content: '';
+    pointer-events: none;
+    inset: 0;
+    mask: linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+  }
+}
+
+@mixin gradient-border-mask($border-width, $border-color, $useAfter: false) {
+  position: relative;
+
+  @if $useAfter {
+    &::after {
+      @include gradient-border-mask-content($border-width, $border-color);
+    }
+  } @else {
+    &::before {
+      @include gradient-border-mask-content($border-width, $border-color);
+    }
+  }
+}

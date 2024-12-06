@@ -11,7 +11,8 @@
       <span
         :class="
           bem('ui-input__placeholder', {
-            'focused-filled': isFocused || isFilled,
+            filled: isFilled,
+            focus: isFocused,
           })
         "
       >
@@ -342,10 +343,13 @@ export default {
     display: inline-flex;
     align-items: center;
     width: 100%;
-    background-color: rgba($black, 5%);
-    border-radius: 12px;
-    transition: border-color $transition-default,
-      background-color $transition-default, box-shadow $transition-default;
+    background-color: $white;
+    border-radius: 10px;
+
+    @include gradient-border-mask(
+      1px,
+      linear-gradient(90deg, #03a7c8 0%, #732fff 50%, #ac1f51 100%)
+    );
 
     @include hover {
       background-color: rgba($black, 10%);
@@ -371,15 +375,12 @@ export default {
 
   &__input {
     width: 100%;
-    height: 48px;
-    padding: 15px 16px;
+    height: 40px;
+    padding: 12px 10px;
+    font-size: 16px;
     background: transparent;
     border: none;
     outline: none;
-
-    @include tablet-max {
-      font-size: 16px;
-    }
 
     &_error {
       color: $purple;
@@ -393,15 +394,19 @@ export default {
   &__placeholder {
     position: absolute;
     top: 50%;
-    left: 16px;
+    left: 10px;
     display: block;
-    color: rgba($black, 60%);
+    color: #535353;
     transform: translateY(-50%);
     transition: $transition-default;
 
-    &_focused-filled {
-      top: 8px;
+    &_focus {
+      opacity: 1;
+    }
+
+    &_filled {
       color: rgba($black, 40%);
+      opacity: 0;
     }
   }
 

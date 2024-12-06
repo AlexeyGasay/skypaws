@@ -26,11 +26,17 @@
 
       <div class="main-page__hero-scroll-to">scroll-to</div>
     </div>
+
+    <app-feedback-form />
   </div>
 </template>
 
 <script>
-export default {};
+import AppFeedbackForm from "@/components/App/AppFeedbackForm.vue";
+
+export default {
+  components: { AppFeedbackForm },
+};
 </script>
 
 <style lang="scss">
