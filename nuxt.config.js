@@ -131,6 +131,7 @@ module.exports = {
     "@/node_modules/element-ui/lib/theme-chalk/date-picker.css",
     "@/node_modules/element-ui/lib/theme-chalk/time-picker.css",
     "@/node_modules/element-ui/lib/theme-chalk/select-dropdown.css",
+    "@/node_modules/element-ui/lib/theme-chalk/select-dropdown.css",
   ],
 
   plugins: [
@@ -149,7 +150,7 @@ module.exports = {
   modules: [
     "@nuxtjs/axios",
     "@nuxtjs/dayjs",
-    "@nuxtjs/auth-next",
+    // "@nuxtjs/auth-next",
     // "@nuxtjs/recaptcha",
     "@nuxtjs/yandex-metrika",
     "cookie-universal-nuxt",

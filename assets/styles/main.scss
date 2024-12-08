@@ -1,6 +1,6 @@
-@import "fonts";
-@import "transitions";
-@import "reset";
+@use "fonts";
+@use "transitions";
+@use "reset";
 
 :root {
   --color-black: #{$black};

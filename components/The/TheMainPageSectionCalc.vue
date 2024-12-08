@@ -13,7 +13,10 @@
           квиз, который поможет Вам рассчитать стоимость Вашего бизнеса!
         </p>
 
-        <ui-button class="the-main-page-section-calc__info-button">
+        <ui-button
+          class="the-main-page-section-calc__info-button"
+          @click="SHOW_MODAL($MODAL_NAMES.CALC_MODAL)"
+        >
           рассчитать стоимость
         </ui-button>
       </div>
@@ -46,8 +49,16 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+
 export default {
   name: "TheMainPageSectionCalc",
+
+  methods: {
+    ...mapMutations({
+      SHOW_MODAL: "modals/SHOW_MODAL",
+    }),
+  },
 };
 </script>
 

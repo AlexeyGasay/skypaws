@@ -1,6 +1,6 @@
-@import "breakpoints";
-@import "typography";
-@import "variables";
-@import "tools";
-@import "utils";
-@import "ui";
+@use "breakpoints" as *;
+@use "typography" as *;
+@use "variables" as *;
+@use "tools" as *;
+@use "utils" as *;
+@use "ui" as *;

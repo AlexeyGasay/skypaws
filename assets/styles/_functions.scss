@@ -1,5 +1,5 @@
-@use "sass:math";
-@import "variables";
+@use "sass:math" as *;
+@use "variables" as *;
 
 @function divide($x, $y) {
   @return math.div($x, $y);

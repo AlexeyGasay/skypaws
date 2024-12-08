@@ -1,4 +1,4 @@
-@import "variables";
+@use "variables" as *;
 
 @mixin mobile-xs-max {
   @media screen and (max-width: #{$mobile-xs-max}) {

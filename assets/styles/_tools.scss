@@ -1,6 +1,7 @@
-@use "sass:math";
-@import "variables";
-@import "functions";
+@use "sass:math" as *;
+@use "variables" as *;
+@use "functions" as *;
+@use "breakpoints" as *;
 
 @mixin container($max-width: $container-max-width) {
   display: block;

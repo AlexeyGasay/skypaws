@@ -1,5 +1,5 @@
-@use "sass:math";
-@import "functions";
+@use "sass:math" as *;
+@use "functions" as *;
 
 @mixin aspect-ratio($width: 1, $height: $width, $pseudo: true) {
   @if $pseudo {

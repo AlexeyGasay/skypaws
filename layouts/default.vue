@@ -10,6 +10,14 @@
     <app-modal :name="$MODAL_NAMES.REQUEST_MODAL">
       <the-request-form />
     </app-modal>
+
+    <app-modal
+      :name="$MODAL_NAMES.CALC_MODAL"
+      width="100%"
+      height="100%"
+    >
+      <the-request-form />
+    </app-modal>
   </div>
 </template>
 
