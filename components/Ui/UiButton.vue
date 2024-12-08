@@ -7,11 +7,6 @@
     @click="$emit('click')"
   >
     <div
-      v-if="haveNotification"
-      class="ui-button__notification-dot"
-      :style="`--color: ${notificationColor}`"
-    />
-    <div
       v-if="!pending"
       class="ui-button__holder"
     >
@@ -57,24 +52,6 @@ export default {
   name: "UiButton",
 
   props: {
-    haveNotification: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
-
-    notificationColor: {
-      type: String,
-      required: false,
-      default: "#e31e24",
-    },
-
-    htmlType: {
-      type: String,
-      required: false,
-      default: "button",
-    },
-
     pending: {
       type: Boolean,
       required: false,
@@ -88,13 +65,12 @@ export default {
     },
 
     /**
-     * @values red, purple, green, black, transparent-black,
-     * transparent-white, white
+     * @values filled, outlined
      */
     type: {
       type: String,
       required: false,
-      default: "red",
+      default: "outlined",
     },
 
     /**
@@ -103,7 +79,16 @@ export default {
     size: {
       type: String,
       required: false,
-      default: "xl",
+      default: "m",
+    },
+
+    /**
+     @values black, white
+     */
+    hoverTheme: {
+      type: String,
+      required: false,
+      default: "white",
     },
 
     to: {
@@ -134,6 +119,11 @@ export default {
           bem("ui-button", {
             type: this.getSafeValue(this.buttonsTypes, this.type, "red"),
             size: this.getSafeValue(this.buttonsSizes, this.size, "xl"),
+            hoverTheme: this.getSafeValue(
+              this.buttonHoverThemes,
+              this.hoverTheme,
+              "white",
+            ),
             pending: this.pending,
             disabled: this.disabled && !this.pending,
           }),
@@ -142,20 +132,15 @@ export default {
     },
 
     buttonsTypes() {
-      return [
-        "red",
-        "purple",
-        "green",
-        "black",
-        "transparent-black",
-        "transparent-white",
-        "white",
-        "social",
-      ];
+      return ["filled", "outlined"];
     },
 
     buttonsSizes() {
-      return ["xl", "l", "m", "s", "default"];
+      return ["xl", "l", "m", "s"];
+    },
+
+    buttonHoverThemes() {
+      return ["white", "black"];
     },
 
     bindIs() {
@@ -197,26 +182,130 @@ export default {
   align-items: center;
   justify-content: center;
   width: max-content;
+  overflow: hidden;
+  color: $white;
+  font-weight: 900;
+  font-family: Nunito, sans-serif;
+  text-transform: uppercase;
   text-decoration: none;
   background: none;
   border: none;
-  border-radius: 12px;
+  border-radius: 10px;
   transition: $transition-normal color, $transition-normal background-color;
 
-  &__notification-dot {
-    position: absolute;
-    top: 6px;
-    right: 6px;
-    width: 6px;
-    height: 6px;
-    background-color: var(--color);
-    border-radius: 100%;
+  --hover-theme: #{$black};
+
+  &_hover-theme {
+    &_black {
+      --hover-theme: #{$black};
+    }
+
+    &_white {
+      --hover-theme: #{$white};
+    }
   }
 
   &_type {
+    &_filled {
+      &::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          #03a7c8 0%,
+          #732fff 50%,
+          #ac1f51 100%
+        );
+        border-radius: 10px;
+        transition: $transition-normal ease-in-out;
+        content: "";
+      }
+
+      @include hover {
+        color: var(--hover-theme);
+
+        &::after {
+          transform: translateX(100%);
+          transition: $transition-normal ease-in;
+        }
+
+        @include gradient-border-mask(
+          2px,
+          linear-gradient(90deg, #03a7c8 0%, #732fff 50%, #ac1f51 100%)
+        );
+      }
+    }
+
+    &_outlined {
+      &::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          #03a7c8 0%,
+          #732fff 50%,
+          #ac1f51 100%
+        );
+        border-radius: 10px;
+        transform: translateX(-100%);
+        transition: $transition-normal;
+        content: "";
+      }
+
+      @include gradient-border-mask(
+        2px,
+        linear-gradient(90deg, #03a7c8 0%, #732fff 50%, #ac1f51 100%)
+      );
+
+      @include hover {
+        color: var(--hover-theme);
+
+        &::after {
+          transform: translateX(0);
+          transition: $transition-normal ease-in;
+        }
+      }
+    }
+  }
+
+  &_size {
+    &_s {
+      height: 40px;
+      padding: 10px 18px;
+      font-size: 14px;
+      line-height: 130%;
+    }
+
+    &_m {
+      padding: 12px 22px;
+      font-size: 24px;
+      line-height: 135%;
+    }
+
+    &_l {
+      padding: 24px 18px;
+      font-size: 24px;
+      line-height: 135%;
+    }
+
+    &_xl {
+      padding: 8px 18px;
+      font-size: 32px;
+      line-height: 135%;
+    }
   }
 
   &__holder {
+    position: relative;
+    z-index: $z-1;
     display: flex;
     align-items: center;
   }

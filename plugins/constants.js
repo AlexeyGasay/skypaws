@@ -1,5 +1,5 @@
-import { exampe } from "@/constants/exampe";
+import { modalNames } from "@/constants/modalNames";
 
 export default (context, inject) => {
-  inject("MODAL_NAMES", exampe);
+  inject("MODAL_NAMES", modalNames);
 };

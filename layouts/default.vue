@@ -5,17 +5,11 @@
       <Nuxt />
     </div>
 
-    <!--    <the-footer class="default-layout__footer" />-->
+    <the-footer class="default-layout__footer" />
 
-    <!--    <app-modal-->
-    <!--      :name="$MODAL_NAMES.CHANGE_CITY_MODAL"-->
-    <!--      :title="'Выберите город'"-->
-    <!--    >-->
-    <!--      <the-change-city-modal-inner-->
-    <!--        :services-centers-quick-set="servicesCentersQuickSet"-->
-    <!--        :cities-quick-set="citiesQuickSet"-->
-    <!--      />-->
-    <!--    </app-modal>-->
+    <app-modal :name="$MODAL_NAMES.REQUEST_MODAL">
+      <the-request-form />
+    </app-modal>
   </div>
 </template>
 
@@ -24,9 +18,12 @@ import { mapMutations } from "vuex";
 import { useDebounce } from "@/tools/useDebounce";
 import TheHeader from "@/components/The/TheHeader.vue";
 import UiButton from "@/components/Ui/UiButton.vue";
+import TheFooter from "@/components/The/TheFooter.vue";
+import TheRequestForm from "@/components/App/TheRequestForm.vue";
+import AppModal from "@/components/App/AppModal.vue";
 
 export default {
-  components: { TheHeader, UiButton },
+  components: { AppModal, TheRequestForm, TheFooter, TheHeader, UiButton },
 
   created() {
     this.debouncedSetWindowWidth = useDebounce(this.SET_WINDOW_WIDTH, 50);
@@ -35,7 +32,9 @@ export default {
   async mounted() {
     this.SET_WINDOW_WIDTH(window.innerWidth);
     window.addEventListener("resize", this.resizeHandler);
-
+    localStorage.removeItem("firstModal");
+    localStorage.removeItem("modalCount");
+    localStorage.removeItem("first-scroll-locked");
     // await this.$recaptcha.init();
   },
 
@@ -73,12 +72,12 @@ export default {
 
   &__header {
     position: fixed;
-    z-index: $z-lg;
+    z-index: $z-5;
     width: 100%;
   }
 
   &__footer {
-    z-index: $z-md;
+    z-index: $z-2;
     width: 100%;
 
     @include tablet-max {

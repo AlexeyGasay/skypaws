@@ -8,15 +8,6 @@
   max-width: $max-width;
   margin-right: auto;
   margin-left: auto;
-  padding: 0 48px;
-
-  @include tablet-max {
-    padding: 0 40px;
-  }
-
-  @include mobile-max {
-    padding: 0 16px;
-  }
 }
 
 @mixin desktop-only() {

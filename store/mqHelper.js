@@ -1,10 +1,15 @@
 export const state = () => ({
   windowWidth: null,
+  scrollbarWidth: 0,
 });
 
 export const mutations = {
   SET_WINDOW_WIDTH(state, width) {
     state.windowWidth = width;
+  },
+
+  SET_SCROLLBAR_WIDTH(state, width) {
+    state.scrollbarWidth = width;
   },
 };
 

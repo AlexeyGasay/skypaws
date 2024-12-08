@@ -1,85 +1,34 @@
 <template>
   <div class="main-page">
-    <div class="main-page__hero">
-      <div class="main-page__hero-info">
-        <h2 class="main-page__hero-info-title">
-          Начните прибыльный бизнес: откройте школу пилотирования дронов для
-          детей!
-        </h2>
+    <the-main-page-section-hero />
 
-        <p class="main-page__hero-info-text">
-          Откройте уникальную школу, где дети смогут развивать свои навыки в
-          пилотировании дронов, программировании и&nbsp;дизайне
-          в&nbsp;Photoshop! Присоединяйтесь к&nbsp;нам и&nbsp;начните свой
-          прибыльный бизнес уже сегодня &mdash; мы&nbsp;обеспечим Вас всем
-          необходимым для успешного старта!
-        </p>
+    <the-main-page-section-discount />
 
-        <div class="main-page__hero-info-video">
-          <div class="main-page__hero-info-video-inner">video</div>
+    <the-main-page-section-calc />
 
-          <div class="main-page__hero-info-video-caption">
-            Посмотрите видеоролик о нас
-          </div>
-        </div>
-      </div>
-
-      <div class="main-page__hero-scroll-to">scroll-to</div>
-    </div>
-
-    <app-feedback-form />
+    <the-main-page-section-stats />
   </div>
 </template>
 
 <script>
-import AppFeedbackForm from "@/components/App/AppFeedbackForm.vue";
+import AppFeedbackForm from "@/components/App/TheRequestForm.vue";
+import TheMainPageSectionHero from "@/components/The/TheMainPageSectionHero.vue";
+import TheMainPageSectionDiscount from "@/components/The/TheMainPageSectionDiscount.vue";
+import TheMainPageSectionCalc from "@/components/The/TheMainPageSectionCalc.vue";
+import TheMainPageSectionStats from "@/components/The/TheMainPageSectionStats.vue";
 
 export default {
-  components: { AppFeedbackForm },
+  components: {
+    TheMainPageSectionStats,
+    TheMainPageSectionCalc,
+    TheMainPageSectionDiscount,
+    TheMainPageSectionHero,
+    AppFeedbackForm,
+  },
 };
 </script>
 
 <style lang="scss">
 .main-page {
-  &__hero {
-    min-height: 860px;
-    padding: 140px 40px 60px;
-    background-color: #2b1252;
-  }
-
-  &__hero-info {
-    max-width: 850px;
-    color: $white;
-  }
-
-  &__hero-info-title {
-    font-weight: 900;
-    font-size: 40px;
-    line-height: 130%;
-    text-transform: uppercase;
-  }
-
-  &__hero-info-text {
-    margin-top: 20px;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 130%;
-  }
-
-  &__hero-info-video {
-    margin-top: 30px;
-  }
-
-  &__hero-info-video-inner {
-  }
-
-  &__hero-info-video-caption {
-    margin-top: 20px;
-    font-size: 20px;
-    line-height: 130%;
-  }
-
-  &__hero-scroll-to {
-  }
 }
 </style>

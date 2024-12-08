@@ -51,7 +51,13 @@
           +7(800) 777-21-32
         </a>
 
-        <div class="the-header__menu-contacts-button">ОТКРЫТЬ БИЗНЕС</div>
+        <ui-button
+          class="the-header__menu-contacts-button"
+          size="s"
+          @click="SHOW_MODAL($MODAL_NAMES.REQUEST_MODAL)"
+        >
+          ОТКРЫТЬ БИЗНЕС
+        </ui-button>
       </div>
     </div>
   </div>
@@ -62,6 +68,7 @@ import MenuDesignIcon from "@/assets/images/icons/MenuDesignIcon.vue";
 import MenuDevelopIcon from "@/assets/images/icons/MenuDevelopIcon.vue";
 import MenuDronesIcon from "@/assets/images/icons/MenuDronesIcon.vue";
 import MenuExamsIcon from "@/assets/images/icons/MenuExamsIcon.vue";
+import { mapMutations } from "vuex";
 
 export default {
   name: "TheHeader",
@@ -71,16 +78,24 @@ export default {
     MenuDevelopIcon,
     MenuDesignIcon,
   },
+
+  methods: {
+    ...mapMutations({
+      SHOW_MODAL: "modals/SHOW_MODAL",
+    }),
+  },
 };
 </script>
 
 <style lang="scss">
 .the-header {
   &__inner {
+    @include container;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 12px 40px;
+    background: linear-gradient(180deg, #180b2c 0%, rgb(24 11 44 / 0%) 100%);
   }
 
   &__logo {

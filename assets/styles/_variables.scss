@@ -1,11 +1,11 @@
 // color
 $red: #e31e24;
-$black: #0c0c1b;
+$black: #000;
 $white: #fff;
 $blue: #4d4de7;
 $green: #53b483;
 $orange: #f67b35;
-$purple: #a04bc8;
+$purple: #2B1252;
 $grey: #fafafa;
 
 // Transition
@@ -16,7 +16,7 @@ $transition-normal: 0.3s;
 $timing-function-default: ease;
 
 // container
-$container-max-width: 1920px;
+$container-max-width: 1440px;
 
 // viewport breakpoint
 $mobile-xs-max: 359px;
@@ -33,9 +33,9 @@ $desktop-xl-min: 1890px;
 $font-size-root-default: 16px;
 
 // z-index
-$z-xs: 10;
-$z-md: 100;
-$z-lg: 1000;
-$z-xl: 10000;
-$z-xl2: 100000;
-$z-xl3: 1000000;
+$z-1: 1;
+$z-2: 2;
+$z-3: 3;
+$z-4: 4;
+$z-5: 5;
+$z-6: 6;

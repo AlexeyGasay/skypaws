@@ -60,6 +60,11 @@ export default {
 </script>
 
 <style lang="scss">
+.el-time-panel,
+.el-picker-panel {
+  z-index: 20000 !important;
+}
+
 .ui-time-picker {
   &__picker {
     position: relative;

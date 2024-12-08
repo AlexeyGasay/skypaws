@@ -18,30 +18,30 @@
             class="app-modal__wrapper"
             :style="`--offset-top-wrapper: ${offsetTopWrapper}%; --height: ${height}`"
           >
-            <div class="app-modal__header">
-              <slot
-                v-if="$slots.header"
-                name="header"
-              />
+            <!--            <div class="app-modal__header">-->
+            <!--              <slot-->
+            <!--                v-if="$slots.header"-->
+            <!--                name="header"-->
+            <!--              />-->
 
-              <div
-                v-else
-                :class="
-                  bem('app-modal__header-title', { result: isResultModal })
-                "
-                v-html="title"
-              />
+            <!--              <div-->
+            <!--                v-else-->
+            <!--                :class="-->
+            <!--                  bem('app-modal__header-title', { result: isResultModal })-->
+            <!--                "-->
+            <!--                v-html="title"-->
+            <!--              />-->
 
-              <div
-                v-if="haveCloseButton"
-                class="app-modal__header-close-button"
-                @click="closeModal($event, true)"
-              >
-                <div class="app-modal__header-close-button-icon">
-                  <svg-icon name="cross-icon" />
-                </div>
-              </div>
-            </div>
+            <!--              <div-->
+            <!--                v-if="haveCloseButton"-->
+            <!--                class="app-modal__header-close-button"-->
+            <!--                @click="closeModal($event, true)"-->
+            <!--              >-->
+            <!--                <div class="app-modal__header-close-button-icon">-->
+            <!--                  <svg-icon name="cross-icon" />-->
+            <!--                </div>-->
+            <!--              </div>-->
+            <!--            </div>-->
 
             <div class="app-modal__body">
               <perfect-scrollbar
@@ -94,7 +94,7 @@ export default {
     width: {
       type: String,
       required: false,
-      default: "480px",
+      default: "420px",
     },
 
     height: {
@@ -220,7 +220,7 @@ export default {
     async openModal() {
       this.isVisibleInternal = true;
       this.$store.commit(
-        "header/SET_SCROLLBAR_WIDTH",
+        "mqHelper/SET_SCROLLBAR_WIDTH",
         compensateScrollbar(true),
       );
       scrollLock(true, this.uid);
@@ -240,7 +240,7 @@ export default {
         return;
 
       this.$store.commit(
-        "header/SET_SCROLLBAR_WIDTH",
+        "mqHelper/SET_SCROLLBAR_WIDTH",
         compensateScrollbar(false),
       );
       scrollLock(false, this.uid);
@@ -267,7 +267,7 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: $z-xl;
+  z-index: $z-4;
   width: 100%;
   height: 100%;
   transform: scale(0);
@@ -327,7 +327,7 @@ export default {
     position: relative;
     top: var(--offset-top-wrapper);
     left: 50%;
-    z-index: $z-xl2;
+    z-index: $z-5;
     display: flex;
     flex-direction: column;
     width: 100%;
