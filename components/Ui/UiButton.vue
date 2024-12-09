@@ -91,6 +91,12 @@ export default {
       default: "white",
     },
 
+    noHover: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+
     to: {
       type: String,
       required: false,
@@ -119,6 +125,7 @@ export default {
           bem("ui-button", {
             type: this.getSafeValue(this.buttonsTypes, this.type, "red"),
             size: this.getSafeValue(this.buttonsSizes, this.size, "xl"),
+            noHover: this.noHover,
             hoverTheme: this.getSafeValue(
               this.buttonHoverThemes,
               this.hoverTheme,
@@ -226,17 +233,19 @@ export default {
       }
 
       @include hover {
-        color: var(--hover-theme);
+        &:not(.ui-button_no-hover) {
+          color: var(--hover-theme);
 
-        &::after {
-          transform: translateX(100%);
-          transition: $transition-normal ease-in;
+          &::after {
+            transform: translateX(100%);
+            transition: $transition-normal ease-in;
+          }
+
+          @include gradient-border-mask(
+            2px,
+            linear-gradient(90deg, #03a7c8 0%, #732fff 50%, #ac1f51 100%)
+          );
         }
-
-        @include gradient-border-mask(
-          2px,
-          linear-gradient(90deg, #03a7c8 0%, #732fff 50%, #ac1f51 100%)
-        );
       }
     }
 
@@ -266,11 +275,13 @@ export default {
       );
 
       @include hover {
-        color: var(--hover-theme);
+        &:not(.ui-button_no-hover) {
+          color: var(--hover-theme);
 
-        &::after {
-          transform: translateX(0);
-          transition: $transition-normal ease-in;
+          &::after {
+            transform: translateX(0);
+            transition: $transition-normal ease-in;
+          }
         }
       }
     }

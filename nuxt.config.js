@@ -130,7 +130,7 @@ module.exports = {
     "@/node_modules/element-ui/lib/theme-chalk/select.css",
     "@/node_modules/element-ui/lib/theme-chalk/date-picker.css",
     "@/node_modules/element-ui/lib/theme-chalk/time-picker.css",
-    "@/node_modules/element-ui/lib/theme-chalk/select-dropdown.css",
+    "@/node_modules/element-ui/lib/theme-chalk/slider.css",
     "@/node_modules/element-ui/lib/theme-chalk/select-dropdown.css",
   ],
 

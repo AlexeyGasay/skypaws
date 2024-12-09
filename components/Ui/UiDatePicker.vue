@@ -2,7 +2,7 @@
   <div class="ui-date-picker">
     <el-date-picker
       v-model="date"
-      class="ui-date-picker__picker"
+      :class="bem('ui-date-picker__picker', { theme })"
       type="date"
       :placeholder="placeholder"
       value-format="dd-MM-yyyy"
@@ -34,6 +34,12 @@ export default {
       type: Boolean,
       required: false,
       default: false,
+    },
+
+    theme: {
+      type: String,
+      required: false,
+      default: "transparent",
     },
   },
 
@@ -70,8 +76,29 @@ export default {
     display: inline-flex;
     align-items: center;
     width: 100% !important;
-    background-color: $white;
     border-radius: 10px;
+
+    &_theme {
+      &_white {
+        background-color: $white;
+
+        .el-input__inner {
+          color: #535353;
+        }
+      }
+
+      @include hover {
+        background-color: rgba($black, 10%);
+      }
+
+      &_transparent {
+        background: transparent;
+
+        .el-input__inner {
+          color: #c6c6c6;
+        }
+      }
+    }
 
     @include gradient-border-mask(
       1px,

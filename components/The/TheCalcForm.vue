@@ -1,0 +1,376 @@
+<template>
+  <div class="the-calc-form">
+    <div class="the-calc-form__inner">
+      <div class="the-calc-form__col">
+        <div class="the-calc-form__title">
+          способ приобретения оборудования
+          <div class="the-calc-form__title-tooltip">
+            <ui-tooltip>
+              <template #content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Laudantium, temporibus.
+              </template>
+
+              <div class="the-calc-form__title-tooltip-icon">
+                <svg-icon name="tooltip-icon" />
+              </div>
+            </ui-tooltip>
+          </div>
+        </div>
+
+        <div class="the-calc-form__handlers">
+          <ui-button
+            :type="isRent ? 'filled' : 'outlined'"
+            size="s"
+            class="the-calc-form__handlers-button"
+            no-hover
+            @click="methodOfPurchasing = PURCHASING_METHODS.RENT"
+          >
+            аренда оборудования под выкуп
+          </ui-button>
+
+          <ui-button
+            type="filled"
+            size="s"
+            :type="isPurchase ? 'filled' : 'outlined'"
+            class="the-calc-form__handlers-button"
+            no-hover
+            @click="methodOfPurchasing = PURCHASING_METHODS.PURCHASE"
+          >
+            выкуп оборудования
+          </ui-button>
+        </div>
+
+        <div class="the-calc-form__form">
+          <div class="the-calc-form__form-item">
+            <div class="the-calc-form__form-item-name">Имя</div>
+
+            <ui-input
+              v-model="name"
+              class="the-calc-form__form-item-input"
+              placeholder="введите имя"
+              theme="transparent"
+            />
+          </div>
+          <div class="the-calc-form__form-item">
+            <div class="the-calc-form__form-item-name">Номер телефона</div>
+
+            <ui-input
+              v-model="phone"
+              class="the-calc-form__form-item-input"
+              placeholder="+7(999) 999-99-99"
+              type="tel"
+              theme="transparent"
+            />
+          </div>
+
+          <div class="the-calc-form__form-item">
+            <div class="the-calc-form__form-item-name">Время встречи</div>
+
+            <ui-date-picker class="the-calc-form__form-item-input" />
+          </div>
+
+          <div class="the-calc-form__form-item">
+            <div class="the-calc-form__form-item-name">Дата встречи</div>
+
+            <ui-time-picker
+              v-model="time"
+              class="the-calc-form__form-item-input"
+              :time="time"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="the-calc-form__col">
+        <div class="the-calc-form__title">
+          количество рабочих мест для студентов
+          <div class="the-calc-form__title-tooltip">
+            <ui-tooltip>
+              <template #content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Laudantium, temporibus.
+              </template>
+
+              <div class="the-calc-form__title-tooltip-icon">
+                <svg-icon name="tooltip-icon" />
+              </div>
+            </ui-tooltip>
+          </div>
+        </div>
+
+        <div class="the-calc-form__slider">
+          <ui-input-range
+            v-model="count"
+            :step="count"
+            :steps="1"
+            :min="5"
+            :max="10"
+          />
+        </div>
+
+        <div class="the-calc-form__packages">
+          <div class="the-calc-form__packages-list">
+            <div class="the-calc-form__packages-list-item">
+              <ui-radio-button
+                v-model="selectedPackage"
+                :value="PACKAGES.PRO"
+              >
+                PREMIUM пакет услуг
+              </ui-radio-button>
+            </div>
+
+            <div class="the-calc-form__packages-list-item">
+              <ui-radio-button
+                v-model="selectedPackage"
+                :value="PACKAGES.BASE"
+              >
+                базовый пакет услуг
+              </ui-radio-button>
+            </div>
+          </div>
+
+          <div class="the-calc-form__packages-info">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore ex,
+            fuga iusto nesciunt totam voluptas. Dolorum, inventore, minus!
+            Molestiae, neque.
+          </div>
+
+          <div class="the-calc-form__packages-sum">
+            <div
+              v-if="methodOfPurchasing === PURCHASING_METHODS.RENT"
+              class="the-calc-form__packages-sum-cross"
+            >
+              старт от
+              <span class="the-calc-form__packages-sum-cross-price">
+                {{ formatNumber(sum / 0.7) }}
+              </span>
+              &#8381;
+            </div>
+
+            <div class="the-calc-form__packages-sum-real">
+              {{ sum | formatNumber }} &#8381;
+            </div>
+
+            <div
+              v-if="methodOfPurchasing === PURCHASING_METHODS.PURCHASE"
+              class="the-calc-form__packages-sum-equipment-purchase"
+            >
+              + стоимость оборудования ≈
+              {{ (count * studentPrice) | formatNumber }} &#8381;
+            </div>
+          </div>
+
+          <ui-button
+            class="the-calc-form__packages-button"
+            size="s"
+            type="filled"
+          >
+            узнать точную стоимость
+          </ui-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import UiTooltip from "@/components/Ui/UiTooltip.vue";
+import UiTimePicker from "@/components/Ui/UiTimePicker.vue";
+import UiDatePicker from "@/components/Ui/UiDatePicker.vue";
+import UiInputRange from "@/components/Ui/UiInputRange.vue";
+import UiRadioButton from "@/components/Ui/UiRadioButton.vue";
+import { formatNumber } from "@/tools/formatNumber";
+
+export default {
+  name: "TheCalcForm",
+  components: {
+    UiRadioButton,
+    UiInputRange,
+    UiDatePicker,
+    UiTimePicker,
+    UiTooltip,
+  },
+
+  data() {
+    return {
+      methodOfPurchasing: "RENT",
+      PURCHASING_METHODS: {
+        RENT: "RENT",
+        PURCHASE: "PURCHASE",
+      },
+
+      selectedPackage: "BASE",
+      PACKAGES: {
+        PRO: "PRO",
+        BASE: "BASE",
+      },
+
+      studentPrice: 80000,
+      name: "",
+      phone: "",
+      date: "",
+      time: "",
+      count: 5,
+    };
+  },
+
+  computed: {
+    sum() {
+      const rentSuffix =
+        this.selectedPackage === this.PACKAGES.BASE ? 199000 : 599000;
+
+      if (this.methodOfPurchasing === this.PURCHASING_METHODS.RENT) {
+        return this.count * this.studentPrice + rentSuffix;
+      }
+
+      return this.selectedPackage === this.PACKAGES.BASE ? 599000 : 999000;
+    },
+
+    isRent() {
+      return this.methodOfPurchasing === this.PURCHASING_METHODS.RENT;
+    },
+
+    isPurchase() {
+      return this.methodOfPurchasing === this.PURCHASING_METHODS.PURCHASE;
+    },
+  },
+
+  methods: { formatNumber },
+};
+</script>
+
+<style lang="scss">
+.the-calc-form {
+  &__inner {
+    display: flex;
+    align-items: stretch;
+    padding: 40px;
+  }
+
+  &__col {
+    width: 50%;
+
+    &:not(&:first-child) {
+      margin-left: 30px;
+    }
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    color: $white;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 130%;
+    text-transform: uppercase;
+  }
+
+  &__title-tooltip {
+    margin-left: 20px;
+  }
+
+  &__title-tooltip-icon {
+    @include square(28px);
+  }
+
+  &__handlers {
+    margin-top: 30px;
+  }
+
+  &__handlers-button {
+    width: 100% !important;
+
+    &:not(&:first-child) {
+      margin-top: 30px;
+    }
+  }
+
+  &__form {
+    margin-top: 20px;
+  }
+
+  &__form-item {
+    &:not(&:first-child) {
+      margin-top: 20px;
+    }
+  }
+
+  &__form-item-name {
+    color: $white;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 130%;
+  }
+
+  &__form-item-input {
+    margin-top: 20px;
+
+    input {
+      height: 60px;
+      color: #c6c6c6;
+    }
+  }
+
+  &__slider {
+    margin-top: 30px;
+  }
+
+  &__packages {
+    margin-top: 40px;
+    color: $white;
+  }
+
+  &__packages-list {
+    display: flex;
+    align-items: center;
+  }
+
+  &__packages-list-item {
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 170%;
+
+    &:not(&:first-child) {
+      margin-left: 30px;
+    }
+  }
+
+  &__packages-info {
+    margin-top: 30px;
+  }
+
+  &__packages-sum {
+    margin-top: 30px;
+  }
+
+  &__packages-sum-cross {
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 130%;
+  }
+
+  &__packages-sum-cross-price {
+    position: relative;
+
+    &::after {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: red;
+      content: "";
+    }
+  }
+
+  &__packages-sum-real {
+    font-weight: 900;
+    font-size: 96px;
+    line-height: 130%;
+  }
+
+  &__packages-button {
+    margin-top: 25px;
+  }
+}
+</style>

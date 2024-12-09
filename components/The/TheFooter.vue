@@ -17,19 +17,28 @@
 </template>
 
 <script>
+import UiInputRange from "@/components/Ui/UiInputRange.vue";
+
 export default {
   name: "TheFooter",
+  components: { UiInputRange },
+
+  data() {
+    return {};
+  },
 };
 </script>
 
 <style lang="scss">
 .the-footer {
   @include container;
-  display: flex;
+
+  /*  display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; */
   width: 100%;
-  height: 130px;
+
+  // height: 130px;
   padding: 24px 40px;
   background-color: #180b2c;
 

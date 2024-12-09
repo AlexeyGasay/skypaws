@@ -5,6 +5,7 @@
         bem('ui-input__label', {
           'focused-filled': isFocused || isFilled,
           error: errorMessage.length > 0,
+          theme,
         })
       "
     >
@@ -13,6 +14,7 @@
           bem('ui-input__placeholder', {
             filled: isFilled,
             focus: isFocused,
+            theme,
           })
         "
       >
@@ -116,6 +118,15 @@ export default {
       type: String,
       required: false,
       default: "text",
+    },
+
+    /**
+     * @values transparent, white
+     */
+    theme: {
+      type: String,
+      required: false,
+      default: "transparent",
     },
 
     id: {
@@ -343,7 +354,6 @@ export default {
     display: inline-flex;
     align-items: center;
     width: 100%;
-    background-color: $white;
     border-radius: 10px;
 
     @include gradient-border-mask(
@@ -351,15 +361,27 @@ export default {
       linear-gradient(90deg, #03a7c8 0%, #732fff 50%, #ac1f51 100%)
     );
 
-    @include hover {
-      background-color: rgba($black, 10%);
+    &_theme {
+      &_white {
+        background-color: $white;
+      }
+
+      @include hover {
+        background-color: rgba($black, 10%);
+      }
+
+      &_transparent {
+        background: transparent;
+      }
     }
 
     &_focused-filled {
-      background-color: $white;
-
-      @include hover {
+      &:not(.ui-input__label_theme_transparent) {
         background-color: $white;
+
+        @include hover {
+          background-color: $white;
+        }
       }
     }
 
@@ -396,7 +418,6 @@ export default {
     top: 50%;
     left: 10px;
     display: block;
-    color: #535353;
     transform: translateY(-50%);
     transition: $transition-default;
 
@@ -407,6 +428,16 @@ export default {
     &_filled {
       color: rgba($black, 40%);
       opacity: 0;
+    }
+
+    &_theme {
+      &_white {
+        color: #535353;
+      }
+
+      &_transparent {
+        color: #c6c6c6;
+      }
     }
   }
 

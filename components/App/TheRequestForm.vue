@@ -10,6 +10,7 @@
         <ui-input
           v-model="name"
           placeholder="введите имя"
+          theme="white"
           class="the-request-form__item-input"
         />
       </div>
@@ -20,6 +21,7 @@
           v-model="phone"
           placeholder="+7(999) 999-99-99"
           type="tel"
+          theme="white"
           class="the-request-form__item-input"
         />
       </div>
@@ -35,6 +37,7 @@
           v-model="time"
           class="the-request-form__item-input"
           :time="time"
+          theme="white"
           placeholder="нажмите, чтобы выбрать время"
         />
       </div>

@@ -130,8 +130,8 @@ export default {
       isVisibleInternal: false,
       isClosing: false,
       uid: Math.random(),
-      zIndex: 10000,
-      zIndexInitial: 10000,
+      zIndex: 7,
+      zIndexInitial: 7,
     };
   },
 

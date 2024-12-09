@@ -3,7 +3,7 @@
     <el-time-picker
       ref="timepicker"
       v-model="model"
-      class="ui-time-picker__picker"
+      :class="bem('ui-time-picker__picker', { theme })"
       :picker-options="{
         start: '08:30',
         step: '00:15',
@@ -23,7 +23,13 @@ export default {
     placeholder: {
       type: String,
       required: false,
-      default: "Выберите время",
+      default: "нажмите, чтобы выбрать время",
+    },
+
+    date: {
+      type: String,
+      required: false,
+      default: "",
     },
 
     time: {
@@ -36,6 +42,12 @@ export default {
       type: Boolean,
       required: false,
       default: false,
+    },
+
+    theme: {
+      type: String,
+      required: false,
+      default: "transparent",
     },
   },
 
@@ -73,6 +85,28 @@ export default {
     width: 100% !important;
     background-color: $white;
     border-radius: 10px;
+
+    &_theme {
+      &_white {
+        background-color: $white;
+
+        .el-input__inner {
+          color: #535353;
+        }
+      }
+
+      @include hover {
+        background-color: rgba($black, 10%);
+      }
+
+      &_transparent {
+        background: transparent;
+
+        .el-input__inner {
+          color: #c6c6c6;
+        }
+      }
+    }
 
     @include gradient-border-mask(
       1px,
