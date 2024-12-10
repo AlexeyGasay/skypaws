@@ -46,7 +46,7 @@ export const animation = async () => {
       trigger: ".main-page",
       start: "top top",
       end: "+=5000px",
-      scrub: 2,
+      scrub: 4,
       pin: true,
     },
   });
@@ -72,6 +72,7 @@ export const animation = async () => {
     opacity: 0,
     duration: 10,
     pointerEvents: "none",
+    delay: 3,
   });
 
   tl.to(
@@ -145,6 +146,6 @@ export const animation = async () => {
     "<",
   );
   tl.to(".the-main-page-section-calc", {
-    delay: 5,
+    delay: 2,
   });
 };

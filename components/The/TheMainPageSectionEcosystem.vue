@@ -16,11 +16,11 @@
       </div>
       <div class="the-main-page-section-ecosystem__list">
         <app-card-ecosystem
-          v-for="el in 6"
+          v-for="card in cards"
           class="the-main-page-section-ecosystem__list-item"
-          icon="1"
-          title="Поддержка 
-и сопровождение"
+          :icon="card.icon"
+          :title="card.title"
+          :list="card.list"
         />
       </div>
     </div>
@@ -28,12 +28,19 @@
 </template>
 
 <script>
+import cards from "@/data/ecosystemCards";
 import AppCardEcosystem from "../App/AppCardEcosystem.vue";
 
 export default {
   name: "TheMainPageSectionHero",
   components: {
     AppCardEcosystem,
+  },
+
+  data: () => {
+    return {
+      cards,
+    };
   },
 };
 </script>

@@ -9,11 +9,11 @@
 
       <div class="app-card-ecosystem__list">
         <div
-          v-for="el in 3"
-          :key="el"
+          v-for="text in list"
+          :key="text"
           class="app-card-ecosystem__item"
         >
-          Сопровождение и&nbsp;поддержка
+          {{ text }}
         </div>
       </div>
     </div>
@@ -34,10 +34,10 @@ export default {
       required: true,
     },
 
-    // list: {
-    //   type: Array,
-    //   required: true,
-    // },
+    list: {
+      type: Array,
+      required: true,
+    },
   },
 };
 </script>
@@ -48,7 +48,7 @@ export default {
   z-index: 1;
   width: 426px;
   height: 302px;
-  padding: 20px;
+  padding: 20px 0 20px 20px;
   border: 3px solid $white;
   border-radius: 10px;
   cursor: pointer;
@@ -80,7 +80,7 @@ export default {
   &__icon {
     position: absolute;
     top: -40px;
-    right: 28px;
+    right: 16px;
     width: 100px;
     object-fit: cover;
   }
@@ -88,17 +88,15 @@ export default {
   &__list {
     display: flex;
     flex-wrap: wrap;
+    gap: 6px;
     margin-top: auto;
   }
 
   &__item {
-    margin-right: 8px;
-    margin-bottom: 8px;
     padding: 10px;
     color: $white;
     font-weight: 900;
     font-size: 14px;
-    text-transform: uppercase;
     border: 2px solid $white;
     border-radius: 8px;
   }
