@@ -137,10 +137,7 @@
           </div>
 
           <div class="the-calc-form__packages-sum">
-            <div
-              v-if="methodOfPurchasing === PURCHASING_METHODS.RENT"
-              class="the-calc-form__packages-sum-cross"
-            >
+            <div class="the-calc-form__packages-sum-cross">
               старт от
               <span class="the-calc-form__packages-sum-cross-price">
                 {{ priceFormatting(sum / 0.7) }} &#8381;
