@@ -47,6 +47,10 @@ export default {
   height: 100vh;
   padding: 140px 40px 60px;
 
+  @include tablet-max {
+    position: static;
+  }
+
   &__kv {
     position: absolute;
     right: 0;
@@ -56,6 +60,10 @@ export default {
     height: 100vh;
     object-fit: cover;
     pointer-events: none;
+
+    @include tablet-max {
+      display: none;
+    }
   }
 
   &__info {
@@ -85,6 +93,10 @@ export default {
     width: 100%;
     height: 100vh;
     object-fit: cover;
+
+    @include tablet-max {
+      display: none;
+    }
   }
 
   &__scroll-to {

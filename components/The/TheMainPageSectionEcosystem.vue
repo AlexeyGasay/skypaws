@@ -49,6 +49,10 @@ export default {
   height: 100vh;
   padding: 140px 40px 60px;
 
+  @include tablet-max {
+    display: none;
+  }
+
   &__wrapper {
     width: 100%;
     height: 100%;
