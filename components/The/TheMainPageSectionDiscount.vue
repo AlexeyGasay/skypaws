@@ -70,6 +70,11 @@ export default {
 
 <style lang="scss">
 .the-main-page-section-discount {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100vw;
   height: 100vh;
   background-color: $purple;
 
@@ -168,10 +173,10 @@ export default {
 
   &__image-drone {
     position: absolute;
-    top: 42.5%;
+    top: 20.5%;
     right: 120px;
     z-index: $z-3;
-    transform: translateY(-50%);
+    animation: drone-fly 5s infinite;
     pointer-events: none;
 
     @include tablet-max {
@@ -203,6 +208,20 @@ export default {
     @include mobile-max {
       top: 31%;
     }
+  }
+}
+
+@keyframes drone-fly {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(-50px, -50px) rotate(15deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0);
   }
 }
 </style>

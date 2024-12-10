@@ -61,6 +61,7 @@ export default {
     localStorage.removeItem("modalCount");
     localStorage.removeItem("first-scroll-locked");
     // await this.$recaptcha.init();
+    // gsap.registerPlugin(ScrollTrigger);
   },
 
   methods: {
@@ -79,7 +80,7 @@ export default {
 
 <style lang="scss">
 .default-layout {
-  min-height: 50vh;
+  min-height: 100vh;
   overflow: hidden;
 
   &__header {

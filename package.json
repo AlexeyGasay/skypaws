@@ -31,6 +31,7 @@
     "copy-to-clipboard": "^3.3.3",
     "dayjs": "^1.11.13",
     "element-ui": "^2.15.13",
+    "gsap": "^3.12.5",
     "nuxt": "^2.15.7",
     "postcss-pxtorem": "^6.0.0",
     "swiper": "^5.4.1",

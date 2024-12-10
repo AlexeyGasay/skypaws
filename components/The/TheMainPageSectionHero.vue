@@ -13,17 +13,21 @@
         сегодня &mdash; мы&nbsp;обеспечим Вас всем необходимым для успешного
         старта!
       </p>
-
-      <div class="the-main-page-section-hero__info-video">
-        <div class="the-main-page-section-hero__info-video-inner">video</div>
-
-        <div class="the-main-page-section-hero__info-video-caption">
-          Посмотрите видеоролик о нас
-        </div>
-      </div>
     </div>
+    <video
+      src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      playsinline
+      muted
+      loop
+      controls
+      class="the-main-page-section-hero__info-video"
+    />
 
-    <div class="the-main-page-section-hero__scroll-to">scroll-to</div>
+    <img
+      class="the-main-page-section-hero__kv"
+      src="@/assets/images/boy.png"
+      alt="Ключевой образ"
+    />
   </div>
 </template>
 
@@ -36,8 +40,23 @@ export default {
 <style lang="scss">
 .the-main-page-section-hero {
   @include container;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
   height: 100vh;
   padding: 140px 40px 60px;
+
+  &__kv {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    width: auto;
+    height: 100vh;
+    object-fit: cover;
+    pointer-events: none;
+  }
 
   &__info {
     max-width: 850px;
@@ -59,16 +78,13 @@ export default {
   }
 
   &__info-video {
-    margin-top: 30px;
-  }
-
-  &__info-video-inner {
-  }
-
-  &__info-video-caption {
-    margin-top: 20px;
-    font-size: 20px;
-    line-height: 130%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
   }
 
   &__scroll-to {
