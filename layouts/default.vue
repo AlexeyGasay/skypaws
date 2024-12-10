@@ -18,6 +18,13 @@
     >
       <the-calc-form />
     </app-modal>
+
+    <app-modal
+      :name="$MODAL_NAMES.ECOSYSTEM_MODAL"
+      width="743px"
+    >
+      <app-ecosystem-modal-inner />
+    </app-modal>
   </div>
 </template>
 
@@ -30,9 +37,11 @@ import TheFooter from "@/components/The/TheFooter.vue";
 import TheRequestForm from "@/components/App/TheRequestForm.vue";
 import AppModal from "@/components/App/AppModal.vue";
 import TheCalcForm from "@/components/The/TheCalcForm.vue";
+import AppEcosystemModalInner from "@/components/App/AppEcosystemModalInner .vue";
 
 export default {
   components: {
+    AppEcosystemModalInner,
     TheCalcForm,
     AppModal,
     TheRequestForm,

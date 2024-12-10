@@ -143,9 +143,8 @@
             >
               старт от
               <span class="the-calc-form__packages-sum-cross-price">
-                {{ formatNumber(sum / 0.7) }}
+                {{ priceFormatting(sum / 0.7) }} &#8381;
               </span>
-              &#8381;
             </div>
 
             <div class="the-calc-form__packages-sum-real">
@@ -180,7 +179,7 @@ import UiTimePicker from "@/components/Ui/UiTimePicker.vue";
 import UiDatePicker from "@/components/Ui/UiDatePicker.vue";
 import UiInputRange from "@/components/Ui/UiInputRange.vue";
 import UiRadioButton from "@/components/Ui/UiRadioButton.vue";
-import { formatNumber } from "@/tools/formatNumber";
+import { priceFormatting } from "@/tools";
 
 export default {
   name: "TheCalcForm",
@@ -236,7 +235,7 @@ export default {
     },
   },
 
-  methods: { formatNumber },
+  methods: { priceFormatting },
 };
 </script>
 
@@ -352,13 +351,25 @@ export default {
 
   &__packages-sum-cross-price {
     position: relative;
+    display: inline-block;
+    width: max-content;
+    font-weight: 900;
 
     &::after {
-      top: 0;
+      position: absolute;
+      top: 50%;
       left: 0;
+      display: block;
       width: 100%;
-      height: 2px;
-      background-color: red;
+      height: 3px;
+      background: linear-gradient(
+        90deg,
+        #00d9ff 4%,
+        #732fff 54.95%,
+        #ac1f51 105.9%
+      );
+      border-radius: 6px;
+      transform: rotate(9deg) translate(0%, -50%);
       content: "";
     }
   }

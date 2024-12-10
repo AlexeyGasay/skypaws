@@ -15,6 +15,7 @@
 
         <ui-button
           class="the-main-page-section-calc__info-button"
+          :size="isMobile ? 's' : 'm'"
           @click="SHOW_MODAL($MODAL_NAMES.CALC_MODAL)"
         >
           рассчитать стоимость
@@ -49,10 +50,16 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
   name: "TheMainPageSectionCalc",
+
+  computed: {
+    ...mapGetters({
+      isMobile: "mqHelper/isMobile",
+    }),
+  },
 
   methods: {
     ...mapMutations({
@@ -75,6 +82,15 @@ export default {
     width: 100%;
     height: 100%;
     padding-left: 40px;
+
+    @include tablet-max {
+      align-items: flex-start;
+      padding: 0 40px;
+    }
+
+    @include mobile-max {
+      padding: 0 12px;
+    }
   }
 
   &__info {
@@ -89,6 +105,14 @@ export default {
     font-size: 40px;
     line-height: 135%;
     text-transform: uppercase;
+
+    @include tablet-max {
+      font-size: 30px;
+    }
+
+    @include mobile-max {
+      font-size: 16px;
+    }
   }
 
   &__info-text {
@@ -97,6 +121,17 @@ export default {
     font-weight: 500;
     font-size: 20px;
     line-height: 135%;
+
+    @include tablet-max {
+      max-width: 5600px;
+      margin-top: 6px;
+      font-size: 16px;
+    }
+
+    @include mobile-max {
+      max-width: 325px;
+      font-size: 12px;
+    }
   }
 
   &__info-button {
@@ -118,6 +153,18 @@ export default {
     z-index: $z-3;
     transform: translateY(-50%);
     pointer-events: none;
+
+    @include tablet-max {
+      top: 68%;
+      right: 0;
+      width: 219px;
+    }
+
+    @include mobile-max {
+      top: 41.5%;
+      right: 17px;
+      width: 102px;
+    }
   }
 
   &__image-drone {
@@ -127,6 +174,18 @@ export default {
     z-index: $z-2;
     transform: translateY(-50%);
     pointer-events: none;
+
+    @include tablet-max {
+      top: 52.5%;
+      right: 0;
+      width: 483px;
+    }
+
+    @include mobile-max {
+      top: 33.5%;
+      right: 0;
+      width: 226px;
+    }
   }
 
   &__image-clouds {
@@ -136,6 +195,18 @@ export default {
     z-index: $z-1;
     transform: translateY(-50%);
     pointer-events: none;
+
+    @include tablet-max {
+      top: 49.5%;
+      right: 0;
+      width: 596px;
+    }
+
+    @include mobile-max {
+      top: 32.5%;
+      right: 0;
+      width: 280px;
+    }
   }
 }
 </style>

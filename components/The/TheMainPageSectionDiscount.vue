@@ -12,7 +12,11 @@
           о&nbsp;наших предложениях и условиях скидки!
         </p>
 
-        <ui-button class="the-main-page-section-discount__info-button">
+        <ui-button
+          class="the-main-page-section-discount__info-button"
+          :size="isMobile ? 's' : 'm'"
+          @click="SHOW_MODAL($MODAL_NAMES.ECOSYSTEM_MODAL)"
+        >
           Оставить заявку
         </ui-button>
       </div>
@@ -45,8 +49,22 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from "vuex";
+
 export default {
   name: "TheMainPageSectionDiscount",
+
+  computed: {
+    ...mapGetters({
+      isMobile: "mqHelper/isMobile",
+    }),
+  },
+
+  methods: {
+    ...mapMutations({
+      SHOW_MODAL: "modals/SHOW_MODAL",
+    }),
+  },
 };
 </script>
 
@@ -63,6 +81,15 @@ export default {
     width: 100%;
     height: 100%;
     padding-left: 40px;
+
+    @include tablet-max {
+      align-items: flex-start;
+      padding: 0 40px;
+    }
+
+    @include mobile-max {
+      padding: 0 12px;
+    }
   }
 
   &__info {
@@ -77,6 +104,14 @@ export default {
     font-size: 40px;
     line-height: 135%;
     text-transform: uppercase;
+
+    @include tablet-max {
+      font-size: 30px;
+    }
+
+    @include mobile-max {
+      font-size: 16px;
+    }
   }
 
   &__info-text {
@@ -84,10 +119,24 @@ export default {
     font-weight: 500;
     font-size: 20px;
     line-height: 135%;
+
+    @include tablet-max {
+      max-width: 460px;
+      font-size: 16px;
+    }
+
+    @include mobile-max {
+      max-width: 315px;
+      font-size: 12px;
+    }
   }
 
   &__info-button {
     margin-top: 20px;
+
+    @include mobile-max {
+      margin-top: 15px;
+    }
   }
 
   &__image-stars {
@@ -100,11 +149,21 @@ export default {
 
   &__image-hands {
     position: absolute;
-    top: 55.6%;
+    top: 87.6%;
     right: 0;
     z-index: $z-2;
     transform: translateY(-50%);
     pointer-events: none;
+
+    @include tablet-max {
+      top: 62%;
+      width: 373px;
+    }
+
+    @include mobile-max {
+      top: 40%;
+      width: 173px;
+    }
   }
 
   &__image-drone {
@@ -114,6 +173,16 @@ export default {
     z-index: $z-3;
     transform: translateY(-50%);
     pointer-events: none;
+
+    @include tablet-max {
+      top: 46%;
+      right: 12%;
+    }
+
+    @include mobile-max {
+      top: 32%;
+      width: 173px;
+    }
   }
 
   &__image-clouds {
@@ -123,6 +192,17 @@ export default {
     z-index: $z-1;
     transform: translateY(-50%);
     pointer-events: none;
+
+    @include tablet-max {
+      top: 44%;
+      right: unset;
+      left: 0;
+      width: 100%;
+    }
+
+    @include mobile-max {
+      top: 31%;
+    }
   }
 }
 </style>

@@ -30,14 +30,14 @@ export const getters = {
 
   isTablet(state) {
     if (state.windowWidth) {
-      return state.windowWidth < 1024 && state.windowWidth >= 744;
+      return state.windowWidth < 1024 && state.windowWidth >= 768;
     }
     return false;
   },
 
   isMobile(state) {
     if (state.windowWidth) {
-      return state.windowWidth < 744;
+      return state.windowWidth < 768;
     }
     return false;
   },

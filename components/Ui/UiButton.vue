@@ -311,6 +311,14 @@ export default {
       padding: 8px 18px;
       font-size: 32px;
       line-height: 135%;
+
+      @include tablet-max {
+        font-size: 28px;
+      }
+
+      @include mobile-max {
+        font-size: 14px;
+      }
     }
   }
 

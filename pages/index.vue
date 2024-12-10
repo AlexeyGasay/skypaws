@@ -1,6 +1,6 @@
 <template>
   <div class="main-page">
-    <the-main-page-section-hero />
+    <!--    <the-main-page-section-hero />-->
 
     <the-main-page-section-discount />
 
