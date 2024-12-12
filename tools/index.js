@@ -80,6 +80,7 @@ export function declensionOfNumerals(number, titles) {
  * @param {number} uid
  */
 export function scrollLock(status, uid) {
+  console.log(status);
   if (!status && +localStorage.getItem("first-scroll-locked") === uid) {
     document.querySelector("html, body").classList.remove("scroll-lock");
     localStorage.removeItem("first-scroll-locked");

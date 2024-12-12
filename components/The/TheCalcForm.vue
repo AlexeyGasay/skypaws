@@ -21,7 +21,7 @@
         <div class="the-calc-form__handlers">
           <ui-button
             :type="isRent ? 'filled' : 'outlined'"
-            size="s"
+            :size="isMobile ? 's' : 'm'"
             class="the-calc-form__handlers-button"
             no-hover
             @click="methodOfPurchasing = PURCHASING_METHODS.RENT"
@@ -31,7 +31,7 @@
 
           <ui-button
             type="filled"
-            size="s"
+            :size="isMobile ? 's' : 'm'"
             :type="isPurchase ? 'filled' : 'outlined'"
             class="the-calc-form__handlers-button"
             no-hover
@@ -39,6 +39,54 @@
           >
             выкуп оборудования
           </ui-button>
+        </div>
+
+        <div class="the-calc-form__title the-calc-form__title_mobile">
+          количество рабочих мест для студентов
+          <div class="the-calc-form__title-tooltip">
+            <ui-tooltip>
+              <template #content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Laudantium, temporibus.
+              </template>
+
+              <div class="the-calc-form__title-tooltip-icon">
+                <svg-icon name="tooltip-icon" />
+              </div>
+            </ui-tooltip>
+          </div>
+        </div>
+
+        <div class="the-calc-form__slider_mobile">
+          <ui-input-range
+            v-model="count"
+            :step="count"
+            :steps="1"
+            :min="5"
+            :max="10"
+          />
+        </div>
+
+        <div
+          class="the-calc-form__packages-list the-calc-form__packages-list_mobile"
+        >
+          <div class="the-calc-form__packages-list-item">
+            <ui-radio-button
+              v-model="selectedPackage"
+              :value="PACKAGES.PRO"
+            >
+              PREMIUM пакет услуг
+            </ui-radio-button>
+          </div>
+
+          <div class="the-calc-form__packages-list-item">
+            <ui-radio-button
+              v-model="selectedPackage"
+              :value="PACKAGES.BASE"
+            >
+              базовый пакет услуг
+            </ui-radio-button>
+          </div>
         </div>
 
         <div class="the-calc-form__form">
@@ -65,13 +113,13 @@
           </div>
 
           <div class="the-calc-form__form-item">
-            <div class="the-calc-form__form-item-name">Время встречи</div>
+            <div class="the-calc-form__form-item-name">Дата встречи</div>
 
             <ui-date-picker class="the-calc-form__form-item-input" />
           </div>
 
           <div class="the-calc-form__form-item">
-            <div class="the-calc-form__form-item-name">Дата встречи</div>
+            <div class="the-calc-form__form-item-name">Время встречи</div>
 
             <ui-time-picker
               v-model="time"
@@ -83,7 +131,7 @@
       </div>
 
       <div class="the-calc-form__col">
-        <div class="the-calc-form__title">
+        <div class="the-calc-form__title the-calc-form__title_desktop">
           количество рабочих мест для студентов
           <div class="the-calc-form__title-tooltip">
             <ui-tooltip>
@@ -159,7 +207,7 @@
 
           <ui-button
             class="the-calc-form__packages-button"
-            size="s"
+            :size="isDesktop ? 's' : 'm'"
             type="filled"
           >
             узнать точную стоимость
@@ -177,6 +225,7 @@ import UiDatePicker from "@/components/Ui/UiDatePicker.vue";
 import UiInputRange from "@/components/Ui/UiInputRange.vue";
 import UiRadioButton from "@/components/Ui/UiRadioButton.vue";
 import { priceFormatting } from "@/tools";
+import { mapGetters } from "vuex";
 
 export default {
   name: "TheCalcForm",
@@ -212,6 +261,11 @@ export default {
   },
 
   computed: {
+    ...mapGetters({
+      isMobile: "mqHelper/isMobile",
+      isDesktop: "mqHelper/isDesktop",
+    }),
+
     sum() {
       const rentSuffix =
         this.selectedPackage === this.PACKAGES.BASE ? 199000 : 599000;
@@ -242,13 +296,35 @@ export default {
     display: flex;
     align-items: stretch;
     padding: 40px;
+
+    @include tablet-max {
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 30px 30px;
+    }
+
+    @include mobile-max {
+      padding: 10px;
+    }
   }
 
   &__col {
     width: 50%;
 
+    @include tablet-max {
+      width: 100%;
+    }
+
     &:not(&:first-child) {
       margin-left: 30px;
+
+      @include mobile-max {
+        margin: 0 0 10px;
+      }
+    }
+
+    @include mobile-max {
+      font-size: 14px;
     }
   }
 
@@ -260,6 +336,24 @@ export default {
     font-size: 20px;
     line-height: 130%;
     text-transform: uppercase;
+
+    @include mobile-max {
+      font-size: 14px;
+    }
+
+    &_desktop {
+      @include tablet-max {
+        display: none;
+      }
+    }
+
+    &_mobile {
+      display: none;
+
+      @include tablet-max {
+        display: flex;
+      }
+    }
   }
 
   &__title-tooltip {
@@ -272,6 +366,10 @@ export default {
 
   &__handlers {
     margin-top: 30px;
+
+    @include tablet-max {
+      margin: 20px 0;
+    }
   }
 
   &__handlers-button {
@@ -279,6 +377,14 @@ export default {
 
     &:not(&:first-child) {
       margin-top: 30px;
+
+      @include tablet-max {
+        margin-top: 20px;
+      }
+
+      @include mobile-max {
+        margin-top: 10px;
+      }
     }
   }
 
@@ -289,6 +395,10 @@ export default {
   &__form-item {
     &:not(&:first-child) {
       margin-top: 20px;
+
+      @include mobile-max {
+        margin-top: 10px;
+      }
     }
   }
 
@@ -297,53 +407,128 @@ export default {
     font-weight: 900;
     font-size: 20px;
     line-height: 130%;
+    text-transform: uppercase;
+
+    @include mobile-max {
+      font-size: 13px;
+    }
   }
 
   &__form-item-input {
     margin-top: 20px;
 
+    @include mobile-max {
+      margin-top: 10px;
+    }
+
     input {
-      height: 60px;
+      height: 60px !important;
       color: #c6c6c6;
+
+      @include mobile-max {
+        height: 35px !important;
+      }
     }
   }
 
   &__slider {
     margin-top: 30px;
+
+    @include tablet-max {
+      display: none;
+    }
+
+    &_mobile {
+      display: none;
+
+      @include tablet-max {
+        display: block;
+        padding: 0 8px;
+      }
+    }
   }
 
   &__packages {
     margin-top: 40px;
     color: $white;
+
+    @include tablet-max {
+      margin-top: 20px;
+    }
   }
 
   &__packages-list {
     display: flex;
     align-items: center;
+    color: $white;
+
+    @include tablet-max {
+      display: none;
+    }
+
+    &_mobile {
+      display: none;
+
+      @include tablet-max {
+        display: flex;
+        margin-top: 20px;
+      }
+
+      @include mobile-max {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        width: 100%;
+      }
+    }
   }
 
   &__packages-list-item {
     font-weight: 900;
     font-size: 20px;
     line-height: 170%;
+    text-transform: uppercase;
 
     &:not(&:first-child) {
       margin-left: 30px;
+
+      @include tablet-max {
+        margin: 20px 0 0;
+      }
+    }
+
+    @include tablet-max {
+      width: 100%;
     }
   }
 
   &__packages-info {
     margin-top: 30px;
+
+    @include tablet-max {
+      display: none;
+    }
   }
 
   &__packages-sum {
     margin-top: 30px;
+
+    @include tablet-max {
+      margin: 0;
+    }
   }
 
   &__packages-sum-cross {
     font-weight: 500;
     font-size: 48px;
     line-height: 130%;
+
+    @include tablet-max {
+      font-size: 40px;
+    }
+
+    @include mobile-max {
+      font-size: 30px;
+    }
   }
 
   &__packages-sum-cross-price {
@@ -375,10 +560,23 @@ export default {
     font-weight: 900;
     font-size: 96px;
     line-height: 130%;
+
+    @include tablet-max {
+      font-size: 85px;
+    }
+
+    @include mobile-max {
+      font-size: 48px;
+    }
   }
 
   &__packages-button {
     margin-top: 25px;
+
+    @include tablet-max {
+      width: 100% !important;
+      margin-top: 20px;
+    }
   }
 }
 </style>

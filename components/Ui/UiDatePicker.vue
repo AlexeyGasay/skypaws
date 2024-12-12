@@ -1,7 +1,7 @@
 <template>
   <div class="ui-date-picker">
     <el-date-picker
-      v-model="date"
+      v-model="model"
       :class="bem('ui-date-picker__picker', { theme })"
       type="date"
       :placeholder="placeholder"

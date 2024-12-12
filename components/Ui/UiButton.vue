@@ -247,6 +247,12 @@ export default {
           );
         }
       }
+
+      &:is(.ui-button_disabled) {
+        &::after {
+          content: none;
+        }
+      }
     }
 
     &_outlined {
@@ -299,6 +305,10 @@ export default {
       padding: 12px 22px;
       font-size: 24px;
       line-height: 135%;
+
+      @include mobile-max {
+        font-size: 14px;
+      }
     }
 
     &_l {

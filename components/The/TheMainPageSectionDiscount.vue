@@ -15,7 +15,7 @@
         <ui-button
           class="the-main-page-section-discount__info-button"
           :size="isMobile ? 's' : 'm'"
-          @click="SHOW_MODAL($MODAL_NAMES.ECOSYSTEM_MODAL)"
+          @click="SHOW_MODAL($MODAL_NAMES.REQUEST_MODAL)"
         >
           Оставить заявку
         </ui-button>

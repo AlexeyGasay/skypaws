@@ -90,6 +90,10 @@ export default {
       display: none;
     }
 
+    &__marks-text {
+      color: $white;
+    }
+
     &__button {
       @include square(24px);
       background: linear-gradient(

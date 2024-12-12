@@ -9,7 +9,7 @@
         <ui-button
           class="the-main-page-section-ecosystem__header-button"
           size="m"
-          @click="SHOW_MODAL($MODAL_NAMES.REQUEST_MODAL)"
+          @click="SHOW_MODAL($MODAL_NAMES.ECOSYSTEM_MODAL)"
         >
           подробнее
         </ui-button>
@@ -29,6 +29,7 @@
 
 <script>
 import cards from "@/data/ecosystemCards";
+import { mapMutations } from "vuex";
 import AppCardEcosystem from "../App/AppCardEcosystem.vue";
 
 export default {
@@ -41,6 +42,12 @@ export default {
     return {
       cards,
     };
+  },
+
+  methods: {
+    ...mapMutations({
+      SHOW_MODAL: "modals/SHOW_MODAL",
+    }),
   },
 };
 </script>

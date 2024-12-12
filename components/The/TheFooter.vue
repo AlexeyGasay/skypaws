@@ -8,7 +8,7 @@
 
     <ui-button
       class="the-footer__button"
-      size="l"
+      :size="isMobile ? 'm' : 'l'"
       type="filled"
     >
       посмотреть презентацию
@@ -18,6 +18,7 @@
 
 <script>
 import UiInputRange from "@/components/Ui/UiInputRange.vue";
+import { mapGetters } from "vuex";
 
 export default {
   name: "TheFooter",
@@ -26,24 +27,46 @@ export default {
   data() {
     return {};
   },
+
+  computed: {
+    ...mapGetters({
+      isMobile: "mqHelper/isMobile",
+    }),
+  },
 };
 </script>
 
 <style lang="scss">
 .the-footer {
   @include container;
-
-  /*  display: flex;
+  display: flex;
   align-items: center;
-  justify-content: space-between; */
+  justify-content: space-between;
   width: 100%;
 
   // height: 130px;
   padding: 24px 40px;
   background-color: #180b2c;
 
+  @include tablet-max {
+    padding: 20px 30px;
+  }
+
+  @include mobile-max {
+    flex-direction: column-reverse;
+    padding: 10px 16px;
+  }
+
   &__credential {
     color: $white;
+
+    @include tablet-max {
+      font-size: 14px;
+    }
+
+    @include mobile-max {
+      margin-top: 10px;
+    }
   }
 }
 </style>

@@ -43,22 +43,89 @@
         </div>
       </nav>
 
-      <div class="the-header__menu-contacts">
+      <div class="the-header__contacts">
         <a
           href="tel:+7(800)777-21-32"
-          class="the-header__menu-contacts-phone"
+          class="the-header__contacts-phone"
         >
           +7(800) 777-21-32
         </a>
 
         <ui-button
-          class="the-header__menu-contacts-button"
+          class="the-header__contacts-button"
           size="s"
           @click="SHOW_MODAL($MODAL_NAMES.REQUEST_MODAL)"
         >
           ОТКРЫТЬ БИЗНЕС
         </ui-button>
       </div>
+
+      <div
+        class="the-header__burger"
+        @click="mobileMenuHandler"
+      >
+        <svg-icon name="burger-icon" />
+      </div>
+    </div>
+
+    <div :class="bem('the-header__inner-mobile', { open: isOpen })">
+      <div
+        class="the-header__inner-mobile-close-button"
+        @click="mobileMenuHandler"
+      >
+        <svg-icon name="cross-icon" />
+      </div>
+
+      <perfect-scrollbar>
+        <nav class="the-header__inner-mobile-menu">
+          <div class="the-header__inner-mobile-menu-item">
+            <div class="the-header__inner-mobile-menu-item-icon">
+              <menu-drones-icon />
+            </div>
+
+            Дроны
+          </div>
+
+          <div class="the-header__inner-mobile-menu-item">
+            <div class="the-header__inner-mobile-menu-item-icon">
+              <menu-design-icon />
+            </div>
+
+            Дизайн
+          </div>
+
+          <div class="the-header__inner-mobile-menu-item">
+            <div class="the-header__inner-mobile-menu-item-icon">
+              <menu-develop-icon />
+            </div>
+
+            Разработка
+          </div>
+
+          <div class="the-header__inner-mobile-menu-item">
+            <div class="the-header__inner-mobile-menu-item-icon">
+              <menu-exams-icon />
+            </div>
+
+            огэ/егэ
+          </div>
+        </nav>
+
+        <a
+          href="tel:+7(800) 777-21-32"
+          class="the-header__inner-mobile-contact-phone"
+        >
+          +7(800) 777-21-32
+        </a>
+
+        <ui-button
+          type="outlined"
+          class="the-header__inner-mobile-menu-button"
+          size="s"
+        >
+          Открыть бизнес
+        </ui-button>
+      </perfect-scrollbar>
     </div>
   </div>
 </template>
@@ -68,7 +135,9 @@ import MenuDesignIcon from "@/assets/images/icons/MenuDesignIcon.vue";
 import MenuDevelopIcon from "@/assets/images/icons/MenuDevelopIcon.vue";
 import MenuDronesIcon from "@/assets/images/icons/MenuDronesIcon.vue";
 import MenuExamsIcon from "@/assets/images/icons/MenuExamsIcon.vue";
-import { mapMutations } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
+import { scrollLock } from "@/tools";
+import compensateScrollbar from "@/tools/compensateScrollbar";
 
 export default {
   name: "TheHeader",
@@ -79,10 +148,39 @@ export default {
     MenuDesignIcon,
   },
 
+  data() {
+    return {
+      isOpen: false,
+      uid: Math.random(),
+    };
+  },
+
+  computed: {
+    ...mapGetters({
+      isDesktop: "mqHelper/isDesktop",
+    }),
+  },
+
+  watch: {
+    isDesktop() {
+      if (this.isDesktop) {
+        this.isOpen = false;
+        scrollLock(false, this.uid);
+        compensateScrollbar(false);
+      }
+    },
+  },
+
   methods: {
     ...mapMutations({
       SHOW_MODAL: "modals/SHOW_MODAL",
     }),
+
+    mobileMenuHandler() {
+      this.isOpen = !this.isOpen;
+      scrollLock(this.isOpen, this.uid);
+      compensateScrollbar(this.isOpen);
+    },
   },
 };
 </script>
@@ -96,6 +194,14 @@ export default {
     justify-content: space-between;
     padding: 12px 40px;
     background: linear-gradient(180deg, #180b2c 0%, rgb(24 11 44 / 0%) 100%);
+
+    @include tablet-max {
+      padding: 12px 30px;
+    }
+
+    @include mobile-max {
+      padding: 10px;
+    }
   }
 
   &__logo {
@@ -105,6 +211,10 @@ export default {
 
   &__logo-icon {
     max-width: 80px;
+
+    @include mobile-max {
+      max-width: 67px;
+    }
   }
 
   &__logo-text {
@@ -114,12 +224,20 @@ export default {
     font-weight: 500;
     font-size: 15px;
     line-height: 135%;
+
+    @include tablet-max {
+      font-size: 11px;
+    }
   }
 
   &__menu {
     display: flex;
     align-items: stretch;
     justify-content: space-between;
+
+    @include tablet-max {
+      display: none;
+    }
   }
 
   &__menu-item {
@@ -169,12 +287,20 @@ export default {
     }
   }
 
-  &__menu-contacts {
+  &__contacts {
     display: flex;
     align-items: center;
+
+    @include tablet-max {
+      margin-left: auto;
+    }
+
+    @include mobile-max {
+      display: none;
+    }
   }
 
-  &__menu-contacts-phone {
+  &__contacts-phone {
     color: $white;
     font-weight: 900;
     font-size: 16px;
@@ -182,8 +308,98 @@ export default {
     text-decoration: none;
   }
 
-  &__menu-contacts-button {
+  &__contacts-button {
     margin-left: 20px;
+
+    @include tablet-max {
+      display: none !important;
+    }
+  }
+
+  &__burger {
+    @include square(41px);
+    display: none;
+    margin-left: 30px;
+    cursor: pointer;
+
+    @include tablet-max {
+      display: block;
+    }
+  }
+
+  &__inner-mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: $z-6;
+    display: none;
+    width: 100%;
+    height: 100vh;
+    background-color: $purple;
+    transform: translateX(100%);
+    transition: transform $transition-default ease-in-out;
+
+    @include tablet-max {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &_open {
+      transform: translateX(0);
+    }
+  }
+
+  &__inner-mobile-close-button {
+    width: max-content;
+    margin: 16px 40px 0 auto;
+    cursor: pointer;
+
+    svg {
+      @include square(41px);
+    }
+
+    @include mobile-max {
+      margin: 10px 10px 0 auto;
+    }
+  }
+
+  &__inner-mobile-menu {
+    padding: 0 10px;
+  }
+
+  &__inner-mobile-menu-item {
+    display: flex;
+    align-items: center;
+    color: $white;
+    font-weight: 500;
+    font-size: 20px;
+    text-transform: uppercase;
+
+    &:not(&:first-child) {
+      margin-top: 20px;
+    }
+  }
+
+  &__inner-mobile-menu-item-icon {
+    margin-right: 10px;
+
+    svg {
+      @include square(30px);
+    }
+  }
+
+  &__inner-mobile-contact-phone {
+    display: block;
+    margin-top: 20px;
+    padding: 0 10px;
+    color: $white;
+    font-weight: 500;
+    font-size: 20px;
+    text-decoration: none;
+  }
+
+  &__inner-mobile-menu-button {
+    margin: 20px 0 0 10px;
   }
 }
 </style>

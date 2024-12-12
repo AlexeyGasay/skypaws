@@ -18,30 +18,22 @@
             class="app-modal__wrapper"
             :style="`--offset-top-wrapper: ${offsetTopWrapper}%; --height: ${height}`"
           >
-            <!--            <div class="app-modal__header">-->
-            <!--              <slot-->
-            <!--                v-if="$slots.header"-->
-            <!--                name="header"-->
-            <!--              />-->
+            <div class="app-modal__header">
+              <slot
+                v-if="$slots.header"
+                name="header"
+              />
 
-            <!--              <div-->
-            <!--                v-else-->
-            <!--                :class="-->
-            <!--                  bem('app-modal__header-title', { result: isResultModal })-->
-            <!--                "-->
-            <!--                v-html="title"-->
-            <!--              />-->
-
-            <!--              <div-->
-            <!--                v-if="haveCloseButton"-->
-            <!--                class="app-modal__header-close-button"-->
-            <!--                @click="closeModal($event, true)"-->
-            <!--              >-->
-            <!--                <div class="app-modal__header-close-button-icon">-->
-            <!--                  <svg-icon name="cross-icon" />-->
-            <!--                </div>-->
-            <!--              </div>-->
-            <!--            </div>-->
+              <div
+                v-if="haveCloseButton"
+                class="app-modal__header-close-button"
+                @click="closeModal($event, true)"
+              >
+                <div class="app-modal__header-close-button-icon">
+                  <svg-icon name="cross-icon" />
+                </div>
+              </div>
+            </div>
 
             <div class="app-modal__body">
               <perfect-scrollbar
@@ -351,56 +343,26 @@ export default {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    padding: 40px 40px 0;
+    padding: 20px 30px 0;
 
     @include tablet-max {
       align-items: center;
-      padding: 16px 40px;
+      padding: 16px 30px 0;
     }
 
     @include mobile-max {
-      padding: 16px;
-    }
-  }
-
-  &__header-title {
-    // @include display-l-d;
-    margin-right: 32px;
-
-    @include tablet-max {
-      // @include lead-s-m;
-      margin: 0;
-      font-size: 1.25rem;
-    }
-
-    &_result {
-      display: none;
-
-      @include tablet-max {
-        display: block;
-      }
+      padding: 16px 16px 0;
     }
   }
 
   &__header-close-button {
     margin-left: auto;
-    padding: 8px;
-    background-color: rgba($black, 5%);
     border-radius: 50%;
     cursor: pointer;
-    transition: box-shadow $transition-default;
-
-    // @include hover {
-    //  @include shadow-s;
-    // }
-
-    @include tablet-max {
-      margin-left: unset;
-    }
   }
 
   &__header-close-button-icon {
-    @include square(16px);
+    @include square(30px);
   }
 
   &__body {

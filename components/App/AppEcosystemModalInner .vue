@@ -26,35 +26,33 @@
         :key="slideIndex"
         class="app-ecosystem-modal-inner__slider-slide"
       >
-        <div class="app-ecosystem-modal-inner__slider-header">
-          <div class="app-ecosystem-modal-inner__slider-header-title">
-            {{ slide.title }}
-          </div>
-
-          <div
-            class="app-ecosystem-modal-inner__slider-text"
-            v-html="slide.text"
-          />
-
-          <ui-button
-            class="app-ecosystem-modal-inner__slider-button"
-            type="filled"
-            hover-theme="black"
-          >
-            подробнее
-          </ui-button>
+        <div class="app-ecosystem-modal-inner__slider-slide-title">
+          {{ slide.title }}
         </div>
 
-        <template v-if="false">
+        <div
+          class="app-ecosystem-modal-inner__slider-text"
+          v-html="slide.text"
+        />
+
+        <ui-button
+          class="app-ecosystem-modal-inner__slider-button"
+          type="filled"
+          hover-theme="black"
+        >
+          подробнее
+        </ui-button>
+
+        <template v-if="slide.icons">
           <div
             v-for="(icon, iconIndex) in slide.icons"
             :key="iconIndex"
-            class="app-ecosystem-modal-inner__slider-slide-icon"
-            :style="`
-              --square: ${icon.square}px;
-               --top: ${pixelsToRem(icon.top)};
-               --right: ${pixelsToRem(icon.right)};
-            `"
+            :class="
+              bem('app-ecosystem-modal-inner__slider-slide-icon', {
+                index: String(iconIndex),
+              })
+            "
+            :style="`--square: ${icon.square}px;`"
           >
             <svg-icon :name="icon.name" />
           </div>
@@ -82,21 +80,14 @@ export default {
             {
               name: "slide-1/light-business-icon",
               square: 55,
-              top: 11,
-              right: 171,
+            },
+            {
+              name: "slide-1/fluent-handshake-icon",
+              square: 53,
             },
             {
               name: "slide-1/add-business-icon",
-              top: 11,
-              right: 2,
-              square: 55,
-            },
-
-            {
-              name: "slide-1/fluent-handshake-icon",
-              square: 40,
-              top: 10,
-              right: 10,
+              square: 85,
             },
           ],
         },
@@ -107,23 +98,98 @@ export default {
           о&nbsp;предстоящих уроках. Оптимизируем процессы и&nbsp;поможем
           Вам собирать и&nbsp;хранить информацию о&nbsp;клиентах
           для повышения продаж.`,
+
+          icons: [
+            {
+              name: "slide-2/phone-vibrate-icon",
+              square: 47,
+            },
+            {
+              name: "slide-2/person-fill-gear-icon",
+              square: 43,
+            },
+            {
+              name: "slide-2/new-computer-icon",
+              square: 73,
+            },
+          ],
         },
         {
           title: "подбор специалистов",
           text: `Забудьте о&nbsp;поисках HR-специалистов и&nbsp;сложностях, связанных с&nbsp;подбором кадров. Мы&nbsp;профессионально подберем, подготовим и&nbsp;протестируем преподавателей, оставив за&nbsp;Вами лишь финальное одобрение кандидатов. Мы&nbsp;также предоставим обратную связь по&nbsp;работе персонала, чтобы гарантировать высокое
 качество обучения.`,
+
+          icons: [
+            {
+              name: "slide-3/magnifying-glass-icon",
+              square: 60,
+            },
+            {
+              name: "slide-3/book-icon",
+              square: 66,
+            },
+            {
+              name: "slide-3/glasses-icon",
+              square: 43,
+            },
+          ],
         },
         {
           title: "большой спектр услуг",
           text: "Расширьте свой бизнес, добавив новые направления, такие как обучение БПЛА. Это не&nbsp;только привлечет больше клиентов, но&nbsp;и&nbsp;позволит Вам занять уникальную нишу на&nbsp;рынке. Мы&nbsp;обеспечим Вас полным циклом образовательных программ в&nbsp;IT-сфере для детей разных возрастных групп, включая курсы по&nbsp;программированию и&nbsp;графическому дизайну.",
+
+          icons: [
+            {
+              name: "slide-4/services-icon",
+              square: 56,
+            },
+            {
+              name: "slide-4/linked-services-icon",
+              square: 55,
+            },
+            {
+              name: "slide-4/design-services-icon",
+              square: 48,
+            },
+          ],
         },
         {
           title: "готовое оборудование",
           text: "Мы&nbsp;подготовили и&nbsp;настроили оптимальное оборудование для Вашего бизнеса. Работая напрямую с&nbsp;надежными поставщиками, мы&nbsp;гарантируем качество на&nbsp;этапе отправки. Вам не&nbsp;придется заботиться о&nbsp;настройке многоканального номера&nbsp;&mdash; мы&nbsp;уже оплатили и&nbsp;настроили для вас красивый номер 88007772132, который будет удобен для Ваших клиентов.",
+
+          icons: [
+            {
+              name: "slide-5/tools-icon",
+              square: 56,
+            },
+            {
+              name: "slide-5/table-checkmark-icon",
+              square: 55,
+            },
+            {
+              name: "slide-5/box-icon",
+              square: 48,
+            },
+          ],
         },
         {
           title: "реклама",
           text: "Мы профессионально настроим рекламные кампании для Вашего города, обеспечивая широкий охват целевой аудитории. Вам не придется тратиться на создание рекламных материалов — мы предоставим все необходимое для успешного продвижения вашего бизнеса. Мы будем контролировать эффективность рекламы и вносить необходимые изменения для достижения максимальных результатов.",
+
+          icons: [
+            {
+              name: "slide-6/advertising-icon",
+              square: 60,
+            },
+            {
+              name: "slide-6/internet-icon",
+              square: 50,
+            },
+            {
+              name: "slide-6/add-business-icon",
+              square: 85,
+            },
+          ],
         },
       ],
     };
@@ -156,14 +222,27 @@ export default {
     z-index: $z-1;
     display: flex;
     align-items: center;
+
+    @include mobile-max {
+      top: 10px;
+      right: 20px;
+    }
   }
 
   &__slider-handlers-item {
     @include square(53px);
     cursor: pointer;
 
+    @include mobile-max {
+      @include square(31px);
+    }
+
     &:not(&:first-child) {
       margin-left: 20px;
+
+      @include mobile-max {
+        margin-left: 10px;
+      }
     }
   }
 
@@ -177,21 +256,28 @@ export default {
   }
 
   &__slider-slide {
+    position: relative;
     flex-shrink: 0;
     width: 100%;
     padding: 30px 40px 40px;
+
+    @include mobile-max {
+      padding: 10px;
+    }
   }
 
-  &__slider-header {
-  }
-
-  &__slider-header-title {
+  &__slider-slide-title {
     margin-top: 10px;
     font-weight: 900;
     font-size: 24px;
     line-height: 130%;
     text-transform: uppercase;
     pointer-events: none;
+
+    @include mobile-max {
+      max-width: calc(100% - 140px);
+      font-size: 14px;
+    }
   }
 
   &__slider-text {
@@ -199,6 +285,10 @@ export default {
     font-weight: 500;
     font-size: 20px;
     line-height: 140%;
+
+    @include mobile-max {
+      font-size: 12px;
+    }
   }
 
   &__slider-button {
@@ -207,11 +297,34 @@ export default {
 
   &__slider-slide-icon {
     position: absolute;
-    top: var(--top);
-    right: var(--right);
 
     svg {
       @include square(var(--square));
+
+      @include mobile-max {
+        @include square(40px);
+      }
+    }
+
+    &_index {
+      &_0 {
+        top: 20px;
+        right: 180px;
+
+        @include mobile-max {
+          right: 120px;
+        }
+      }
+
+      &_1 {
+        top: 220px;
+        right: 20px;
+      }
+
+      &_2 {
+        right: 100px;
+        bottom: 20px;
+      }
     }
   }
 }

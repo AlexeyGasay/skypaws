@@ -28,7 +28,12 @@
 
       <div class="the-request-form__item">
         <div class="the-request-form__item-name">Дата встречи</div>
-        <ui-date-picker class="the-request-form__item-input" />
+        <ui-date-picker
+          v-model="date"
+          :date="date"
+          theme="white"
+          class="the-request-form__item-input"
+        />
       </div>
 
       <div class="the-request-form__item">
@@ -46,9 +51,11 @@
     <div class="the-request-form__footer">
       <ui-button
         class="the-request-form__footer-button"
-        size="l"
+        :size="isDesktop ? 'l' : 'm'"
         type="filled"
         hover-theme="black"
+        :disabled="$v.$error"
+        @click="$v.$touch()"
       >
         отправить
       </ui-button>
@@ -65,6 +72,8 @@
 <script>
 import UiTimePicker from "@/components/Ui/UiTimePicker.vue";
 import UiDatePicker from "@/components/Ui/UiDatePicker.vue";
+import { minLength, required } from "vuelidate/lib/validators";
+import { mapGetters } from "vuex";
 
 export default {
   name: "TheRequestForm",
@@ -78,13 +87,36 @@ export default {
       time: "",
     };
   },
+
+  computed: {
+    ...mapGetters({
+      isDesktop: "mqHelper/isDesktop",
+    }),
+  },
+
+  validations: {
+    name: {
+      required,
+    },
+
+    phone: {
+      minLength: minLength(11),
+    },
+
+    date: {
+      required,
+    },
+
+    time: {
+      required,
+    },
+  },
 };
 </script>
 
 <style lang="scss">
 .the-request-form {
   padding: 40px 58px 30px;
-  overflow: hidden;
 
   &__body {
   }
@@ -97,6 +129,10 @@ export default {
     line-height: 130%;
     text-align: center;
     text-transform: uppercase;
+
+    @include tablet-max {
+      font-size: 20px;
+    }
 
     &::before {
       @include square(46px);
@@ -120,6 +156,14 @@ export default {
       background-size: cover;
       transform: translate(-50%, -50%);
       content: "";
+
+      @include tablet-max {
+        right: -5%;
+      }
+
+      @include mobile-max {
+        right: -20%;
+      }
     }
   }
 
@@ -132,6 +176,10 @@ export default {
   &__item-name {
     font-size: 20px;
     line-height: 130%;
+
+    @include mobile-max {
+      font-size: 14px;
+    }
   }
 
   &__item-input {
