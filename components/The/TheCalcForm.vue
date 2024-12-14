@@ -7,8 +7,12 @@
           <div class="the-calc-form__title-tooltip">
             <ui-tooltip>
               <template #content>
-                <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Laudantium, temporibus. -->
+                Выбирая аренду оборудования под выкуп<br />
+                Вы платите фиксированный ежемесячный<br />
+                платеж в течение года<br />
+                выбирая выкуп оборудования <br />
+                Вы сможете приобрести его, <br />
+                заплатив полную стоимость<br />
               </template>
 
               <div class="the-calc-form__title-tooltip-icon">
@@ -46,8 +50,12 @@
           <div class="the-calc-form__title-tooltip">
             <ui-tooltip>
               <template #content>
-                <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Laudantium, temporibus. -->
+                Уже включено:<br />
+                компьютер рекомендованной конфигурации<br />
+                стол компьютерный<br />
+                стул<br />
+                FPV дрон<br />
+                аппаратура для управления
               </template>
 
               <div class="the-calc-form__title-tooltip-icon">
@@ -136,8 +144,12 @@
           <div class="the-calc-form__title-tooltip">
             <ui-tooltip>
               <template #content>
-                <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Laudantium, temporibus. -->
+                Уже включено:<br />
+                компьютер рекомендованной конфигурации<br />
+                стол компьютерный<br />
+                стул<br />
+                FPV дрон<br />
+                аппаратура для управления
               </template>
 
               <div class="the-calc-form__title-tooltip-icon">
@@ -178,10 +190,26 @@
             </div>
           </div>
 
-          <div class="the-calc-form__packages-info">
-            <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore ex,
-            fuga iusto nesciunt totam voluptas. Dolorum, inventore, minus!
-            Molestiae, neque. -->
+          <div
+            v-if="selectedPackage === 'BASE'"
+            class="the-calc-form__packages-info"
+          >
+            Что входит в базовый пакет?<br />
+            -трасса для полетов<br />
+            -рекламные материалы<br />
+            -демонстационное оборудование<br />
+            -все преимущества экосистемы SKYPAWS<br />
+          </div>
+          <div
+            v-else
+            class="the-calc-form__packages-info"
+          >
+            Что входит в PREMIUM пакет?<br />
+            -индивидуальные права на город<br />
+            -3 месяца без роялти<br />
+            -открытие до 3-х площадок<br />
+            -выезд наших специалистов к Вам в город<br />
+            -все преимущества базового пакета <br />
           </div>
 
           <div class="the-calc-form__packages-sum">
