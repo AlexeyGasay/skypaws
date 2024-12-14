@@ -7,8 +7,8 @@
           <div class="the-calc-form__title-tooltip">
             <ui-tooltip>
               <template #content>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Laudantium, temporibus.
+                <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Laudantium, temporibus. -->
               </template>
 
               <div class="the-calc-form__title-tooltip-icon">
@@ -46,8 +46,8 @@
           <div class="the-calc-form__title-tooltip">
             <ui-tooltip>
               <template #content>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Laudantium, temporibus.
+                <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Laudantium, temporibus. -->
               </template>
 
               <div class="the-calc-form__title-tooltip-icon">
@@ -136,8 +136,8 @@
           <div class="the-calc-form__title-tooltip">
             <ui-tooltip>
               <template #content>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Laudantium, temporibus.
+                <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Laudantium, temporibus. -->
               </template>
 
               <div class="the-calc-form__title-tooltip-icon">
@@ -179,9 +179,9 @@
           </div>
 
           <div class="the-calc-form__packages-info">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore ex,
+            <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore ex,
             fuga iusto nesciunt totam voluptas. Dolorum, inventore, minus!
-            Molestiae, neque.
+            Molestiae, neque. -->
           </div>
 
           <div class="the-calc-form__packages-sum">

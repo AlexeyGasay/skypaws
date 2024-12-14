@@ -79,10 +79,6 @@ export default {
   height: 100vh;
   background-color: $purple;
 
-  @include tablet-max {
-    position: static;
-  }
-
   &__inner {
     @include container;
     position: relative;
@@ -93,7 +89,6 @@ export default {
     padding-left: 40px;
 
     @include tablet-max {
-      align-items: flex-start;
       padding: 0 40px;
     }
 
@@ -153,24 +148,27 @@ export default {
     max-width: 100%;
     inset: 0;
     pointer-events: none;
+
+    @include tablet-max {
+      top: 68%;
+    }
   }
 
   &__image-hands {
     position: absolute;
-    top: 56.6%;
+    top: 86%;
     right: 39px;
     z-index: $z-3;
     transform: translateY(-50%);
     pointer-events: none;
 
     @include tablet-max {
-      top: 68%;
+      top: 88%;
       right: 0;
       width: 219px;
     }
 
     @include mobile-max {
-      top: 41.5%;
       right: 17px;
       width: 102px;
     }
@@ -182,18 +180,19 @@ export default {
     right: 12px;
     z-index: $z-2;
     transform: translateY(-50%);
+    animation: drone-fly 5s infinite;
     pointer-events: none;
 
     @include tablet-max {
-      top: 52.5%;
+      top: 65.5%;
       right: 0;
-      width: 483px;
+      width: 353px;
     }
 
     @include mobile-max {
-      top: 33.5%;
+      top: 70%;
       right: 0;
-      width: 226px;
+      width: 156px;
     }
   }
 
@@ -206,16 +205,29 @@ export default {
     pointer-events: none;
 
     @include tablet-max {
-      top: 49.5%;
+      top: 75%;
       right: 0;
       width: 596px;
     }
 
     @include mobile-max {
-      top: 32.5%;
       right: 0;
       width: 280px;
     }
+  }
+}
+
+@keyframes drone-fly {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(50px, 30px) rotate(15deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0);
   }
 }
 </style>

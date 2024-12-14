@@ -64,12 +64,18 @@ export default {
   padding: 140px 40px 60px;
 
   @include tablet-max {
-    display: none;
+    padding: 40px 10px;
   }
 
   &__wrapper {
     width: 100%;
     height: 100%;
+
+    @include tablet-max {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
   }
 
   &__header {
@@ -85,6 +91,14 @@ export default {
     font-size: 40px;
     line-height: 135%;
     text-transform: uppercase;
+
+    @include tablet-max {
+      font-size: 30px;
+    }
+
+    @include mobile-max {
+      font-size: 18px;
+    }
   }
 
   &__list {

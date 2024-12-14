@@ -78,10 +78,6 @@ export default {
   height: 100vh;
   background-color: $purple;
 
-  @include tablet-max {
-    position: static;
-  }
-
   &__inner {
     @include container;
     position: relative;
@@ -92,7 +88,6 @@ export default {
     padding-left: 40px;
 
     @include tablet-max {
-      align-items: flex-start;
       padding: 0 40px;
     }
 
@@ -154,6 +149,10 @@ export default {
     max-width: 100%;
     inset: 0;
     pointer-events: none;
+
+    @include tablet-max {
+      top: 60%;
+    }
   }
 
   &__image-hands {
@@ -165,12 +164,11 @@ export default {
     pointer-events: none;
 
     @include tablet-max {
-      top: 62%;
+      top: 93%;
       width: 373px;
     }
 
     @include mobile-max {
-      top: 40%;
       width: 173px;
     }
   }
@@ -184,12 +182,13 @@ export default {
     pointer-events: none;
 
     @include tablet-max {
-      top: 46%;
+      top: 66%;
       right: 12%;
+      width: 240px;
     }
 
     @include mobile-max {
-      top: 32%;
+      top: 76%;
       width: 173px;
     }
   }
@@ -203,14 +202,10 @@ export default {
     pointer-events: none;
 
     @include tablet-max {
-      top: 44%;
+      top: 75%;
       right: unset;
       left: 0;
       width: 100%;
-    }
-
-    @include mobile-max {
-      top: 31%;
     }
   }
 }

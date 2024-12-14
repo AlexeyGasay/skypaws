@@ -8,7 +8,7 @@
 
       <p class="the-main-page-section-hero__info-text">
         Откройте уникальную школу, где дети смогут развивать свои навыки в
-        пилотировании дронов, программировании и&nbsp;дизайне в&nbsp;Photoshop!
+        пилотировании дронов, программировании и&nbsp;дизайне в&nbsp;Photoshop!<br />
         Присоединяйтесь к&nbsp;нам и&nbsp;начните свой прибыльный бизнес уже
         сегодня &mdash; мы&nbsp;обеспечим Вас всем необходимым для успешного
         старта!
@@ -48,7 +48,8 @@ export default {
   padding: 140px 40px 60px;
 
   @include tablet-max {
-    position: static;
+    align-items: flex-start;
+    padding: 100px 10px 60px;
   }
 
   &__kv {
@@ -62,7 +63,15 @@ export default {
     pointer-events: none;
 
     @include tablet-max {
-      display: none;
+      top: 30vh;
+      bottom: unset;
+      height: 70vh;
+    }
+
+    @include mobile-max {
+      top: 40vh;
+      bottom: unset;
+      height: 60vh;
     }
   }
 
@@ -76,6 +85,14 @@ export default {
     font-size: 40px;
     line-height: 130%;
     text-transform: uppercase;
+
+    @include tablet-max {
+      font-size: 32px;
+    }
+
+    @include mobile-max {
+      font-size: 20px;
+    }
   }
 
   &__info-text {
@@ -83,6 +100,14 @@ export default {
     font-weight: 500;
     font-size: 20px;
     line-height: 130%;
+
+    @include tablet-max {
+      font-size: 18px;
+    }
+
+    @include mobile-max {
+      font-size: 12px;
+    }
   }
 
   &__info-video {
@@ -93,10 +118,6 @@ export default {
     width: 100%;
     height: 100vh;
     object-fit: cover;
-
-    @include tablet-max {
-      display: none;
-    }
   }
 
   &__scroll-to {

@@ -54,6 +54,12 @@ export default {
   cursor: pointer;
   transition: 0.3s;
 
+  @include mobile-max {
+    width: 345px;
+    height: 250px;
+    padding: 13px 16px;
+  }
+
   @include hover {
     background: linear-gradient(
       180deg,
@@ -75,6 +81,11 @@ export default {
     font-weight: 900;
     font-size: 24px;
     text-transform: uppercase;
+
+    @include mobile-max {
+      max-width: 200px;
+      font-size: 18px;
+    }
   }
 
   &__icon {
@@ -99,6 +110,11 @@ export default {
     font-size: 14px;
     border: 2px solid $white;
     border-radius: 8px;
+
+    @include mobile-max {
+      padding: 6px;
+      font-size: 11px;
+    }
   }
 }
 </style>
