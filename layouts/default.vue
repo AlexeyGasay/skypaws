@@ -5,6 +5,8 @@
       <Nuxt />
     </div>
 
+    <app-cookie-plate />
+
     <the-footer class="default-layout__footer" />
 
     <app-modal :name="$MODAL_NAMES.REQUEST_MODAL">
@@ -38,6 +40,7 @@ import TheRequestForm from "@/components/App/TheRequestForm.vue";
 import AppModal from "@/components/App/AppModal.vue";
 import TheCalcForm from "@/components/The/TheCalcForm.vue";
 import AppEcosystemModalInner from "@/components/App/AppEcosystemModalInner .vue";
+import AppCookiePlate from "@/components/App/AppCookiePlate.vue";
 
 export default {
   components: {
@@ -48,6 +51,7 @@ export default {
     TheFooter,
     TheHeader,
     UiButton,
+    AppCookiePlate
   },
 
   created() {
