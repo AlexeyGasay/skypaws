@@ -44,16 +44,10 @@ body.lock {
   overflow: hidden;
 }
 
-/*  body {
-  @include tablet-max {
-    margin-top: 68px;
-  }
-
-  @include mobile-max {
-    margin-top: 70px;
-  }
+body {
+  opacity: 0;
 }
- */
+
 
 *,
 *::after,

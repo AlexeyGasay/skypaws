@@ -8,6 +8,10 @@ export const animation = async () => {
     ".the-main-page-section-hero__info-video",
   );
 
+  gsap.set("body", {
+    opacity: 1,
+  });
+
   gsap.set(".the-main-page-section-hero__info-video", {
     x: "100vw",
   });
