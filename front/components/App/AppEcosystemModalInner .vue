@@ -2,17 +2,27 @@
   <div class="app-ecosystem-modal-inner">
     <div class="app-ecosystem-modal-inner__slider-handlers">
       <div
+        v-if="currentSlide > 0"
         class="app-ecosystem-modal-inner__slider-handlers-item"
-        @click="$refs.slider.$swiper.slidePrev()"
+        @click="slideHandler('prev')"
       >
         <svg-icon name="arrow-left-icon" />
       </div>
 
       <div
         class="app-ecosystem-modal-inner__slider-handlers-item"
-        @click="$refs.slider.$swiper.slideNext()"
+        @click="slideHandler('next')"
       >
-        <svg-icon name="arrow-right-icon" />
+        <svg-icon
+          v-if="currentSlide < slides.length - 1"
+          name="arrow-right-icon"
+        />
+
+        <svg-icon
+          v-else
+          name="cross-icon"
+          @click="HIDE_ALL_MODALS"
+        />
       </div>
     </div>
 
@@ -20,6 +30,7 @@
       ref="slider"
       :options="options"
       class="app-ecosystem-modal-inner__slider"
+      @slideChange="slideChangeHandler"
     >
       <swiper-slide
         v-for="(slide, slideIndex) in slides"
@@ -194,6 +205,8 @@ export default {
           ],
         },
       ],
+
+      currentSlide: null,
     };
   },
 
@@ -204,14 +217,19 @@ export default {
 
     options() {
       return {
-        slidesPerView: "auto",
+        slidesPerView: 1,
         wrapperClass: "app-ecosystem-modal-inner__slider-inner",
         spaceBetween: 14,
         observeParents: true,
         observer: true,
+        resizeObserver: true,
         initialSlide: this.getData.initialSlide || 0,
       };
     },
+  },
+
+  mounted() {
+    this.currentSlide = this.$refs.slider.$swiper.realIndex;
   },
 
   methods: {
@@ -219,12 +237,25 @@ export default {
 
     ...mapMutations({
       SHOW_MODAL: "modals/SHOW_MODAL",
+      HIDE_ALL_MODALS: "modals/HIDE_ALL_MODALS",
       SET_DATA: "modals/SET_DATA",
     }),
 
     openRequestModal() {
       this.SET_DATA({ title: "откройте бизнес вместе со skypaws" });
       this.SHOW_MODAL(this.$MODAL_NAMES.REQUEST_MODAL);
+    },
+
+    slideHandler(nav) {
+      if (nav === "prev") {
+        this.$refs.slider.$swiper.slidePrev();
+      } else if (nav === "next") {
+        this.$refs.slider.$swiper.slideNext();
+      }
+    },
+
+    slideChangeHandler() {
+      this.currentSlide = this.$refs.slider.$swiper.realIndex;
     },
   },
 };

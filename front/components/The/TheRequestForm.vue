@@ -179,10 +179,10 @@ export default {
 
 <style lang="scss">
 .the-request-form {
-  padding: 40px 58px 30px;
+  padding: 10px 58px 30px;
 
   @include mobile-max {
-    padding: 30px;
+    padding: 10px 30px 30px;
   }
 
   &__body {
@@ -204,17 +204,13 @@ export default {
     &::before {
       @include square(46px);
       position: absolute;
-      top: 0;
+      top: 20px;
       left: 0;
       display: block;
       background-image: url("assets/images/handset-phone-gradient.svg");
       background-size: cover;
       transform: translate(-50%, -50%);
       content: "";
-
-      @include mobile-max {
-        top: 100%;
-      }
     }
 
     &::after {

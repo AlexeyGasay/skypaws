@@ -33,11 +33,6 @@ body {
   @media screen and (min-width: $desktop-min) {
     font-size: 1.11vw;
   }
-
-  /* @media screen and (width >= 2000px) {
-    font-size: calc($font-size-root-default * 1.2);
-   */
-
 }
 
 body.lock {

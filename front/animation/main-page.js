@@ -30,6 +30,7 @@ export const animation = async () => {
       [
         ".the-main-page-section-discount__info",
         ".the-main-page-section-ecosystem",
+        ".the-main-page-section-stats",
       ],
       {
         y: "30vh",
@@ -38,7 +39,11 @@ export const animation = async () => {
     );
 
     gsap.set(
-      [".the-main-page-section-discount", ".the-main-page-section-calc "],
+      [
+        ".the-main-page-section-discount",
+        ".the-main-page-section-calc",
+        ".the-main-page-section-stats",
+      ],
       {
         pointerEvents: "none",
         opacity: 0,
@@ -55,11 +60,12 @@ export const animation = async () => {
 
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: ".main-page__inner",
+        trigger: ".main-page",
         start: "top top",
-        end: "+=5000px",
-        scrub: 4,
+        end: "+=5000px top",
+        scrub: window.innerWidth > 1023 ? 3 : 1,
         pin: true,
+        invalidateOnRefresh: true,
       },
     });
     // tl.to(".the-main-page-section-hero__info-video", {
@@ -97,6 +103,7 @@ export const animation = async () => {
         opacity: 1,
 
         duration: 5,
+        delay: 2,
         // onStart: () => {
         //   videoHtmlEl.pause();
         // },
@@ -130,6 +137,7 @@ export const animation = async () => {
         opacity: 1,
 
         pointerEvents: "all",
+        delay: 2,
         duration: 5,
       },
       "<",
@@ -140,7 +148,7 @@ export const animation = async () => {
           document.querySelector(".the-main-page-section-ecosystem__list")
             .clientWidth - window.innerWidth
         ) - 100,
-      duration: 10,
+      duration: window.innerWidth > 1023 ? 10 : 25,
     });
     tl.to(".the-main-page-section-ecosystem", {
       x: "-30vw",
@@ -162,7 +170,23 @@ export const animation = async () => {
       "<",
     );
     tl.to(".the-main-page-section-calc", {
-      delay: 2,
+      y: "-30vh",
+      opacity: 0,
+
+      pointerEvents: "none",
+      duration: 5,
     });
+    tl.to(
+      ".the-main-page-section-stats",
+      {
+        y: 0,
+        opacity: 1,
+
+        pointerEvents: "all",
+        delay: 2,
+        duration: 5,
+      },
+      "<",
+    );
   }, 300);
 };

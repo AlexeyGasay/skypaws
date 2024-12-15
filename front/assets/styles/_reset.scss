@@ -5,3 +5,19 @@ h1, h2, h3, h4, h5, h6 {
 p {
   margin: 0;
 }
+
+.el-date-table td.today span {
+  color: #2B1252 !important;
+
+  &:hover {
+    color: #2B1252 !important;
+  }
+}
+
+.el-date-table td.current:not(.disabled) span {
+  background-color: #2B1252;
+}
+
+.el-time-panel__btn.confirm {
+  color: #2B1252;
+}

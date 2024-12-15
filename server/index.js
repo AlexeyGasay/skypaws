@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const TelegramBot = require('node-telegram-bot-api');
 const cors = require('cors');
+const cron = require('node-cron');
 
 const app = express();
 const port = 8080;
@@ -58,6 +59,24 @@ app.post('/api/feedback', (req, res) => {
   console.log(message)
 
   res.status(200).send('Сообщение отправлено');
+});
+
+let plannedOpening = Math.floor(Math.random() * (5 - 2 + 1)) + 2;
+let negotiationStage = Math.floor(Math.random() * (10 - 4 + 1)) + 4;
+
+function updateVariables() {
+  plannedOpening = Math.floor(Math.random() * (5 - 2 + 1)) + 2;
+  negotiationStage = Math.floor(Math.random() * (10 - 4 + 1)) + 4;
+  console.log(`Обновленные переменные: Запланированное открытие = ${plannedOpening}, Этап переговоров = ${negotiationStage}`);
+}
+
+cron.schedule('0 2 * * *', updateVariables);
+
+app.get('/api/stats', (req, res) => {
+  res.json({
+    plannedOpening: plannedOpening,
+    negotiationStage: negotiationStage
+  });
 });
 
 app.listen(port, () => {

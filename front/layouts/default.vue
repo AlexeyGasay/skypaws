@@ -8,33 +8,6 @@
     <app-cookie-plate />
 
     <the-footer class="default-layout__footer" />
-
-    <app-modal :name="$MODAL_NAMES.REQUEST_MODAL">
-      <the-request-form />
-    </app-modal>
-
-    <app-modal
-      :name="$MODAL_NAMES.CALC_MODAL"
-      width="100%"
-      height="100%"
-    >
-      <the-calc-form />
-    </app-modal>
-
-    <app-modal
-      :name="$MODAL_NAMES.ECOSYSTEM_MODAL"
-      width="743px"
-    >
-      <app-ecosystem-modal-inner />
-    </app-modal>
-
-    <app-modal
-      :name="$MODAL_NAMES.RESULT_MODAL"
-      width="600px"
-      is-result-modal
-    >
-      <app-result-modal />
-    </app-modal>
   </div>
 </template>
 
@@ -45,19 +18,10 @@ import TheHeader from "@/components/The/TheHeader.vue";
 import UiButton from "@/components/Ui/UiButton.vue";
 import TheFooter from "@/components/The/TheFooter.vue";
 import TheRequestForm from "~/components/The/TheRequestForm.vue";
-import AppModal from "@/components/App/AppModal.vue";
-import TheCalcForm from "@/components/The/TheCalcForm.vue";
-import AppEcosystemModalInner from "@/components/App/AppEcosystemModalInner .vue";
 import AppCookiePlate from "@/components/App/AppCookiePlate.vue";
-import AppResultModal from "@/components/App/AppResultModal.vue";
 
 export default {
   components: {
-    AppResultModal,
-    AppEcosystemModalInner,
-    TheCalcForm,
-    AppModal,
-    TheRequestForm,
     TheFooter,
     TheHeader,
     UiButton,
@@ -74,6 +38,20 @@ export default {
     localStorage.removeItem("firstModal");
     localStorage.removeItem("modalCount");
     localStorage.removeItem("first-scroll-locked");
+
+    if (
+      "ontouchstart" in window ||
+      navigator.maxTouchPoints > 0 ||
+      navigator.msMaxTouchPoints > 0
+    ) {
+      window.addEventListener("orientationchange", () => {
+        window.location.reload();
+      });
+    } else {
+      window.addEventListener("resize", () => {
+        window.location.reload();
+      });
+    }
   },
 
   methods: {
