@@ -12,6 +12,33 @@
       :plannedOpening="plannedOpening"
       :negotiationStage="negotiationStage"
     />
+
+    <app-modal :name="$MODAL_NAMES.REQUEST_MODAL">
+      <the-request-form />
+    </app-modal>
+
+    <app-modal
+      :name="$MODAL_NAMES.CALC_MODAL"
+      width="100%"
+      height="100%"
+    >
+      <the-calc-form />
+    </app-modal>
+
+    <app-modal
+      :name="$MODAL_NAMES.ECOSYSTEM_MODAL"
+      width="743px"
+    >
+      <app-ecosystem-modal-inner />
+    </app-modal>
+
+    <app-modal
+      :name="$MODAL_NAMES.RESULT_MODAL"
+      width="600px"
+      is-result-modal
+    >
+      <app-result-modal />
+    </app-modal>
   </div>
 </template>
 
