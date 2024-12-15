@@ -188,12 +188,11 @@ export default {
 
     @include tablet-max {
       top: 55%;
-      right: 0;
+      right: 25%;
       width: 353px;
     }
 
     @include mobile-max {
-      right: 0;
       width: 156px;
     }
   }
@@ -210,12 +209,11 @@ export default {
     @include tablet-max {
       top: 55%;
       right: 0;
-      width: 596px;
+      width: 100%;
     }
 
     @include mobile-max {
       right: 0;
-      width: 280px;
     }
   }
 }

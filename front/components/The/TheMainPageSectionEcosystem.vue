@@ -128,6 +128,12 @@ export default {
       margin-top: 0;
       padding: 40px 40px 0;
       overflow-x: scroll;
+      -ms-overflow-style: none; /* IE и Edge */
+      scrollbar-width: none; /* Firefox */
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
 
     @include mobile-max {
