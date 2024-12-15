@@ -9,7 +9,6 @@ export const mutations = {
   },
 
   SHOW_MODAL(state, modalName) {
-    console.log(state, modalName);
     if (state.openModals.includes(modalName)) return;
     state.openModals.push(modalName);
   },

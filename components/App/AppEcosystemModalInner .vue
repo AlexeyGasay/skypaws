@@ -39,6 +39,7 @@
           class="app-ecosystem-modal-inner__slider-button"
           type="filled"
           hover-theme="black"
+          @click="openRequestModal"
         >
           подробнее
         </ui-button>
@@ -65,6 +66,7 @@
 <script>
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import { pixelsToRem } from "@/tools";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
   name: "AppEcosystemModalInner",
@@ -196,6 +198,10 @@ export default {
   },
 
   computed: {
+    ...mapGetters({
+      getData: "modals/getData",
+    }),
+
     options() {
       return {
         slidesPerView: "auto",
@@ -203,11 +209,24 @@ export default {
         spaceBetween: 14,
         observeParents: true,
         observer: true,
+        initialSlide: this.getData.initialSlide || 0,
       };
     },
   },
 
-  methods: { pixelsToRem },
+  methods: {
+    pixelsToRem,
+
+    ...mapMutations({
+      SHOW_MODAL: "modals/SHOW_MODAL",
+      SET_DATA: "modals/SET_DATA",
+    }),
+
+    openRequestModal() {
+      this.SET_DATA({ title: "откройте бизнес вместе со skypaws" });
+      this.SHOW_MODAL(this.$MODAL_NAMES.REQUEST_MODAL);
+    },
+  },
 };
 </script>
 
@@ -312,7 +331,7 @@ export default {
         right: 180px;
 
         @include mobile-max {
-          right: 120px;
+          right: 110px;
         }
       }
 

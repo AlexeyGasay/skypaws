@@ -1,8 +1,11 @@
 <template>
-  <form class="the-request-form">
+  <form
+    class="the-request-form"
+    @submit.prevent
+  >
     <div class="the-request-form__body">
       <div class="the-request-form__title">
-        откройте бизнес вместе со skypaws
+        {{ getData.title || "откройте бизнес вместе со skypaws" }}
       </div>
 
       <div class="the-request-form__item">
@@ -13,6 +16,13 @@
           theme="white"
           class="the-request-form__item-input"
         />
+
+        <div
+          v-if="$v.name.$error"
+          class="the-request-form__item-error"
+        >
+          Обязательное поле
+        </div>
       </div>
 
       <div class="the-request-form__item">
@@ -24,6 +34,13 @@
           theme="white"
           class="the-request-form__item-input"
         />
+
+        <div
+          v-if="$v.phone.$error"
+          class="the-request-form__item-error"
+        >
+          Обязательное поле
+        </div>
       </div>
 
       <div class="the-request-form__item">
@@ -34,10 +51,18 @@
           theme="white"
           class="the-request-form__item-input"
         />
+
+        <div
+          v-if="$v.date.$error"
+          class="the-request-form__item-error"
+        >
+          Обязательное поле
+        </div>
       </div>
 
       <div class="the-request-form__item">
         <div class="the-request-form__item-name">Время встречи</div>
+
         <ui-time-picker
           v-model="time"
           class="the-request-form__item-input"
@@ -45,6 +70,13 @@
           theme="white"
           placeholder="нажмите, чтобы выбрать время"
         />
+
+        <div
+          v-if="$v.time.$error"
+          class="the-request-form__item-error"
+        >
+          Обязательное поле
+        </div>
       </div>
     </div>
 
@@ -55,7 +87,7 @@
         type="filled"
         hover-theme="black"
         :disabled="$v.$error"
-        @click="$v.$touch()"
+        @click="send"
       >
         отправить
       </ui-button>
@@ -63,7 +95,11 @@
       <p class="the-request-form__footer-policy">
         Нажимая на&nbsp;кнопку &laquo;Отправить&raquo;, Вы&nbsp;даете согласие
         на&nbsp;обработку персональных данных. Подробнее об&nbsp;обработке
-        данных в&nbsp;Политике.
+        данных в&nbsp;<a
+          href="/policy.pdf"
+          target="_blank"
+          >Политике</a
+        >.
       </p>
     </div>
   </form>
@@ -73,7 +109,7 @@
 import UiTimePicker from "@/components/Ui/UiTimePicker.vue";
 import UiDatePicker from "@/components/Ui/UiDatePicker.vue";
 import { minLength, required } from "vuelidate/lib/validators";
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
   name: "TheRequestForm",
@@ -91,6 +127,7 @@ export default {
   computed: {
     ...mapGetters({
       isDesktop: "mqHelper/isDesktop",
+      getData: "modals/getData",
     }),
   },
 
@@ -100,6 +137,7 @@ export default {
     },
 
     phone: {
+      required,
       minLength: minLength(11),
     },
 
@@ -111,12 +149,41 @@ export default {
       required,
     },
   },
+
+  methods: {
+    ...mapMutations({
+      SHOW_MODAL: "modals/SHOW_MODAL",
+    }),
+
+    async send() {
+      this.$v.$touch();
+
+      if (this.$v.$error) return;
+
+      try {
+        await this.$api.feedback.requestCallback({
+          name: this.name,
+          phone: this.phone,
+          time: this.$dayjs(this.time).format("HH:mm"),
+          date: this.$dayjs(this.date).format("DD MMMM YYYY"),
+        });
+
+        this.SHOW_MODAL(this.$MODAL_NAMES.RESULT_MODAL);
+      } catch (e) {
+        console.error(e);
+      }
+    },
+  },
 };
 </script>
 
 <style lang="scss">
 .the-request-form {
   padding: 40px 58px 30px;
+
+  @include mobile-max {
+    padding: 30px;
+  }
 
   &__body {
   }
@@ -144,6 +211,10 @@ export default {
       background-size: cover;
       transform: translate(-50%, -50%);
       content: "";
+
+      @include mobile-max {
+        top: 100%;
+      }
     }
 
     &::after {
@@ -162,7 +233,7 @@ export default {
       }
 
       @include mobile-max {
-        right: -20%;
+        right: -15%;
       }
     }
   }
@@ -186,6 +257,16 @@ export default {
     margin-top: 3px;
   }
 
+  &__item-error {
+    margin-top: 10px;
+    color: $red;
+    font-size: 16px;
+
+    @include mobile-max {
+      font-size: 12px;
+    }
+  }
+
   &__footer {
     margin-top: 30px;
   }
@@ -201,6 +282,10 @@ export default {
     font-size: 10px;
     line-height: 130%;
     text-align: center;
+
+    a {
+      color: initial;
+    }
   }
 }
 </style>

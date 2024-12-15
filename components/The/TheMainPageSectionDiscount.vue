@@ -15,7 +15,7 @@
         <ui-button
           class="the-main-page-section-discount__info-button"
           :size="isMobile ? 's' : 'm'"
-          @click="SHOW_MODAL($MODAL_NAMES.REQUEST_MODAL)"
+          @click="openModal"
         >
           Оставить заявку
         </ui-button>
@@ -63,7 +63,13 @@ export default {
   methods: {
     ...mapMutations({
       SHOW_MODAL: "modals/SHOW_MODAL",
+      SET_DATA: "modals/SET_DATA",
     }),
+
+    openModal() {
+      this.SET_DATA({ title: "успейте получить скидку 30%" });
+      this.SHOW_MODAL(this.$MODAL_NAMES.REQUEST_MODAL);
+    },
   },
 };
 </script>

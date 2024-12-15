@@ -54,7 +54,7 @@
         <ui-button
           class="the-header__contacts-button"
           size="s"
-          @click="SHOW_MODAL($MODAL_NAMES.REQUEST_MODAL)"
+          @click="openModal"
         >
           ОТКРЫТЬ БИЗНЕС
         </ui-button>
@@ -122,6 +122,7 @@
           type="outlined"
           class="the-header__inner-mobile-menu-button"
           size="s"
+          @click="openModal"
         >
           Открыть бизнес
         </ui-button>
@@ -163,18 +164,30 @@ export default {
 
   watch: {
     isDesktop() {
-      if (this.isDesktop) {
-        this.isOpen = false;
-        scrollLock(false, this.uid);
-        compensateScrollbar(false);
-      }
+      this.forceCloseHeader();
     },
   },
 
   methods: {
     ...mapMutations({
       SHOW_MODAL: "modals/SHOW_MODAL",
+      SET_DATA: "modals/SET_DATA",
     }),
+
+    forceCloseHeader() {
+      if (this.isDesktop) {
+        this.isOpen = false;
+        scrollLock(false, this.uid);
+        compensateScrollbar(false);
+      }
+    },
+
+    openModal() {
+      this.forceCloseHeader();
+
+      this.SET_DATA({ title: "откройте бизнес вместе со skypaws" });
+      this.SHOW_MODAL(this.$MODAL_NAMES.REQUEST_MODAL);
+    },
 
     mobileMenuHandler() {
       this.isOpen = !this.isOpen;

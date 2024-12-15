@@ -28,7 +28,7 @@
             :size="isMobile ? 's' : 'm'"
             class="the-calc-form__handlers-button"
             no-hover
-            @click="methodOfPurchasing = PURCHASING_METHODS.RENT"
+            @click="methodOfPurchasing = PURCHASING_METHODS.RENT.value"
           >
             аренда оборудования под выкуп
           </ui-button>
@@ -39,7 +39,7 @@
             :type="isPurchase ? 'filled' : 'outlined'"
             class="the-calc-form__handlers-button"
             no-hover
-            @click="methodOfPurchasing = PURCHASING_METHODS.PURCHASE"
+            @click="methodOfPurchasing = PURCHASING_METHODS.PURCHASE.value"
           >
             выкуп оборудования
           </ui-button>
@@ -81,7 +81,7 @@
           <div class="the-calc-form__packages-list-item">
             <ui-radio-button
               v-model="selectedPackage"
-              :value="PACKAGES.PRO"
+              :value="PACKAGES.PRO.value"
             >
               PREMIUM пакет услуг
             </ui-radio-button>
@@ -90,7 +90,7 @@
           <div class="the-calc-form__packages-list-item">
             <ui-radio-button
               v-model="selectedPackage"
-              :value="PACKAGES.BASE"
+              :value="PACKAGES.BASE.value"
             >
               базовый пакет услуг
             </ui-radio-button>
@@ -107,6 +107,13 @@
               placeholder="введите имя"
               theme="transparent"
             />
+
+            <div
+              v-if="$v.name.$error"
+              class="the-calc-form__form-item-error"
+            >
+              Обязательное поле
+            </div>
           </div>
           <div class="the-calc-form__form-item">
             <div class="the-calc-form__form-item-name">Номер телефона</div>
@@ -118,12 +125,30 @@
               type="tel"
               theme="transparent"
             />
+
+            <div
+              v-if="$v.phone.$error"
+              class="the-calc-form__form-item-error"
+            >
+              Обязательное поле
+            </div>
           </div>
 
           <div class="the-calc-form__form-item">
             <div class="the-calc-form__form-item-name">Дата встречи</div>
 
-            <ui-date-picker class="the-calc-form__form-item-input" />
+            <ui-date-picker
+              v-model="date"
+              class="the-calc-form__form-item-input"
+              :date="date"
+            />
+
+            <div
+              v-if="$v.date.$error"
+              class="the-calc-form__form-item-error"
+            >
+              Обязательное поле
+            </div>
           </div>
 
           <div class="the-calc-form__form-item">
@@ -134,6 +159,13 @@
               class="the-calc-form__form-item-input"
               :time="time"
             />
+
+            <div
+              v-if="$v.time.$error"
+              class="the-calc-form__form-item-error"
+            >
+              Обязательное поле
+            </div>
           </div>
         </div>
       </div>
@@ -174,7 +206,7 @@
             <div class="the-calc-form__packages-list-item">
               <ui-radio-button
                 v-model="selectedPackage"
-                :value="PACKAGES.PRO"
+                :value="PACKAGES.PRO.value"
               >
                 PREMIUM пакет услуг
               </ui-radio-button>
@@ -183,7 +215,7 @@
             <div class="the-calc-form__packages-list-item">
               <ui-radio-button
                 v-model="selectedPackage"
-                :value="PACKAGES.BASE"
+                :value="PACKAGES.BASE.value"
               >
                 базовый пакет услуг
               </ui-radio-button>
@@ -216,16 +248,16 @@
             <div class="the-calc-form__packages-sum-cross">
               старт от
               <span class="the-calc-form__packages-sum-cross-price">
-                {{ priceFormatting(sum / 0.7) }} &#8381;
+                {{ roundNumber(sum / 0.7) | formatNumber }} &#8381;
               </span>
             </div>
 
             <div class="the-calc-form__packages-sum-real">
-              {{ sum | formatNumber }} &#8381;
+              {{ roundNumber(sum) | formatNumber }} &#8381;
             </div>
 
             <div
-              v-if="methodOfPurchasing === PURCHASING_METHODS.PURCHASE"
+              v-if="methodOfPurchasing === PURCHASING_METHODS.PURCHASE.value"
               class="the-calc-form__packages-sum-equipment-purchase"
             >
               + стоимость оборудования ≈
@@ -235,8 +267,10 @@
 
           <ui-button
             class="the-calc-form__packages-button"
-            :size="isDesktop ? 's' : 'm'"
+            :size="'m'"
             type="filled"
+            :disabled="$v.$error"
+            @click="send"
           >
             узнать точную стоимость
           </ui-button>
@@ -254,6 +288,7 @@ import UiInputRange from "@/components/Ui/UiInputRange.vue";
 import UiRadioButton from "@/components/Ui/UiRadioButton.vue";
 import { priceFormatting } from "@/tools";
 import { mapGetters } from "vuex";
+import { minLength, required } from "vuelidate/lib/validators";
 
 export default {
   name: "TheCalcForm",
@@ -269,14 +304,28 @@ export default {
     return {
       methodOfPurchasing: "RENT",
       PURCHASING_METHODS: {
-        RENT: "RENT",
-        PURCHASE: "PURCHASE",
+        RENT: {
+          name: "Аренда оборудования",
+          value: "RENT",
+        },
+
+        PURCHASE: {
+          name: "Выкуп оборудования",
+          value: "PURCHASE",
+        },
       },
 
       selectedPackage: "BASE",
       PACKAGES: {
-        PRO: "PRO",
-        BASE: "BASE",
+        PRO: {
+          name: "PREMIUM пакет услуг",
+          value: "PRO",
+        },
+
+        BASE: {
+          name: "Базовый пакет услуг",
+          value: "BASE",
+        },
       },
 
       studentPrice: 80000,
@@ -296,25 +345,74 @@ export default {
 
     sum() {
       const rentSuffix =
-        this.selectedPackage === this.PACKAGES.BASE ? 199000 : 599000;
+        this.selectedPackage === this.PACKAGES.BASE.value ? 199000 : 599000;
 
-      if (this.methodOfPurchasing === this.PURCHASING_METHODS.RENT) {
+      if (this.methodOfPurchasing === this.PURCHASING_METHODS.RENT.value) {
         return this.count * this.studentPrice + rentSuffix;
       }
 
-      return this.selectedPackage === this.PACKAGES.BASE ? 599000 : 999000;
+      return this.selectedPackage === this.PACKAGES.BASE.value
+        ? 599000
+        : 999000;
     },
 
     isRent() {
-      return this.methodOfPurchasing === this.PURCHASING_METHODS.RENT;
+      return this.methodOfPurchasing === this.PURCHASING_METHODS.RENT.value;
     },
 
     isPurchase() {
-      return this.methodOfPurchasing === this.PURCHASING_METHODS.PURCHASE;
+      return this.methodOfPurchasing === this.PURCHASING_METHODS.PURCHASE.value;
     },
   },
 
-  methods: { priceFormatting },
+  validations: {
+    name: {
+      required,
+    },
+
+    phone: {
+      required,
+      minLength: minLength(11),
+    },
+
+    date: {
+      required,
+    },
+
+    time: {
+      required,
+    },
+  },
+
+  methods: {
+    priceFormatting,
+
+    roundNumber(num) {
+      return Math.round(num / 1000) * 1000;
+    },
+
+    async send() {
+      this.$v.$touch();
+
+      if (this.$v.$error) return;
+
+      try {
+        await this.$api.feedback.requestCallback({
+          name: this.name,
+          phone: this.phone,
+          package: this.PACKAGES[this.selectedPackage].name,
+          methodOfPurchasing:
+            this.PURCHASING_METHODS[this.methodOfPurchasing].name,
+          time: this.$dayjs(this.time).format("HH:mm"),
+          date: this.$dayjs(this.date).format("DD MMMM YYYY"),
+        });
+
+        this.SHOW_MODAL(this.$MODAL_NAMES.RESULT_MODAL);
+      } catch (e) {
+        console.error(e);
+      }
+    },
+  },
 };
 </script>
 
@@ -456,6 +554,16 @@ export default {
       @include mobile-max {
         height: 35px !important;
       }
+    }
+  }
+
+  &__form-item-error {
+    margin-top: 10px;
+    color: $red;
+    font-size: 20px;
+
+    @include mobile-max {
+      font-size: 16px;
     }
   }
 

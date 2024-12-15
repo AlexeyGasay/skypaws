@@ -5,7 +5,6 @@
       :class="bem('ui-date-picker__picker', { theme })"
       type="date"
       :placeholder="placeholder"
-      value-format="dd-MM-yyyy"
       format="dd-MM-yyyy"
       :disabled="disabled"
       :picker-options="datePickerOptions"
@@ -19,7 +18,7 @@ export default {
 
   props: {
     date: {
-      type: String,
+      type: [String, Date],
       required: false,
       default: "",
     },

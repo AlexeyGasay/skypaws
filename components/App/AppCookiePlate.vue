@@ -16,6 +16,7 @@
     <ui-button
       class="app-cookie-plate__button"
       type="filled"
+      hover-theme="black"
       @click="acceptCookies"
     >
       принять и закрыть

@@ -4,10 +4,6 @@
       Спасибо! Данные успешно отправлены. наш менеджер скоро свяжется с вами!
     </div>
 
-    <div class="app-result-modal__close-button">
-      <svg-icon name="cross-icon" />
-    </div>
-
     <div class="app-result-modal__icon app-result-modal__icon_1">
       <svg-icon name="thumbs-up-filled-icon" />
     </div>
@@ -26,37 +22,46 @@ export default {
 
 <style lang="scss">
 .app-result-modal {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 350px;
   background-color: $white;
   border-radius: 15px;
 
   &__title {
+    max-width: 70%;
     font-weight: 900;
     font-size: 24px;
     line-height: 130%;
     text-align: center;
-  }
 
-  &__close-button {
-    @include square(53px);
-    top: 20px;
-    right: 20px;
+    @include tablet-max {
+      max-width: unset;
+      padding: 0 20px;
+      font-size: 20px;
+    }
   }
 
   &__icon {
+    position: absolute;
+
     &_1 {
-      svg {
+      top: 34px;
+      left: 36px;
+
+      * {
         @include square(63px);
-        top: 34px;
-        left: 36px;
       }
     }
 
     &_2 {
-      svg {
+      right: 30px;
+      bottom: 30px;
+
+      * {
         @include square(85px);
-        right: 30px;
-        bottom: 30px;
       }
     }
   }

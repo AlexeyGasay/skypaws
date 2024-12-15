@@ -27,6 +27,14 @@
     >
       <app-ecosystem-modal-inner />
     </app-modal>
+
+    <app-modal
+      :name="$MODAL_NAMES.RESULT_MODAL"
+      width="600px"
+      is-result-modal
+    >
+      <app-result-modal />
+    </app-modal>
   </div>
 </template>
 
@@ -41,9 +49,11 @@ import AppModal from "@/components/App/AppModal.vue";
 import TheCalcForm from "@/components/The/TheCalcForm.vue";
 import AppEcosystemModalInner from "@/components/App/AppEcosystemModalInner .vue";
 import AppCookiePlate from "@/components/App/AppCookiePlate.vue";
+import AppResultModal from "@/components/App/AppResultModal.vue";
 
 export default {
   components: {
+    AppResultModal,
     AppEcosystemModalInner,
     TheCalcForm,
     AppModal,
@@ -51,7 +61,7 @@ export default {
     TheFooter,
     TheHeader,
     UiButton,
-    AppCookiePlate
+    AppCookiePlate,
   },
 
   created() {

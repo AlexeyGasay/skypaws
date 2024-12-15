@@ -9,7 +9,7 @@
         <ui-button
           class="the-main-page-section-ecosystem__header-button"
           size="m"
-          @click="SHOW_MODAL($MODAL_NAMES.ECOSYSTEM_MODAL)"
+          @click="openRequestModal"
         >
           подробнее
         </ui-button>
@@ -21,6 +21,7 @@
           :icon="card.icon"
           :title="card.title"
           :list="card.list"
+          @click.native="openEcosystemModal(+card.icon - 1)"
         />
       </div>
     </div>
@@ -47,7 +48,18 @@ export default {
   methods: {
     ...mapMutations({
       SHOW_MODAL: "modals/SHOW_MODAL",
+      SET_DATA: "modals/SET_DATA",
     }),
+
+    openEcosystemModal(initialSlide) {
+      this.SET_DATA({ initialSlide });
+      this.SHOW_MODAL(this.$MODAL_NAMES.ECOSYSTEM_MODAL);
+    },
+
+    openRequestModal() {
+      this.SET_DATA({ title: "откройте бизнес вместе со skypaws" });
+      this.SHOW_MODAL(this.$MODAL_NAMES.REQUEST_MODAL);
+    },
   },
 };
 </script>

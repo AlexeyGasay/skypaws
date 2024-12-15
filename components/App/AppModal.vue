@@ -15,7 +15,7 @@
         <div class="app-modal__background">
           <div
             v-click-outside="closeModal"
-            class="app-modal__wrapper"
+            :class="bem('app-modal__wrapper', { isResultModal })"
             :style="`--offset-top-wrapper: ${offsetTopWrapper}%; --height: ${height}`"
           >
             <div class="app-modal__header">
@@ -331,11 +331,13 @@ export default {
     border-radius: 24px;
     transform: translate(-50%, -50%);
 
-    @include tablet-max {
-      top: 50%;
-      max-width: 100%;
-      height: 100%;
-      border-radius: unset;
+    &:not(&_is-result-modal) {
+      @include tablet-max {
+        top: 50%;
+        max-width: 100%;
+        height: 100%;
+        border-radius: unset;
+      }
     }
   }
 

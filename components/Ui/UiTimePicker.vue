@@ -9,7 +9,7 @@
         step: '00:15',
         end: '18:30',
       }"
-      format="HH-mm"
+      format="HH:mm"
       :disabled="disabled"
       :placeholder="placeholder"
     />
@@ -26,14 +26,8 @@ export default {
       default: "нажмите, чтобы выбрать время",
     },
 
-    date: {
-      type: String,
-      required: false,
-      default: "",
-    },
-
     time: {
-      type: String,
+      type: [String, Date],
       required: false,
       default: "",
     },
