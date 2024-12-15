@@ -142,21 +142,32 @@ export const animation = async () => {
       },
       "<",
     );
-    tl.to(".the-main-page-section-ecosystem__list", {
-      x:
-        -(
-          document.querySelector(".the-main-page-section-ecosystem__list")
-            .clientWidth - window.innerWidth
-        ) - 100,
-      duration: window.innerWidth > 1023 ? 10 : 25,
-    });
-    tl.to(".the-main-page-section-ecosystem", {
-      x: "-30vw",
-      opacity: 0,
+    if (window.innerWidth > 1023) {
+      tl.to(".the-main-page-section-ecosystem__list", {
+        x:
+          -(
+            document.querySelector(".the-main-page-section-ecosystem__list")
+              .clientWidth - window.innerWidth
+          ) - 100,
+        duration: window.innerWidth > 1023 ? 10 : 25,
+      });
+      tl.to(".the-main-page-section-ecosystem", {
+        x: "-30vw",
+        opacity: 0,
 
-      pointerEvents: "none",
-      duration: 5,
-    });
+        pointerEvents: "none",
+        duration: 5,
+      });
+    } else {
+      tl.to(".the-main-page-section-ecosystem", {
+        y: "-30vh",
+        opacity: 0,
+
+        pointerEvents: "none",
+        duration: 5,
+      });
+    }
+
     tl.to(
       ".the-main-page-section-calc",
       {

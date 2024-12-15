@@ -178,8 +178,8 @@ export default {
 
   &__image-drone {
     position: absolute;
-    top: 35%;
-    right: 12px;
+    top: 39%;
+    right: 80px;
     z-index: $z-2;
     width: 400px;
     transform: translateY(-50%);
@@ -208,7 +208,7 @@ export default {
     pointer-events: none;
 
     @include tablet-max {
-      top: 50%;
+      top: 55%;
       right: 0;
       width: 596px;
     }

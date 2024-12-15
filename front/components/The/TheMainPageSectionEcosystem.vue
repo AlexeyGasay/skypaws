@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import cards from "@/data/ecosystemCards";
 import { mapMutations } from "vuex";
+import cards from "@/data/ecosystemCards";
 import AppCardEcosystem from "../App/AppCardEcosystem.vue";
 
 export default {
@@ -73,25 +73,18 @@ export default {
   z-index: 110;
   width: 100%;
   height: 100vh;
-  padding: 140px 40px 60px;
+  padding: 60px 40px;
 
   @include tablet-max {
-    padding: 100px 40px 60px;
-  }
-
-  @include mobile-max {
-    padding: 100px 10px 60px;
+    padding: 0;
   }
 
   &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 100%;
     height: 100%;
-
-    @include tablet-max {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
   }
 
   &__header {
@@ -99,6 +92,14 @@ export default {
     align-items: center;
     justify-content: space-between;
     width: 100%;
+
+    @include tablet-max {
+      padding: 0 40px;
+    }
+
+    @include mobile-max {
+      padding: 0 10px;
+    }
   }
 
   &__header-title {
@@ -121,6 +122,17 @@ export default {
     display: flex;
     width: max-content;
     margin-top: 40px;
+
+    @include tablet-max {
+      width: 100%;
+      margin-top: 0;
+      padding: 40px 40px 0;
+      overflow-x: scroll;
+    }
+
+    @include mobile-max {
+      padding: 40px 10px 0;
+    }
   }
 
   &__list-item {
