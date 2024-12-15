@@ -50,7 +50,7 @@ import TheMainPageSectionDiscount from "@/components/The/TheMainPageSectionDisco
 import TheMainPageSectionCalc from "@/components/The/TheMainPageSectionCalc.vue";
 import TheMainPageSectionStats from "@/components/The/TheMainPageSectionStats.vue";
 import TheMainPageSectionEcosystem from "@/components/The/TheMainPageSectionEcosystem.vue";
-import TheRequestForm from "@/components/App/TheRequestForm.vue";
+import TheRequestForm from "@/components/The/TheRequestForm.vue";
 import TheCalcForm from "@/components/The/TheCalcForm.vue";
 import AppModal from "@/components/App/AppModal.vue";
 import AppEcosystemModalInner from "@/components/App/AppEcosystemModalInner .vue";
