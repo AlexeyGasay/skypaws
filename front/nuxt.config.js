@@ -200,13 +200,13 @@ module.exports = {
   pageTransition: "page",
 
   head: {
-    title: "",
+    title: "SkyPaws",
 
     link: [
       {
         rel: "icon",
-        type: "image/x-icon",
-        href: "/favicon.png",
+        type: "image/svg+xml",
+        href: "/favicon.svg",
       },
     ],
     meta: [
