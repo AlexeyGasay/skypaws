@@ -17,20 +17,10 @@ import { useDebounce } from "@/tools/useDebounce";
 import TheHeader from "@/components/The/TheHeader.vue";
 import UiButton from "@/components/Ui/UiButton.vue";
 import TheFooter from "@/components/The/TheFooter.vue";
-import TheRequestForm from "@/components/App/TheRequestForm.vue";
-import AppModal from "@/components/App/AppModal.vue";
-import TheCalcForm from "@/components/The/TheCalcForm.vue";
-import AppEcosystemModalInner from "@/components/App/AppEcosystemModalInner .vue";
 import AppCookiePlate from "@/components/App/AppCookiePlate.vue";
-import AppResultModal from "@/components/App/AppResultModal.vue";
 
 export default {
   components: {
-    AppResultModal,
-    AppEcosystemModalInner,
-    TheCalcForm,
-    AppModal,
-    TheRequestForm,
     TheFooter,
     TheHeader,
     UiButton,

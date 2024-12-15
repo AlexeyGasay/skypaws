@@ -50,6 +50,11 @@ import TheMainPageSectionDiscount from "@/components/The/TheMainPageSectionDisco
 import TheMainPageSectionCalc from "@/components/The/TheMainPageSectionCalc.vue";
 import TheMainPageSectionStats from "@/components/The/TheMainPageSectionStats.vue";
 import TheMainPageSectionEcosystem from "@/components/The/TheMainPageSectionEcosystem.vue";
+import TheRequestForm from "@/components/App/TheRequestForm.vue";
+import TheCalcForm from "@/components/The/TheCalcForm.vue";
+import AppModal from "@/components/App/AppModal.vue";
+import AppEcosystemModalInner from "@/components/App/AppEcosystemModalInner .vue";
+import AppResultModal from "@/components/App/AppResultModal.vue";
 import { animation } from "../animation/main-page";
 
 export default {
@@ -60,6 +65,11 @@ export default {
     TheMainPageSectionHero,
     TheMainPageSectionEcosystem,
     AppFeedbackForm,
+    TheRequestForm,
+    AppModal,
+    TheCalcForm,
+    AppEcosystemModalInner,
+    AppResultModal,
   },
 
   data: () => {
