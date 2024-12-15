@@ -84,10 +84,15 @@ export default {
 
 <style lang="scss">
 .the-main-page-section-stats {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
   display: flex;
   align-items: center;
   width: 100%;
   height: 100vh;
+  pointer-events: none;
 
   &__inner {
     display: flex;
