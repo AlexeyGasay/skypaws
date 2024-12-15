@@ -7,7 +7,7 @@
     "dev": "cross-env NODE_ENV=dev nuxt",
     "build": "nuxt build",
     "start": "cross-env NODE_ENV=production nuxt start",
-    "prepare": "husky install",
+    "prepare": "cd .. && husky front/.husky",
     "lint-staged": "lint-staged",
     "lint:js": "eslint --fix --ext .js,.vue --ignore-path .eslintignore .",
     "lint:style": "npx stylelint --fix **/*.{vue,scss} --ignore-path .stylelintignore",

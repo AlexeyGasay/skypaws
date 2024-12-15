@@ -424,6 +424,7 @@ export default {
 <style lang="scss">
 .the-calc-form {
   width: 100%;
+  height: 100%;
 
   &__inner {
     display: flex;
@@ -442,6 +443,9 @@ export default {
   }
 
   &__col {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
     width: 50%;
 
     @include tablet-max {
@@ -592,6 +596,9 @@ export default {
   }
 
   &__packages {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     margin-top: 40px;
     color: $white;
 
@@ -653,7 +660,7 @@ export default {
   }
 
   &__packages-sum {
-    margin-top: 30px;
+    margin-top: auto;
 
     @include tablet-max {
       margin: 0;

@@ -69,6 +69,10 @@ export default {
 .el-time-panel,
 .el-picker-panel {
   z-index: 20000 !important;
+
+  * {
+    font-family: Nunito, sans-serif !important;
+  }
 }
 
 .ui-time-picker {

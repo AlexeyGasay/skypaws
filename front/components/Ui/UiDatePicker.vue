@@ -69,6 +69,12 @@ export default {
 </script>
 
 <style lang="scss">
+.el-picker-panel__body {
+  * {
+    font-family: Nunito, sans-serif !important;
+  }
+}
+
 .ui-date-picker {
   &__picker {
     position: relative;
