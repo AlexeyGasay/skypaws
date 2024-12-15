@@ -37,11 +37,11 @@
 
         <div class="the-main-page-section-stats__map-stats">
           <div class="the-main-page-section-stats__map-stats-item">
-            на этапе переговоров: {{ scheduledNegotiations }}
+            на этапе переговоров: {{ negotiationStage }}
           </div>
 
           <div class="the-main-page-section-stats__map-stats-item">
-            запланировано открытий: {{ scheduledOpenings }}
+            запланировано открытий: {{ plannedOpening }}
           </div>
         </div>
       </div>
@@ -55,16 +55,14 @@ import { mapMutations } from "vuex";
 export default {
   name: "TheMainPageSectionStats",
   props: {
-    scheduledNegotiations: {
+    negotiationStage: {
       type: Number,
-      required: false,
-      default: 7,
+      required: true,
     },
 
-    scheduledOpenings: {
+    plannedOpening: {
       type: Number,
-      required: false,
-      default: 2,
+      required: true,
     },
   },
 

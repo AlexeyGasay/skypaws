@@ -60,10 +60,10 @@ export const animation = async () => {
 
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: ".main-page__inner",
+        trigger: ".main-page",
         start: "top top",
-        end: "+=5000px",
-        scrub: 3,
+        end: "+=5000px top",
+        scrub: window.innerWidth > 1023 ? 3 : 1,
         pin: true,
         invalidateOnRefresh: true,
       },
@@ -148,7 +148,7 @@ export const animation = async () => {
           document.querySelector(".the-main-page-section-ecosystem__list")
             .clientWidth - window.innerWidth
         ) - 100,
-      duration: 10,
+      duration: window.innerWidth > 1023 ? 10 : 25,
     });
     tl.to(".the-main-page-section-ecosystem", {
       x: "-30vw",

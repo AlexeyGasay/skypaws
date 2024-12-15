@@ -1,16 +1,17 @@
 <template>
   <div class="main-page">
-    <div class="main-page__inner">
-      <the-main-page-section-hero />
+    <the-main-page-section-hero />
 
-      <the-main-page-section-discount />
+    <the-main-page-section-discount />
 
-      <the-main-page-section-ecosystem />
+    <the-main-page-section-ecosystem />
 
-      <the-main-page-section-calc />
+    <the-main-page-section-calc />
 
-      <the-main-page-section-stats />
-    </div>
+    <the-main-page-section-stats
+      :plannedOpening="plannedOpening"
+      :negotiationStage="negotiationStage"
+    />
   </div>
 </template>
 
@@ -34,6 +35,24 @@ export default {
     AppFeedbackForm,
   },
 
+  data: () => {
+    return {
+      plannedOpening: 0,
+      negotiationStage: 0,
+    };
+  },
+
+  async fetch() {
+    try {
+      const response = await this.$api.stats.getStats();
+
+      this.plannedOpening = response.data.plannedOpening;
+      this.negotiationStage = response.data.negotiationStage;
+    } catch (error) {
+      console.error("Ошибка при получении данных:", error);
+    }
+  },
+
   mounted() {
     const mm = gsap.matchMedia();
     mm.add("(min-width: 1024px)", animation);
@@ -44,14 +63,5 @@ export default {
 
 <style lang="scss">
 .main-page {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  overflow: hidden;
-
-  &__inner {
-    position: relative;
-    z-index: 1;
-  }
 }
 </style>
