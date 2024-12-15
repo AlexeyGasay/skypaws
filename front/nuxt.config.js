@@ -144,7 +144,7 @@ module.exports = {
     { src: "@/plugins/escape-directive.js", ssr: false },
     { src: "@/plugins/libs/click-outside.js", ssr: false },
     { src: "@/plugins/libs/vue-snip.js", ssr: false },
-    { src: '@/plugins/constants.js' }
+    { src: "@/plugins/constants.js" },
   ],
 
   modules: [
@@ -152,8 +152,8 @@ module.exports = {
     "@nuxtjs/dayjs",
     // "@nuxtjs/auth-next",
     // "@nuxtjs/recaptcha",
-    "@nuxtjs/yandex-metrika",
     "cookie-universal-nuxt",
+    "@nuxtjs/yandex-metrika",
   ],
 
   dayjs: {
@@ -193,7 +193,7 @@ module.exports = {
   },
 
   router: {
-    base: '/',
+    base: "/",
     prefetchLinks: false,
   },
 
@@ -234,28 +234,27 @@ module.exports = {
       },
       {
         property: "og:description",
-        content:
-          "description",
+        content: "description",
       },
     ],
   },
 
   loading: {
-    color: '#e31e24',
-    failedColor: '#a04bc8',
+    color: "#e31e24",
+    failedColor: "#a04bc8",
   },
 
   loadingIndicator: {
-    color: '#e31e24',
+    color: "#e31e24",
   },
 
-  // yandexMetrika: {
-  //     id: "000000000",
-  //     clickmap: true,
-  //     trackLinks: true,
-  //     accurateTrackBounce: true,
-  //     webvisor: true
-  // },
+  yandexMetrika: {
+    id: "98958407",
+    clickmap: true,
+    trackLinks: true,
+    accurateTrackBounce: true,
+    webvisor: true,
+  },
 
   svgSprite: {
     input: "~/assets/images/icons",
@@ -265,7 +264,7 @@ module.exports = {
     API: process.env.API,
 
     recaptcha: {
-      siteKey: process.env.RECAPTCHA_SITE_KEY
-    }
+      siteKey: process.env.RECAPTCHA_SITE_KEY,
+    },
   },
 };

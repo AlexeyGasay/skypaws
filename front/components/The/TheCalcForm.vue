@@ -281,14 +281,14 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from "vuex";
+import { minLength, required } from "vuelidate/lib/validators";
 import UiTooltip from "@/components/Ui/UiTooltip.vue";
 import UiTimePicker from "@/components/Ui/UiTimePicker.vue";
 import UiDatePicker from "@/components/Ui/UiDatePicker.vue";
 import UiInputRange from "@/components/Ui/UiInputRange.vue";
 import UiRadioButton from "@/components/Ui/UiRadioButton.vue";
 import { priceFormatting } from "@/tools";
-import { mapGetters } from "vuex";
-import { minLength, required } from "vuelidate/lib/validators";
 
 export default {
   name: "TheCalcForm",
@@ -385,6 +385,10 @@ export default {
   },
 
   methods: {
+    ...mapMutations({
+      SHOW_MODAL: "modals/SHOW_MODAL",
+    }),
+
     priceFormatting,
 
     roundNumber(num) {
@@ -403,6 +407,7 @@ export default {
           package: this.PACKAGES[this.selectedPackage].name,
           methodOfPurchasing:
             this.PURCHASING_METHODS[this.methodOfPurchasing].name,
+          students: this.count,
           time: this.$dayjs(this.time).format("HH:mm"),
           date: this.$dayjs(this.date).format("DD MMMM YYYY"),
         });

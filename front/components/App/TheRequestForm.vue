@@ -96,7 +96,7 @@
         Нажимая на&nbsp;кнопку &laquo;Отправить&raquo;, Вы&nbsp;даете согласие
         на&nbsp;обработку персональных данных. Подробнее об&nbsp;обработке
         данных в&nbsp;<a
-          href="/policy.pdf"
+          href="/confidentiality.pdf"
           target="_blank"
           >Политике</a
         >.

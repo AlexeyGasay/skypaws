@@ -7,7 +7,7 @@
       сайт использует cookie для персонализации сервисов и удобства
       пользователей.<br />
       <a
-        href="/confidentiality.pdf"
+        href="/cookie.pdf"
         target="_blank"
         >политика использования cookie-файлов</a
       >.
