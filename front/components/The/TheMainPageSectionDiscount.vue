@@ -158,7 +158,7 @@ export default {
     inset: 0;
 
     @include tablet-max {
-      top: 60%;
+      top: 45%;
     }
   }
 
@@ -191,14 +191,13 @@ export default {
     pointer-events: none;
 
     @include tablet-max {
-      top: 66%;
+      top: 60%;
       right: 12%;
       width: 240px;
     }
 
     @include mobile-max {
-      top: 76%;
-      width: 173px;
+      width: 200px;
     }
   }
 
