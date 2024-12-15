@@ -106,8 +106,8 @@
 </template>
 
 <script>
-import UiTimePicker from "@/components/Ui/UiTimePicker.vue";
-import UiDatePicker from "@/components/Ui/UiDatePicker.vue";
+import UiTimePicker from "~/components/Ui/UiTimePicker.vue";
+import UiDatePicker from "~/components/Ui/UiDatePicker.vue";
 import { minLength, required } from "vuelidate/lib/validators";
 import { mapGetters, mapMutations } from "vuex";
 
@@ -207,7 +207,7 @@ export default {
       top: 0;
       left: 0;
       display: block;
-      background-image: url("@/assets/images/handset-phone-gradient.svg");
+      background-image: url("assets/images/handset-phone-gradient.svg");
       background-size: cover;
       transform: translate(-50%, -50%);
       content: "";
@@ -223,7 +223,7 @@ export default {
       top: 100%;
       right: -18%;
       display: block;
-      background-image: url("@/assets/images/phone-gradient.svg");
+      background-image: url("assets/images/phone-gradient.svg");
       background-size: cover;
       transform: translate(-50%, -50%);
       content: "";

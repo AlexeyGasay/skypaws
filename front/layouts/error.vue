@@ -1,5 +1,7 @@
 <template>
-  <div class="error-layout">Очибка</div>
+  <div class="error-layout">
+    {{ error }}
+  </div>
 </template>
 
 <script>

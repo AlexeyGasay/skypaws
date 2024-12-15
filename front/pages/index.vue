@@ -16,7 +16,7 @@
 
 <script>
 import gsap from "gsap";
-import AppFeedbackForm from "@/components/App/TheRequestForm.vue";
+import AppFeedbackForm from "~/components/The/TheRequestForm.vue";
 import TheMainPageSectionHero from "@/components/The/TheMainPageSectionHero.vue";
 import TheMainPageSectionDiscount from "@/components/The/TheMainPageSectionDiscount.vue";
 import TheMainPageSectionCalc from "@/components/The/TheMainPageSectionCalc.vue";
