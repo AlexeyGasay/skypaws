@@ -50,6 +50,10 @@ export default {
 
   @include tablet-max {
     align-items: flex-start;
+    padding: 100px 40px 60px;
+  }
+
+  @include mobile-max {
     padding: 100px 10px 60px;
   }
 
@@ -116,9 +120,10 @@ export default {
     top: 0;
     left: 0;
     z-index: 3;
+    display: none;
     width: 100%;
     height: 100vh;
-    object-fit: cover;
+    object-fit: contain;
   }
 
   &__scroll-to {

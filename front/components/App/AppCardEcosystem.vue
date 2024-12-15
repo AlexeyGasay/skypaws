@@ -49,10 +49,21 @@ export default {
   width: 426px;
   height: 302px;
   padding: 20px 0 20px 20px;
-  border: 3px solid $white;
   border-radius: 10px;
   cursor: pointer;
-  transition: 0.3s;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    border: 3px solid $white;
+    border-radius: 10px;
+    content: "";
+    pointer-events: none;
+  }
 
   @include mobile-max {
     width: 345px;
@@ -61,12 +72,11 @@ export default {
   }
 
   @include hover {
-    background: linear-gradient(
-      180deg,
-      #03a7c8 0%,
-      #732fff 70.28%,
-      #ac1f51 140.57%
-    );
+    background: linear-gradient(90deg, #03a7c8 0%, #732fff 50%, #ac1f51 100%);
+
+    &::before {
+      opacity: 0;
+    }
   }
 
   &__wrapper {

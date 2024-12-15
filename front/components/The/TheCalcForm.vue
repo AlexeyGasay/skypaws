@@ -423,6 +423,8 @@ export default {
 
 <style lang="scss">
 .the-calc-form {
+  width: 100%;
+
   &__inner {
     display: flex;
     align-items: stretch;

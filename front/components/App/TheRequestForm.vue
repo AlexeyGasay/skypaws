@@ -269,6 +269,10 @@ export default {
 
   &__footer {
     margin-top: 30px;
+
+    button {
+      padding: 12px 18px !important;
+    }
   }
 
   &__footer-button {

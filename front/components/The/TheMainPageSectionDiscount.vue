@@ -94,11 +94,12 @@ export default {
     padding-left: 40px;
 
     @include tablet-max {
-      padding: 0 40px;
+      align-items: flex-start;
+      padding: 100px 40px 60px;
     }
 
     @include mobile-max {
-      padding: 0 12px;
+      padding: 100px 10px 60px;
     }
   }
 
@@ -152,9 +153,9 @@ export default {
   &__image-stars {
     position: absolute;
     z-index: 0;
-    max-width: 100%;
-    inset: 0;
+    width: 100%;
     pointer-events: none;
+    inset: 0;
 
     @include tablet-max {
       top: 60%;
@@ -166,6 +167,7 @@ export default {
     top: 87.6%;
     right: 0;
     z-index: $z-2;
+    width: 400px;
     transform: translateY(-50%);
     pointer-events: none;
 
@@ -184,6 +186,7 @@ export default {
     top: 20.5%;
     right: 120px;
     z-index: $z-3;
+    width: 400px;
     animation: drone-fly 5s infinite;
     pointer-events: none;
 
@@ -204,6 +207,7 @@ export default {
     top: 42%;
     right: 22px;
     z-index: $z-1;
+    width: 50%;
     transform: translateY(-50%);
     pointer-events: none;
 

@@ -19,9 +19,9 @@
         </div>
 
         <ui-button
-          type="filled"
           size="xl"
           class="the-main-page-section-stats__info-button"
+          @click="openModal"
         >
           связаться <br />
           с партнерами
@@ -50,6 +50,8 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+
 export default {
   name: "TheMainPageSectionStats",
   props: {
@@ -63,6 +65,18 @@ export default {
       type: Number,
       required: false,
       default: 2,
+    },
+  },
+
+  methods: {
+    ...mapMutations({
+      SHOW_MODAL: "modals/SHOW_MODAL",
+      SET_DATA: "modals/SET_DATA",
+    }),
+
+    openModal() {
+      this.SET_DATA({ title: "откройте бизнес вместе со skypaws" });
+      this.SHOW_MODAL(this.$MODAL_NAMES.REQUEST_MODAL);
     },
   },
 };
@@ -166,6 +180,7 @@ export default {
   }
 
   &__map {
+    width: 90%;
     margin-left: 12px;
 
     @include tablet-max {
@@ -175,7 +190,7 @@ export default {
   }
 
   &__map-img {
-    max-width: 100%;
+    width: 100%;
   }
 
   &__map-stats {

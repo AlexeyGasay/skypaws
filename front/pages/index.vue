@@ -1,25 +1,27 @@
 <template>
   <div class="main-page">
-    <the-main-page-section-hero />
+    <div class="main-page__inner">
+      <the-main-page-section-hero />
 
-    <the-main-page-section-discount />
+      <the-main-page-section-discount />
 
-    <the-main-page-section-ecosystem />
+      <the-main-page-section-ecosystem />
 
-    <the-main-page-section-calc />
+      <the-main-page-section-calc />
 
-    <the-main-page-section-stats />
+      <the-main-page-section-stats />
+    </div>
   </div>
 </template>
 
 <script>
+import gsap from "gsap";
 import AppFeedbackForm from "@/components/App/TheRequestForm.vue";
 import TheMainPageSectionHero from "@/components/The/TheMainPageSectionHero.vue";
 import TheMainPageSectionDiscount from "@/components/The/TheMainPageSectionDiscount.vue";
 import TheMainPageSectionCalc from "@/components/The/TheMainPageSectionCalc.vue";
 import TheMainPageSectionStats from "@/components/The/TheMainPageSectionStats.vue";
 import TheMainPageSectionEcosystem from "@/components/The/TheMainPageSectionEcosystem.vue";
-import gsap from "gsap";
 import { animation } from "../animation/main-page";
 
 export default {
@@ -42,7 +44,14 @@ export default {
 
 <style lang="scss">
 .main-page {
+  position: relative;
+  z-index: 1;
   width: 100%;
   overflow: hidden;
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+  }
 }
 </style>

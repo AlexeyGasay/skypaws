@@ -13,7 +13,7 @@
         </div>
       </div>
 
-      <nav class="the-header__menu">
+      <!-- <nav class="the-header__menu">
         <div class="the-header__menu-item">
           <div class="the-header__menu-item-icon">
             <menu-drones-icon />
@@ -41,7 +41,7 @@
           </div>
           огэ/егэ
         </div>
-      </nav>
+      </nav> -->
 
       <div class="the-header__contacts">
         <a
@@ -77,7 +77,7 @@
       </div>
 
       <perfect-scrollbar>
-        <nav class="the-header__inner-mobile-menu">
+        <!-- <nav class="the-header__inner-mobile-menu">
           <div class="the-header__inner-mobile-menu-item">
             <div class="the-header__inner-mobile-menu-item-icon">
               <menu-drones-icon />
@@ -109,7 +109,7 @@
 
             огэ/егэ
           </div>
-        </nav>
+        </nav> -->
 
         <a
           href="tel:+7(800) 777-21-32"
@@ -223,10 +223,10 @@ export default {
   }
 
   &__logo-icon {
-    max-width: 80px;
+    width: 80px;
 
     @include mobile-max {
-      max-width: 67px;
+      width: 67px;
     }
   }
 

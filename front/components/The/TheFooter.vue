@@ -5,24 +5,21 @@
       ОГРН 1242600014645 <br />
       ИНН 2623034731 <br />
     </div>
-
-    <ui-button
+    <!-- <ui-button
       class="the-footer__button"
       :size="isMobile ? 'm' : 'l'"
       type="filled"
     >
       посмотреть презентацию
-    </ui-button>
+    </ui-button> -->
   </div>
 </template>
 
 <script>
-import UiInputRange from "@/components/Ui/UiInputRange.vue";
 import { mapGetters } from "vuex";
 
 export default {
   name: "TheFooter",
-  components: { UiInputRange },
 
   data() {
     return {};

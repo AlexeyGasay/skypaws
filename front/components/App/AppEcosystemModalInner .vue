@@ -319,6 +319,8 @@ export default {
 
     svg {
       @include square(var(--square));
+      width: 55px !important;
+      height: 55px !important;
 
       @include mobile-max {
         @include square(40px);

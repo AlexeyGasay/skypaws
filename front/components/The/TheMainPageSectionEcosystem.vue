@@ -76,7 +76,11 @@ export default {
   padding: 140px 40px 60px;
 
   @include tablet-max {
-    padding: 40px 10px;
+    padding: 100px 40px 60px;
+  }
+
+  @include mobile-max {
+    padding: 100px 10px 60px;
   }
 
   &__wrapper {

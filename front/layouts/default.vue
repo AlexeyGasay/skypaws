@@ -74,8 +74,6 @@ export default {
     localStorage.removeItem("firstModal");
     localStorage.removeItem("modalCount");
     localStorage.removeItem("first-scroll-locked");
-    // await this.$recaptcha.init();
-    // gsap.registerPlugin(ScrollTrigger);
   },
 
   methods: {
@@ -97,6 +95,12 @@ export default {
   min-height: 100vh;
   overflow: hidden;
 
+  &__inner {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+  }
+
   &__header {
     position: fixed;
     z-index: $z-5;
@@ -107,6 +111,11 @@ export default {
 .app-modal_name_calc-modal {
   .app-modal__wrapper {
     background-color: $purple;
+    border-radius: 0;
+  }
+
+  .app-modal__background {
+    padding: 0;
   }
 }
 </style>
