@@ -200,7 +200,7 @@ module.exports = {
   pageTransition: "page",
 
   head: {
-    title: "SkyPaws",
+    title: "SkyPaws - школа дополнительного образования",
 
     link: [
       {
@@ -214,7 +214,7 @@ module.exports = {
         property: "og:image",
         hid: "og:image",
         name: "og:image",
-        content: "/sharing.jpg",
+        content: "/sharing.png",
       },
       {
         property: "og:image:width",
@@ -225,6 +225,10 @@ module.exports = {
         content: "512",
       },
       {
+        name: "twitter:title",
+        content: "SkyPaws - школа дополнительного образования",
+      },
+      {
         name: "twitter:card",
         content: "summary_large_image",
       },
@@ -233,8 +237,12 @@ module.exports = {
         content: "width=device-width, initial-scale=1.0",
       },
       {
+        property: "og:title",
+        content: "SkyPaws - школа дополнительного образования",
+      },
+      {
         property: "og:description",
-        content: "description",
+        content: "Откройте уникальную школу, где дети смогут развивать свои навыки в пилотировании дронов, программировании и дизайне! Присоединяйтесь к нам и начните свой прибыльный бизнес уже сегодня — мы обеспечим Вас всем необходимым для успешного старта!",
       },
     ],
   },
