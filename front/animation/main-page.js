@@ -65,6 +65,7 @@ export const animation = async () => {
         end: "+=5000px",
         scrub: 3,
         pin: true,
+        invalidateOnRefresh: true,
       },
     });
     // tl.to(".the-main-page-section-hero__info-video", {
