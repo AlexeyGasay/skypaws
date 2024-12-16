@@ -342,6 +342,10 @@ export default {
   &__text {
     white-space: nowrap;
 
+    .mobile-max({
+      white-space: wrap;
+    });
+
     &_prefix {
       margin-left: 8px;
     }
