@@ -54,7 +54,7 @@ import TheCalcForm from "@/components/The/TheCalcForm.vue";
 import AppModal from "@/components/App/AppModal.vue";
 import AppEcosystemModalInner from "@/components/App/AppEcosystemModalInner .vue";
 import AppResultModal from "@/components/App/AppResultModal.vue";
-import { animation } from "../animation/main-page";
+import { animation, animationMobile } from "../animation/main-page";
 
 export default {
   components: {
@@ -91,7 +91,7 @@ export default {
   mounted() {
     const mm = gsap.matchMedia();
     mm.add("(min-width: 1024px)", animation);
-    mm.add("(max-width: 1023px)", animation);
+    mm.add("(max-width: 1023px)", animationMobile);
   },
 };
 </script>

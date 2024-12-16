@@ -76,6 +76,7 @@ export default {
   padding: 60px 40px;
 
   @include tablet-max {
+    position: relative;
     padding: 0;
   }
 
@@ -146,6 +147,10 @@ export default {
 
     &:not(:first-child) {
       margin-left: 32px;
+
+      @include tablet-max {
+        margin-left: 12px;
+      }
     }
   }
 }

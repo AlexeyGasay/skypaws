@@ -92,6 +92,10 @@ export default {
   height: 100vh;
   pointer-events: none;
 
+  @include tablet-max {
+    position: relative;
+  }
+
   &__inner {
     display: flex;
     align-items: center;

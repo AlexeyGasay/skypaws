@@ -79,6 +79,10 @@ export default {
   height: 100vh;
   background-color: $purple;
 
+  @include tablet-max {
+    position: relative;
+  }
+
   &__inner {
     @include container;
     position: relative;
