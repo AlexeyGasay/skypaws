@@ -126,7 +126,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="less">
 .ui-textarea {
   &__label {
     position: relative;
@@ -134,31 +134,31 @@ export default {
     width: 100%;
     height: 120px;
     padding: 16px 16px 24px;
-    background-color: rgba($black, 5%);
+    background-color: rgba(@black, 5%);
     border-radius: 12px;
-    transition: background-color $transition-default,
-      box-shadow $transition-default;
+    transition: background-color @transition-default,
+      box-shadow @transition-default;
 
-    @include hover {
-      background-color: rgba($black, 10%);
-    }
+    .hover({
+      background-color: rgba(@black, 10%);
+    });
 
     &_focused-filled {
-      // @include shadow-s;
-      background-color: $white;
+      // .shadow-s;
+      background-color: @white;
 
-      @include hover {
-        background-color: $white;
-      }
+      .hover({
+        background-color: @white;
+      });
     }
 
     &_error {
-      background-color: rgba($purple, 10%);
+      background-color: rgba(@purple, 10%);
       box-shadow: unset;
 
-      @include hover {
-        background-color: rgba($purple, 20%);
-      }
+      .hover({
+        background-color: rgba(@purple, 20%);
+      });
     }
   }
 
@@ -166,17 +166,17 @@ export default {
     position: absolute;
     top: 16px;
     left: 16px;
-    color: rgba($black, 60%);
-    transition: $transition-default;
+    color: rgba(@black, 60%);
+    transition: @transition-default;
 
     &_focused-filled {
-      // @include caption-xs-d;
+      // .caption-xs-d;
       top: 6px;
-      color: rgba($black, 40%);
+      color: rgba(@black, 40%);
       font-size: 10px;
 
-      // @include tablet-max {
-      //  @include caption-xs-m;
+      // .tablet-max {
+      //  .caption-xs-m;
       // }
     }
   }
@@ -196,53 +196,53 @@ export default {
     }
 
     &_error {
-      color: $purple;
+      color: @purple;
     }
   }
 
   &__suffix {
-    @include square(18px);
+    .square(18px);
     position: absolute;
     top: 8px;
     right: 16px;
     display: block;
 
     &_error {
-      color: rgba($purple, 60%);
+      color: rgba(@purple, 60%);
     }
   }
 
   &__symbols-count {
-    // @include caption-xs-d;
+    // .caption-xs-d;
     position: absolute;
     right: 8px;
     bottom: 8px;
     display: block;
-    color: rgba($black, 20%);
+    color: rgba(@black, 20%);
 
-    @include tablet-max {
-      // @include caption-xs-m;
-    }
+    .tablet-max({
+      // .caption-xs-m;
+    });
   }
 
   &__notifications {
     padding: 0 16px;
 
-    // @include caption-s-d;
+    // .caption-s-d;
 
-    @include tablet-max {
-      // @include caption-s-m;
-    }
+    .tablet-max({
+      // .caption-s-m;
+    });
   }
 
   &__notifications-advice {
     margin-top: 8px;
-    color: rgba($black, 60%);
+    color: rgba(@black, 60%);
   }
 
   &__notifications-error {
     margin-top: 8px;
-    color: rgba($purple, 60%);
+    color: rgba(@purple, 60%);
   }
 }
 </style>

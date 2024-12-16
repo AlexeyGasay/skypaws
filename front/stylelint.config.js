@@ -1,12 +1,12 @@
 module.exports = {
   extends: [
     "stylelint-config-rational-order-fix",
-    "stylelint-config-standard-scss",
+    "stylelint-config-standard-less",
     "stylelint-config-recommended-vue",
   ],
   overrides: [
     {
-      files: ["*.vue", "**/*.vue"],
+      files: ["*.vue", "**/*.vue", "*.less", "**/*.less"],
     },
   ],
 
@@ -41,8 +41,6 @@ module.exports = {
       true,
       {
         ignoreAtRules: [
-          "include",
-          "mixin",
           "if",
           "else",
           "function",

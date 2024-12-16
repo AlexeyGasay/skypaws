@@ -68,7 +68,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="less">
 .el-picker-panel__body {
   * {
     font-family: Nunito, sans-serif !important;
@@ -85,16 +85,16 @@ export default {
 
     &_theme {
       &_white {
-        background-color: $white;
+        background-color: @white;
 
         .el-input__inner {
           color: #535353;
         }
       }
 
-      @include hover {
-        background-color: rgba($black, 10%);
-      }
+      .hover({
+        background-color: rgba(@black, 10%);
+      });
 
       &_transparent {
         background: transparent;
@@ -105,7 +105,7 @@ export default {
       }
     }
 
-    @include gradient-border-mask(
+    .gradient-border-mask(
       1px,
       linear-gradient(90deg, #03a7c8 0%, #732fff 50%, #ac1f51 100%)
     );

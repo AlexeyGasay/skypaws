@@ -65,7 +65,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="less">
 .el-time-panel,
 .el-picker-panel {
   z-index: 20000 !important;
@@ -81,21 +81,21 @@ export default {
     display: inline-flex;
     align-items: center;
     width: 100% !important;
-    background-color: $white;
+    background-color: @white;
     border-radius: 10px;
 
     &_theme {
       &_white {
-        background-color: $white;
+        background-color: @white;
 
         .el-input__inner {
           color: #535353;
         }
       }
 
-      @include hover {
-        background-color: rgba($black, 10%);
-      }
+      .hover({
+        background-color: rgba(@black, 10%);
+      });
 
       &_transparent {
         background: transparent;
@@ -106,7 +106,7 @@ export default {
       }
     }
 
-    @include gradient-border-mask(
+    .gradient-border-mask(
       1px,
       linear-gradient(90deg, #03a7c8 0%, #732fff 50%, #ac1f51 100%)
     );

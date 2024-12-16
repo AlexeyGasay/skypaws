@@ -182,7 +182,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="less">
 .ui-button {
   position: relative;
   display: flex;
@@ -190,7 +190,7 @@ export default {
   justify-content: center;
   width: max-content;
   overflow: hidden;
-  color: $white;
+  color: @white;
   font-weight: 900;
   font-family: Nunito, sans-serif;
   text-transform: uppercase;
@@ -198,17 +198,17 @@ export default {
   background: none;
   border: none;
   border-radius: 10px;
-  transition: $transition-normal color, $transition-normal background-color;
+  transition: @transition-normal color, @transition-normal background-color;
 
-  --hover-theme: #{$black};
+  --hover-theme: @black;
 
   &_hover-theme {
     &_black {
-      --hover-theme: #{$black};
+      --hover-theme: @black;
     }
 
     &_white {
-      --hover-theme: #{$white};
+      --hover-theme: @white;
     }
   }
 
@@ -228,25 +228,25 @@ export default {
           #ac1f51 100%
         );
         border-radius: 10px;
-        transition: $transition-normal ease-in-out;
+        transition: @transition-normal ease-in-out;
         content: "";
       }
 
-      @include hover {
+      .hover({
         &:not(.ui-button_no-hover) {
           color: var(--hover-theme);
 
           &::after {
             transform: translateX(100%);
-            transition: $transition-normal ease-in;
+            transition: @transition-normal ease-in;
           }
 
-          @include gradient-border-mask(
-            2px,
-            linear-gradient(90deg, #03a7c8 0%, #732fff 50%, #ac1f51 100%)
+          .gradient-border-mask(
+              2px,
+              linear-gradient(90deg, #03a7c8 0%, #732fff 50%, #ac1f51 100%)
           );
         }
-      }
+      });
 
       &:is(.ui-button_disabled) {
         &::after {
@@ -271,25 +271,25 @@ export default {
         );
         border-radius: 10px;
         transform: translateX(-100%);
-        transition: $transition-normal;
+        transition: @transition-normal;
         content: "";
       }
 
-      @include gradient-border-mask(
-        2px,
-        linear-gradient(90deg, #03a7c8 0%, #732fff 50%, #ac1f51 100%)
+      .gradient-border-mask(
+          2px,
+          linear-gradient(90deg, #03a7c8 0%, #732fff 50%, #ac1f51 100%)
       );
 
-      @include hover {
+      .hover ({
         &:not(.ui-button_no-hover) {
           color: var(--hover-theme);
 
           &::after {
             transform: translateX(0);
-            transition: $transition-normal ease-in;
+            transition: @transition-normal ease-in;
           }
         }
-      }
+      });;
     }
   }
 
@@ -306,7 +306,7 @@ export default {
       font-size: 24px;
       line-height: 135%;
 
-      @include mobile-max {
+      .mobile-max {
         font-size: 14px;
       }
     }
@@ -322,11 +322,11 @@ export default {
       font-size: 32px;
       line-height: 135%;
 
-      @include tablet-max {
+      .tablet-max {
         font-size: 28px;
       }
 
-      @include mobile-max {
+      .mobile-max {
         font-size: 14px;
       }
     }
@@ -334,7 +334,7 @@ export default {
 
   &__holder {
     position: relative;
-    z-index: $z-1;
+    z-index: @z-1;
     display: flex;
     align-items: center;
   }
@@ -352,10 +352,10 @@ export default {
   }
 
   &__icon {
-    @include square(24px);
+    .square(24px);
 
     * {
-      @include square(24px);
+      .square(24px);
     }
   }
 
@@ -364,15 +364,15 @@ export default {
   }
 
   &_disabled {
-    color: rgba($black, 20%);
-    background-color: rgba($black, 5%);
+    color: rgba(@black, 20%);
+    background-color: rgba(@black, 5%);
     border: none;
     pointer-events: none;
   }
 
   &__pending-icon {
-    @include loader-animation;
-    @include square(24px);
+    .loader-animation();
+    .square(24px);
   }
 }
 </style>

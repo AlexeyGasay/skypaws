@@ -80,7 +80,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="less">
 .the-main-page-section-stats {
   position: relative;
   top: 0;
@@ -91,9 +91,9 @@ export default {
   width: 100%;
   height: 100vh;
 
-  @include tablet-max {
+  .tablet-max({
     position: relative;
-  }
+  });
 
   &__inner {
     display: flex;
@@ -102,24 +102,24 @@ export default {
     width: 100%;
     padding: 20px 40px 55px;
 
-    @include tablet-max {
+    .tablet-max({
       flex-direction: column;
       padding: 30px;
-    }
+    });
 
-    @include mobile-max {
+    .mobile-max({
       padding: 20px 10px;
-    }
+    });
   }
 
   &__info {
     max-width: 440px;
-    color: $white;
+    color: @white;
 
-    @include tablet-max {
+    .tablet-max({
       width: 100%;
       max-width: unset;
-    }
+    });
   }
 
   &__info-title {
@@ -128,13 +128,13 @@ export default {
     line-height: 135%;
     text-transform: uppercase;
 
-    @include tablet-max {
+    .tablet-max({
       font-size: 30px;
-    }
+    });
 
-    @include mobile-max {
+    .mobile-max({
       font-size: 16px;
-    }
+    });
   }
 
   &__info-stats {
@@ -148,51 +148,51 @@ export default {
     line-height: 135%;
     text-align: center;
     text-transform: uppercase;
-    border: 2px solid $white;
+    border: 2px solid @white;
     border-radius: 10px;
 
     &:not(&:first-child) {
       margin-top: 30px;
 
-      @include tablet-max {
+      .tablet-max({
         margin-top: 20px;
-      }
+      });
 
-      @include mobile-max {
+      .mobile-max({
         margin-top: 10px;
-      }
+      });
     }
 
-    @include tablet-max {
+    .tablet-max({
       font-size: 28px;
-    }
+    });
 
-    @include mobile-max {
+    .mobile-max({
       font-size: 14px;
-    }
+    });
   }
 
   &__info-button {
     width: 100% !important;
     margin-top: 35px;
 
-    @include tablet-max {
+    .tablet-max({
       margin-top: 20px;
-    }
+    });
 
-    @include mobile-max {
+    .mobile-max({
       margin-top: 10px;
-    }
+    });
   }
 
   &__map {
     width: 90%;
     margin-left: 12px;
 
-    @include tablet-max {
+    .tablet-max({
       height: auto;
       margin: 20px 0 0;
-    }
+    });
   }
 
   &__map-img {
@@ -206,13 +206,13 @@ export default {
     margin-top: 30px;
     padding-right: 25px;
 
-    @include tablet-max {
+    .tablet-max({
       justify-content: center;
-    }
+    });
 
-    @include mobile-max {
+    .mobile-max({
       flex-direction: column;
-    }
+    });
   }
 
   &__map-stats-item {
@@ -221,9 +221,9 @@ export default {
     font-size: 16px;
     line-height: 135%;
 
-    @include mobile-max {
+    .mobile-max({
       font-size: 14px;
-    }
+    });
 
     &:first-child {
       color: #08a2ca;
@@ -232,9 +232,9 @@ export default {
     &:not(&:first-child) {
       margin-left: 20px;
 
-      @include mobile-max {
+      .mobile-max({
         margin: 0;
-      }
+      });
     }
   }
 }

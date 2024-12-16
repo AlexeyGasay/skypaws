@@ -421,7 +421,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="less">
 .the-calc-form {
   width: 100%;
   height: 100%;
@@ -431,15 +431,15 @@ export default {
     align-items: stretch;
     padding: 40px;
 
-    @include tablet-max {
+    .tablet-max({
       flex-direction: column;
       align-items: center;
       padding: 10px 30px 30px;
-    }
+    });
 
-    @include mobile-max {
+    .mobile-max({
       padding: 10px;
-    }
+    });
   }
 
   &__col {
@@ -448,48 +448,51 @@ export default {
     flex-grow: 1;
     width: 50%;
 
-    @include tablet-max {
+    .tablet-max({
       width: 100%;
-    }
+    });
 
     &:not(&:first-child) {
       margin-left: 30px;
 
-      @include mobile-max {
+      .mobile-max({
         margin: 0 0 10px;
-      }
+
+      });
     }
 
-    @include mobile-max {
+    .mobile-max({
       font-size: 14px;
-    }
+    });
   }
 
   &__title {
     display: flex;
     align-items: center;
-    color: $white;
+    color: @white;
     font-weight: 900;
     font-size: 20px;
     line-height: 130%;
     text-transform: uppercase;
 
-    @include mobile-max {
+    .mobile-max({
       font-size: 14px;
-    }
+
+    });
 
     &_desktop {
-      @include tablet-max {
+      .tablet-max({
         display: none;
-      }
+
+      });
     }
 
     &_mobile {
       display: none;
 
-      @include tablet-max {
+      .mobile-max({
         display: flex;
-      }
+      });
     }
   }
 
@@ -498,15 +501,15 @@ export default {
   }
 
   &__title-tooltip-icon {
-    @include square(28px);
+    .square(28px);
   }
 
   &__handlers {
     margin-top: 30px;
 
-    @include tablet-max {
+    .tablet-max({
       margin: 20px 0;
-    }
+    });
   }
 
   &__handlers-button {
@@ -515,13 +518,15 @@ export default {
     &:not(&:first-child) {
       margin-top: 30px;
 
-      @include tablet-max {
+      .tablet-max({
         margin-top: 20px;
-      }
 
-      @include mobile-max {
+      });
+
+      .mobile-max({
         margin-top: 10px;
-      }
+
+      });
     }
   }
 
@@ -533,65 +538,65 @@ export default {
     &:not(&:first-child) {
       margin-top: 20px;
 
-      @include mobile-max {
+      .mobile-max({
         margin-top: 10px;
-      }
+      });
     }
   }
 
   &__form-item-name {
-    color: $white;
+    color: @white;
     font-weight: 900;
     font-size: 20px;
     line-height: 130%;
     text-transform: uppercase;
 
-    @include mobile-max {
+    .mobile-max({
       font-size: 13px;
-    }
+    });
   }
 
   &__form-item-input {
     margin-top: 20px;
 
-    @include mobile-max {
+    .mobile-max({
       margin-top: 10px;
-    }
+    });
 
     input {
       height: 60px !important;
       color: #c6c6c6;
 
-      @include mobile-max {
+      .mobile-max({
         height: 35px !important;
-      }
+      });
     }
   }
 
   &__form-item-error {
     margin-top: 10px;
-    color: $red;
+    color: @red;
     font-size: 20px;
 
-    @include mobile-max {
+    .mobile-max({
       font-size: 16px;
-    }
+    });
   }
 
   &__slider {
     margin-top: 30px;
 
-    @include tablet-max {
+    .tablet-max({
       display: none;
-    }
+    });
 
     &_mobile {
       display: none;
 
-      @include tablet-max {
+      .tablet-max({
         display: block;
         padding: 0 8px;
-      }
+      });
     }
   }
 
@@ -600,35 +605,35 @@ export default {
     flex-direction: column;
     height: 100%;
     margin-top: 40px;
-    color: $white;
+    color: @white;
 
-    @include tablet-max {
+    .tablet-max({
       margin-top: 20px;
-    }
+    });
   }
 
   &__packages-list {
     display: flex;
     align-items: center;
-    color: $white;
+    color: @white;
 
-    @include tablet-max {
+    .tablet-max({
       display: none;
-    }
+    });
 
     &_mobile {
       display: none;
 
-      @include tablet-max {
+      .tablet-max({
         display: flex;
         margin-top: 20px;
-      }
+      });
 
-      @include mobile-max {
+      .mobile-max({
         flex-direction: column-reverse;
         align-items: flex-start;
         width: 100%;
-      }
+      });
     }
   }
 
@@ -641,30 +646,30 @@ export default {
     &:not(&:first-child) {
       margin-left: 30px;
 
-      @include tablet-max {
+      .tablet-max({
         margin: 20px 0 0;
-      }
+      });
     }
 
-    @include tablet-max {
+    .tablet-max({
       width: 100%;
-    }
+    });
   }
 
   &__packages-info {
     margin-top: 30px;
 
-    @include tablet-max {
+    .tablet-max({
       display: none;
-    }
+    });
   }
 
   &__packages-sum {
     margin-top: auto;
 
-    @include tablet-max {
+    .tablet-max({
       margin: 0;
-    }
+    });
   }
 
   &__packages-sum-cross {
@@ -672,13 +677,13 @@ export default {
     font-size: 48px;
     line-height: 130%;
 
-    @include tablet-max {
+    .tablet-max({
       font-size: 40px;
-    }
+    });
 
-    @include mobile-max {
+    .mobile-max({
       font-size: 30px;
-    }
+    });
   }
 
   &__packages-sum-cross-price {
@@ -711,22 +716,22 @@ export default {
     font-size: 96px;
     line-height: 130%;
 
-    @include tablet-max {
+    .tablet-max({
       font-size: 85px;
-    }
+    });
 
-    @include mobile-max {
+    .mobile-max({
       font-size: 48px;
-    }
+    });
   }
 
   &__packages-button {
     margin-top: 25px;
 
-    @include tablet-max {
+    .tablet-max({
       width: 100% !important;
       margin-top: 20px;
-    }
+    });
   }
 }
 </style>

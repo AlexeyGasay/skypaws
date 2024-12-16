@@ -33,9 +33,9 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="less">
 .the-footer {
-  @include container;
+  .container();
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -45,25 +45,25 @@ export default {
   padding: 24px 40px;
   background-color: #180b2c;
 
-  @include tablet-max {
+  .tablet-max({
     padding: 20px 30px;
-  }
+  });
 
-  @include mobile-max {
+  .mobile-max({
     flex-direction: column-reverse;
     padding: 10px 16px;
-  }
+  });
 
   &__credential {
-    color: $white;
+    color: @white;
 
-    @include tablet-max {
+    .tablet-max({
       font-size: 14px;
-    }
+    });
 
-    @include mobile-max {
+    .mobile-max({
       margin-top: 10px;
-    }
+    });
   }
 }
 </style>

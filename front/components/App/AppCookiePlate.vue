@@ -76,14 +76,14 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="less">
 .app-cookie-plate {
   position: fixed;
   bottom: 32px;
   left: 0;
   z-index: 999999;
   padding: 14px 20px;
-  background-color: $white;
+  background-color: @white;
   border-radius: 15px;
 
   &__title {
@@ -91,9 +91,9 @@ export default {
     font-size: 16px;
     line-height: 130%;
 
-    @include tablet-max {
+    .tablet-max({
       font-size: 10px;
-    }
+    });
 
     a {
       color: inherit;
@@ -103,9 +103,9 @@ export default {
   &__button {
     margin-top: 15px;
 
-    @include tablet-max {
+    .tablet-max({
       margin-top: 5px;
-    }
+    });
   }
 }
 </style>

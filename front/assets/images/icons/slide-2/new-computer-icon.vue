@@ -1,0 +1,80 @@
+<template>
+  <svg
+    width="83"
+    height="83"
+    viewBox="0 0 83 83"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M59.9989 10.8622L14.7782 16.9225C12.2807 17.2572 10.5274 19.5531 10.8621 22.0506L15.3063 55.2124C15.641 57.7099 17.9369 59.4632 20.4344 59.1285L65.6551 53.0682C68.1526 52.7335 69.9059 50.4376 69.5712 47.9401L65.127 14.7783C64.7923 12.2808 62.4964 10.5275 59.9989 10.8622Z"
+      fill="url(#paint0_linear_6_27)"
+      stroke="url(#paint1_linear_6_27)"
+      stroke-width="2"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M29.5873 70.1773L59.7344 66.1371M43.0448 56.0983L44.6608 68.1572"
+      stroke="url(#paint2_linear_6_27)"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <defs>
+      <linearGradient
+        id="paint0_linear_6_27"
+        x1="13.0842"
+        y1="38.6315"
+        x2="67.3491"
+        y2="31.3592"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#03A7C8" />
+        <stop
+          offset="0.5"
+          stop-color="#732FFF"
+        />
+        <stop
+          offset="1"
+          stop-color="#AC1F51"
+        />
+      </linearGradient>
+      <linearGradient
+        id="paint1_linear_6_27"
+        x1="13.0842"
+        y1="38.6315"
+        x2="67.3491"
+        y2="31.3592"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#03A7C8" />
+        <stop
+          offset="0.5"
+          stop-color="#732FFF"
+        />
+        <stop
+          offset="1"
+          stop-color="#AC1F51"
+        />
+      </linearGradient>
+      <linearGradient
+        id="paint2_linear_6_27"
+        x1="28.7792"
+        y1="64.1479"
+        x2="58.9264"
+        y2="60.1077"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#03A7C8" />
+        <stop
+          offset="0.5"
+          stop-color="#732FFF"
+        />
+        <stop
+          offset="1"
+          stop-color="#AC1F51"
+        />
+      </linearGradient>
+    </defs>
+  </svg>
+</template>

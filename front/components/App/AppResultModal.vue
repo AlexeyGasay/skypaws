@@ -20,14 +20,14 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="less">
 .app-result-modal {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 350px;
-  background-color: $white;
+  background-color: @white;
   border-radius: 15px;
 
   &__title {
@@ -37,11 +37,11 @@ export default {
     line-height: 130%;
     text-align: center;
 
-    @include tablet-max {
+    .tablet-max({
       max-width: unset;
       padding: 0 20px;
       font-size: 20px;
-    }
+    });
   }
 
   &__icon {
@@ -52,7 +52,7 @@ export default {
       left: 36px;
 
       * {
-        @include square(63px);
+        .square(63px);
       }
     }
 
@@ -61,7 +61,7 @@ export default {
       bottom: 30px;
 
       * {
-        @include square(85px);
+        .square(85px);
       }
     }
   }

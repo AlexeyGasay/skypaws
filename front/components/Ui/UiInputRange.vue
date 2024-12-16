@@ -75,7 +75,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="less">
 .ui-input-range {
   .el-slider {
     &__bar {
@@ -91,11 +91,11 @@ export default {
     }
 
     &__marks-text {
-      color: $white;
+      color: @white;
     }
 
     &__button {
-      @include square(24px);
+      .square(24px);
       background: linear-gradient(
         180deg,
         #03a7c8 0%,

@@ -1,0 +1,31 @@
+.loader-animation(@duration: 1.5s, @timing: linear, @count: infinite) {
+  animation: loader-rotate @duration @timing @count;
+
+  @keyframes loader-rotate {
+    0% {
+      transform: rotate(0);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+
+.dont-break-out {
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all;
+
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  hyphens: auto;
+}

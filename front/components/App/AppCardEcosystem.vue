@@ -42,7 +42,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="less">
 .app-card-ecosystem {
   position: relative;
   z-index: 1;
@@ -59,25 +59,25 @@ export default {
     z-index: 3;
     width: 100%;
     height: 100%;
-    border: 3px solid $white;
+    border: 3px solid @white;
     border-radius: 10px;
     content: "";
     pointer-events: none;
   }
 
-  @include mobile-max {
+  .mobile-max({
     width: 345px;
     height: 250px;
     padding: 13px 16px;
-  }
+  });
 
-  @include hover {
+  .hover({
     background: linear-gradient(90deg, #03a7c8 0%, #732fff 50%, #ac1f51 100%);
 
     &::before {
       opacity: 0;
     }
-  }
+  });
 
   &__wrapper {
     display: flex;
@@ -87,15 +87,15 @@ export default {
 
   &__title {
     max-width: 277px;
-    color: $white;
+    color: @white;
     font-weight: 900;
     font-size: 24px;
     text-transform: uppercase;
 
-    @include mobile-max {
+    .mobile-max({
       max-width: 200px;
       font-size: 18px;
-    }
+    });
   }
 
   &__icon {
@@ -115,16 +115,16 @@ export default {
 
   &__item {
     padding: 10px;
-    color: $white;
+    color: @white;
     font-weight: 900;
     font-size: 14px;
-    border: 2px solid $white;
+    border: 2px solid @white;
     border-radius: 8px;
 
-    @include mobile-max {
+    .mobile-max({
       padding: 6px;
       font-size: 11px;
-    }
+    });
   }
 }
 </style>

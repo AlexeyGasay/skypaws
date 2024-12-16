@@ -173,7 +173,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="less">
 .ui-link {
   position: relative;
   display: flex;
@@ -186,61 +186,61 @@ export default {
 
   &_type {
     &_black {
-      color: $black;
+      color: @black;
     }
 
     &_white {
-      color: $white;
+      color: @white;
     }
 
     &_purple {
-      color: $purple;
+      color: @purple;
     }
 
     &_green {
-      color: $green;
+      color: @green;
 
       &:is(.ui-link_disabled) {
-        color: rgba($black, 20%);
+        color: rgba(@black, 20%);
       }
     }
 
     &_grey {
-      color: rgba($black, 40%);
+      color: rgba(@black, 40%);
 
-      @include hover {
-        color: rgba($black, 80%);
-      }
+      .hover({
+        color: rgba(@black, 80%);
+      });
 
       &:is(.ui-link_pending) {
-        color: rgba($black, 80%);
+        color: rgba(@black, 80%);
       }
 
       &:is(.ui-link_disabled) {
-        color: rgba($black, 20%);
+        color: rgba(@black, 20%);
       }
     }
 
     &_transparent {
-      color: rgba($black, 60%);
+      color: rgba(@black, 60%);
     }
   }
 
   &__icon {
     &_size {
       &_s {
-        @include square(16px);
+        .square(16px);
 
         * {
-          @include square(16px);
+          .square(16px);
         }
       }
 
       &_m {
-        @include square(24px);
+        .square(24px);
 
         * {
-          @include square(24px);
+          .square(24px);
         }
       }
     }
@@ -259,11 +259,11 @@ export default {
   }
 
   &__pending-icon {
-    @include loader-animation;
-    @include square(16px);
+    .loader-animation();
+    .square(16px);
 
     * {
-      @include square(16px);
+      .square(16px);
     }
   }
 }

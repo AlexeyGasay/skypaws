@@ -116,16 +116,12 @@ module.exports = {
     },
   },
 
-  styleResources: {
-    scss: ["@/assets/styles/helpers.scss"],
-  },
-
   server: {
     host: "0.0.0.0",
   },
 
   css: [
-    "@/assets/styles/main.scss",
+    "@/assets/styles/main.less",
     "@/node_modules/element-ui/lib/theme-chalk/tooltip.css",
     "@/node_modules/element-ui/lib/theme-chalk/select.css",
     "@/node_modules/element-ui/lib/theme-chalk/date-picker.css",
@@ -175,9 +171,21 @@ module.exports = {
     "@nuxtjs/stylelint-module",
   ],
 
+  styleResources: {
+    less: [
+        "@/assets/styles/breakpoints.less",
+        "@/assets/styles/variables.less",
+        "@/assets/styles/tools.less",
+        "@/assets/styles/utils.less",
+    ],
+  },
+
   stylelint: {
     fix: true,
     cache: true,
+    files: [
+      "assets/**/*.{s?(a|c)ss,less}', '{components,layouts,pages}/**/*.less",
+    ],
   },
 
   device: {

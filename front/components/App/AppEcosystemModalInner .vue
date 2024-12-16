@@ -64,10 +64,12 @@
                 index: String(iconIndex),
               })
             "
-            :style="`--square: ${icon.square}px;`"
-          >
-            <svg-icon :name="icon.name" />
-          </div>
+            :style="`
+            --square: ${pixelsToRem(icon.square)};
+            --img: url(${require(`@/assets/images/icons/${icon.name}.svg`)})`"
+          />
+          <!--            <svg-icon :name="icon.name" />-->
+          <!--          </div>-->
         </template>
       </swiper-slide>
     </swiper>
@@ -261,7 +263,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="less">
 .app-ecosystem-modal-inner {
   position: relative;
 
@@ -269,30 +271,30 @@ export default {
     position: absolute;
     top: 30px;
     right: 40px;
-    z-index: $z-1;
+    z-index: @z-1;
     display: flex;
     align-items: center;
 
-    @include mobile-max {
+    .mobile-max({
       top: 10px;
       right: 20px;
-    }
+    });
   }
 
   &__slider-handlers-item {
-    @include square(53px);
+    .square(53px);
     cursor: pointer;
 
-    @include mobile-max {
-      @include square(31px);
-    }
+    .mobile-max({
+      .square(31px);
+    });
 
     &:not(&:first-child) {
       margin-left: 20px;
 
-      @include mobile-max {
+      .mobile-max({
         margin-left: 10px;
-      }
+      });
     }
   }
 
@@ -311,9 +313,9 @@ export default {
     width: 100%;
     padding: 30px 40px 40px;
 
-    @include mobile-max {
+    .mobile-max({
       padding: 10px;
-    }
+    });
   }
 
   &__slider-slide-title {
@@ -324,10 +326,10 @@ export default {
     text-transform: uppercase;
     pointer-events: none;
 
-    @include mobile-max {
+    .mobile-max({
       max-width: calc(100% - 140px);
       font-size: 14px;
-    }
+    });
   }
 
   &__slider-text {
@@ -336,9 +338,9 @@ export default {
     font-size: 20px;
     line-height: 140%;
 
-    @include mobile-max {
+    .mobile-max({
       font-size: 12px;
-    }
+    });
   }
 
   &__slider-button {
@@ -346,26 +348,24 @@ export default {
   }
 
   &__slider-slide-icon {
+    .square(var(--square));
     position: absolute;
+    background-image: var(--img);
+    background-position: center;
+    background-size: cover;
 
-    svg {
-      @include square(var(--square));
-      width: 55px !important;
-      height: 55px !important;
-
-      @include mobile-max {
-        @include square(40px);
-      }
-    }
+    .mobile-max({
+    .square(40 px);
+    });
 
     &_index {
       &_0 {
         top: 20px;
         right: 180px;
 
-        @include mobile-max {
+        .mobile-max({
           right: 110px;
-        }
+        });
       }
 
       &_1 {

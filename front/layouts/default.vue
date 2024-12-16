@@ -67,7 +67,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="less">
 .default-layout {
   min-height: 100vh;
   overflow: hidden;
@@ -80,14 +80,14 @@ export default {
 
   &__header {
     position: fixed;
-    z-index: $z-5;
+    z-index: @z-5;
     width: 100%;
   }
 }
 
 .app-modal_name_calc-modal {
   .app-modal__wrapper {
-    background-color: $purple;
+    background-color: @purple;
     border-radius: 0;
   }
 

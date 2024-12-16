@@ -10,12 +10,12 @@
     "prepare": "cd .. && husky front/.husky",
     "lint-staged": "lint-staged",
     "lint:js": "eslint --fix --ext .js,.vue --ignore-path .eslintignore .",
-    "lint:style": "npx stylelint --fix **/*.{vue,scss} --ignore-path .stylelintignore",
+    "lint:style": "npx stylelint --fix **/*.{vue,less} --ignore-path .stylelintignore",
     "lint": "npm run lint:js && npm run lint:style"
   },
   "lint-staged": {
     "**/*.{jsx,js,cjs,ts,tsx,vue,cjs,mjs}": "npm run lint:js",
-    "**/*.{vue,css,less,scss,html}": "npm run lint:style"
+    "**/*.{vue,css,less,html}": "npm run lint:style"
   },
   "dependencies": {
     "@nuxt/postcss8": "^1.1.3",
@@ -74,13 +74,14 @@
     "npm": "^9.8.1",
     "postcss-html": "^1.5.0",
     "prettier": "^2.7.1",
-    "sass": "^1.63.3",
-    "sass-loader": "^10.4.1",
-    "stylelint": "^15.10.2",
+    "less": "^4.1.3",
+    "less-loader": "^7.3.0",
+
+    "stylelint": "^16.0.2",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-rational-order-fix": "^0.1.9",
     "stylelint-config-recommended-vue": "^1.5.0",
-    "stylelint-config-standard-scss": "^10.0.0",
-    "stylelint-order": "^6.0.3"
+    "stylelint-order": "^6.0.3",
+    "stylelint-config-recommended-less": "^3.0.1"
   }
 }

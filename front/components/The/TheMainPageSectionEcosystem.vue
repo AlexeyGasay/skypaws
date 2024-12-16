@@ -64,9 +64,9 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="less">
 .the-main-page-section-ecosystem {
-  @include container;
+  .container();
   position: relative;
   top: 0;
   left: 0;
@@ -75,10 +75,10 @@ export default {
   height: 100vh;
   padding: 60px 40px;
 
-  @include tablet-max {
+  .tablet-max({
     position: relative;
     padding: 0;
-  }
+  });
 
   &__wrapper {
     display: flex;
@@ -94,29 +94,29 @@ export default {
     justify-content: space-between;
     width: 100%;
 
-    @include tablet-max {
+    .tablet-max({
       padding: 0 40px;
-    }
+    });
 
-    @include mobile-max {
+    .mobile-max({
       padding: 0 10px;
-    }
+    });
   }
 
   &__header-title {
-    color: $white;
+    color: @white;
     font-weight: 900;
     font-size: 40px;
     line-height: 135%;
     text-transform: uppercase;
 
-    @include tablet-max {
+    .tablet-max({
       font-size: 30px;
-    }
+    });
 
-    @include mobile-max {
+    .mobile-max({
       font-size: 18px;
-    }
+    });
   }
 
   &__list {
@@ -124,7 +124,7 @@ export default {
     width: max-content;
     margin-top: 40px;
 
-    @include tablet-max {
+    .tablet-max({
       width: 100%;
       margin-top: 0;
       padding: 40px 40px 0;
@@ -135,11 +135,11 @@ export default {
       &::-webkit-scrollbar {
         display: none;
       }
-    }
+    });
 
-    @include mobile-max {
+    .mobile-max({
       padding: 40px 10px 0;
-    }
+    });
   }
 
   &__list-item {
@@ -148,9 +148,9 @@ export default {
     &:not(:first-child) {
       margin-left: 32px;
 
-      @include tablet-max {
+      .tablet-max({
         margin-left: 12px;
-      }
+      });
     }
   }
 }

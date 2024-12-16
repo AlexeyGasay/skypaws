@@ -1,0 +1,62 @@
+@import "@/assets/styles/variables.less";
+@import "@/assets/styles/breakpoints.less";
+
+.container(@max-width: @container-max-width) {
+  display: block;
+  width: 100%;
+  max-width: @max-width;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.desktop-only() {
+  display: none;
+
+  .desktop-min() {
+    display: block;
+  }
+}
+
+.square(@value) {
+  width: @value !important;
+  height: @value !important;
+}
+
+.hover(@content) {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content();
+    }
+  }
+}
+
+.gradient-border-mask-content(@border-width, @border-color) {
+  & {
+    position: absolute;
+    background: @border-color border-box;
+    border: @border-width solid transparent;
+    border-radius: inherit;
+    content: '';
+    pointer-events: none;
+    inset: 0;
+    mask: linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+  }
+}
+
+.gradient-border-mask(@border-width, @border-color, @importAfter: false) {
+  position: relative;
+
+  & when (@importAfter = true) {
+    &::after {
+      .gradient-border-mask-content(@border-width, @border-color);
+    }
+  }
+
+  & when (@importAfter = false) {
+    &::before {
+      .gradient-border-mask-content(@border-width, @border-color);
+    }
+  }
+}

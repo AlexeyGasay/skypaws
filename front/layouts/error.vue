@@ -19,17 +19,17 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="less">
 .error-layout {
-  @include container;
+  .container();
   padding-bottom: 72px;
 
-  @include tablet-max {
+  .tablet-max({
     padding-bottom: 32px;
-  }
+  });
 
-  @include mobile-max {
+  .mobile-max({
     padding-bottom: 24px;
-  }
+  });
 }
 </style>

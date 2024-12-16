@@ -105,34 +105,34 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="less">
 .ui-radio-button {
   display: flex;
   align-items: flex-start;
   cursor: pointer;
-  transition: background-color $transition-default;
+  transition: background-color @transition-default;
 
-  &:not(&_checked, &_disabled) {
-    /* @include hover {
+  /*  &:not(&_checked, &_disabled) {
+    !* @include hover {
       .ui-radio-button {
         &__mark {
-          background-color: rgba($black, 20%);
+          background-color: rgba(@black, 20%);
         }
       }
-    } */
-  }
+    } *!
+  }*/
 
-  &_checked {
+  /*  &_checked {
     .ui-radio-button {
       &__text {
-        /*  @include button-m-d;
+        !*  @include button-m-d;
 
         @include tablet-max {
           @include button-m-m;
-        } */
+        } *!
       }
     }
-  }
+  }*/
 
   &_centered {
     align-items: center;
@@ -155,10 +155,10 @@ export default {
     .ui-radio-button {
       &__mark {
         background-color: transparent;
-        border: 1px solid rgba($black, 10%);
+        border: 1px solid rgba(@black, 10%);
 
         &::after {
-          background-color: rgba($black, 20%);
+          background-color: rgba(@black, 20%);
         }
       }
     }
@@ -172,16 +172,16 @@ export default {
   }
 
   &__mark {
-    @include square(24px);
+    .square(24px);
     position: relative;
     display: block;
     flex: none;
     margin-right: 12px;
-    background-color: $white;
+    background-color: @white;
     border-radius: 100%;
 
     &::after {
-      @include square(16px);
+      .square(16px);
       position: absolute;
       top: 50%;
       left: 50%;
@@ -194,7 +194,7 @@ export default {
       border-radius: 100%;
       transform: translate(-50%, -50%);
       opacity: 0;
-      transition: opacity $transition-default;
+      transition: opacity @transition-default;
       content: "";
     }
 

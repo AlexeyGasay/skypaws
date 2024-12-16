@@ -1,11 +1,6 @@
-@use "fonts";
-@use "transitions";
-@use "reset";
-
-:root {
-  --color-black: #{$black};
-  --color-white: #{$white};
-}
+@import "@/assets/styles/fonts.less";
+@import "@/assets/styles/reset.less";
+@import "@/assets/styles/breakpoints.less";
 
 html,
 body {
@@ -13,26 +8,23 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  color: $black;
+  color: @black;
   font-weight: 400;
   font-size: 4.2667vw;
-
-  // font-size: $font-size-root-default;
   font-family: Nunito, Arial, sans-serif !important;
   font-style: normal;
   line-height: 1.2;
-  background-color: $purple;
+  background-color: @purple;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-
-  @media screen and (min-width: $tablet-min) {
+  .tablet-min({
     font-size: 2.0833vw;
-  }
+  });
 
-  @media screen and (min-width: $desktop-min) {
+  .desktop-min({
     font-size: 1.11vw;
-  }
+  });
 }
 
 body.lock {
@@ -56,12 +48,9 @@ ul {
   list-style: none;
 }
 
-.sr-only {
-  @include sr-only;
-}
 
 .select-none {
-  user-select: none;
+  importr-select: none;
 }
 
 button,
@@ -73,20 +62,11 @@ a {
   width: 100%;
 }
 
-.dont-break-word {
-  @include dont-break-out;
-}
-
-
 .icon.sprite-icons {
   max-width: 100%;
   max-height: 100%;
   line-height: 0;
   vertical-align: top;
-}
-
-.desktop-only {
-  @include desktop-only;
 }
 
 .inherit-color {

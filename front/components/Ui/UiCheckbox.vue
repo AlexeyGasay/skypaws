@@ -103,38 +103,38 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="less">
 .ui-checkbox {
   position: relative;
   display: block;
   flex-shrink: 0;
 
-  &:not(&_is-checked, &_disabled) {
-    @include hover {
+  &:not(&_checked):not(&_disabled) {
+    .hover({
       .ui-checkbox {
         &__label-checkbox {
-          background-color: rgba($black, 10%);
+          background-color: rgba(@black, 10%);
         }
       }
-    }
+    });
   }
 
   &_is-checked {
     .ui-checkbox {
       &__label-checkbox {
-        background-color: $black;
+        background-color: @black;
       }
 
       &__label-checkbox-icon {
-        color: $white;
+        color: @white;
       }
 
       &__label-text {
-        // @include button-m-d;
+        // .button-m-d;
 
-        @include tablet-max {
-          // @include button-m-m;
-        }
+        .tablet-max({
+          // .button-m-m;
+        });
       }
     }
   }
@@ -146,11 +146,11 @@ export default {
       }
 
       &__label-checkbox {
-        background-color: rgba($black, 20%);
+        background-color: rgba(@black, 20%);
       }
 
       &__label-checkbox-icon {
-        color: rgb($black, 20%);
+        color: rgba(@black, 20%);
       }
     }
   }
@@ -184,23 +184,22 @@ export default {
   }
 
   &__label-checkbox {
-    @include square(20px);
+    .square(20px);
     display: flex;
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
     padding: 2px;
     background-color: transparent;
-    border: 1px solid rgb($black, 10%);
+    border: 1px solid rgba(@black, 10%);
     border-radius: 6px;
-    transition: background-color $transition-default;
+    transition: background-color @transition-default;
   }
 
   &__label-checkbox-icon {
     display: block;
     flex-shrink: 0;
-
-    @include square(16px);
+    .square(16px);
   }
 
   &__label-text {
@@ -213,7 +212,7 @@ export default {
     position: absolute;
     top: 0;
     right: 0;
-    color: rgba($black, 30%);
+    color: rgba(@black, 30%);
     transform: translate(110%, -50%);
   }
 }

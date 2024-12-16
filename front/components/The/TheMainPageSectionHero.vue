@@ -37,24 +37,23 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="less">
 .the-main-page-section-hero {
-  @include container;
+  .container();
   position: relative;
   z-index: 1;
   display: flex;
   align-items: center;
-  height: 100vh;
   padding: 140px 40px 60px;
 
-  @include tablet-max {
+  .tablet-max({
     align-items: flex-start;
     padding: 100px 40px 60px;
-  }
+  });
 
-  @include mobile-max {
+  .mobile-max({
     padding: 100px 10px 60px;
-  }
+  });
 
   &__kv {
     position: absolute;
@@ -66,22 +65,22 @@ export default {
     object-fit: cover;
     pointer-events: none;
 
-    @include tablet-max {
+    .tablet-max({
       top: 30vh;
       bottom: unset;
       height: 70vh;
-    }
+    });
 
-    @include mobile-max {
+    .mobile-max({
       top: 40vh;
       bottom: unset;
       height: 60vh;
-    }
+    });
   }
 
   &__info {
     max-width: 850px;
-    color: $white;
+    color: @white;
   }
 
   &__info-title {
@@ -90,13 +89,13 @@ export default {
     line-height: 130%;
     text-transform: uppercase;
 
-    @include tablet-max {
+    .tablet-max({
       font-size: 32px;
-    }
+    });
 
-    @include mobile-max {
+    .mobile-max({
       font-size: 20px;
-    }
+    });
   }
 
   &__info-text {
@@ -105,13 +104,13 @@ export default {
     font-size: 20px;
     line-height: 130%;
 
-    @include tablet-max {
+    .tablet-max({
       font-size: 18px;
-    }
+    });
 
-    @include mobile-max {
+    .mobile-max({
       font-size: 12px;
-    }
+    });
   }
 
   &__info-video {

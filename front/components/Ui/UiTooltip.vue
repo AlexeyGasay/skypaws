@@ -30,11 +30,11 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="less">
 .ui-tooltip {
   &__tooltip-inner {
     position: relative;
-    z-index: $z-overmodals;
+    z-index: @z-overmodals;
     overflow: hidden;
   }
 }
@@ -46,11 +46,11 @@ export default {
 } */
 
 .el-tooltip__popper {
-  z-index: $z-overmodals !important;
+  z-index: @z-overmodals !important;
 
   /* .popper__arrow {
     @include square(12px);
-    background-color: $white;
+    background-color: @white;
     border: unset !important;
     border-radius: 2px;
     transform: rotate(45deg);

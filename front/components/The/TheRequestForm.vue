@@ -177,13 +177,13 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="less">
 .the-request-form {
   padding: 10px 58px 30px;
 
-  @include mobile-max {
+  .mobile-max({
     padding: 10px 30px 30px;
-  }
+  });
 
   &__body {
   }
@@ -197,40 +197,40 @@ export default {
     text-align: center;
     text-transform: uppercase;
 
-    @include tablet-max {
+    .tablet-max({
       font-size: 20px;
-    }
+    });
 
     &::before {
-      @include square(46px);
+      .square(46px);
       position: absolute;
       top: 20px;
       left: 0;
       display: block;
-      background-image: url("assets/images/handset-phone-gradient.svg");
+      background-image: url("@/assets/images/handset-phone-gradient.svg");
       background-size: cover;
       transform: translate(-50%, -50%);
       content: "";
     }
 
     &::after {
-      @include square(46px);
+      .square(46px);
       position: absolute;
       top: 100%;
       right: -18%;
       display: block;
-      background-image: url("assets/images/phone-gradient.svg");
+      background-image: url("@/assets/images/phone-gradient.svg");
       background-size: cover;
       transform: translate(-50%, -50%);
       content: "";
 
-      @include tablet-max {
+      .tablet-max({
         right: -5%;
-      }
+      });
 
-      @include mobile-max {
+      .mobile-max({
         right: -15%;
-      }
+      });
     }
   }
 
@@ -244,9 +244,9 @@ export default {
     font-size: 20px;
     line-height: 130%;
 
-    @include mobile-max {
+    .mobile-max({
       font-size: 14px;
-    }
+    });
   }
 
   &__item-input {
@@ -255,12 +255,12 @@ export default {
 
   &__item-error {
     margin-top: 10px;
-    color: $red;
+    color: @red;
     font-size: 16px;
 
-    @include mobile-max {
+    .mobile-max({
       font-size: 12px;
-    }
+    });
   }
 
   &__footer {

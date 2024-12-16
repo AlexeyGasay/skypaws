@@ -254,12 +254,12 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="less">
 .app-modal {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: $z-4;
+  z-index: @z-4;
   width: 100%;
   height: 100%;
   transform: scale(0);
@@ -270,28 +270,28 @@ export default {
     .app-modal {
       &__background {
         background: rgb(0 0 0 / 0%);
-        animation: app-modal-fade-in $transition-normal
+        animation: app-modal-fade-in @transition-normal
           cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
       }
 
       &__wrapper {
         opacity: 1;
-        animation: app-modal-scale-up $transition-normal;
+        animation: app-modal-scale-up @transition-normal;
       }
     }
   }
 
   &_closing {
-    animation: app-modal-quickscale-down 0s $transition-normal linear forwards;
+    animation: app-modal-quickscale-down 0s @transition-normal linear forwards;
 
     .app-modal {
       &__background {
-        animation: app-modal-fade-out $transition-normal
+        animation: app-modal-fade-out @transition-normal
           cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
       }
 
       &__wrapper {
-        animation: scale-down $transition-normal
+        animation: scale-down @transition-normal
           cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
       }
     }
@@ -306,20 +306,20 @@ export default {
     height: 100%;
     padding: 48px;
 
-    @include tablet-max {
+    .tablet-max({
       padding: 0;
-    }
+    });
   }
 
-  @include tablet-max {
+  .tablet-max({
     padding: 0;
-  }
+  });
 
   &__wrapper {
     position: relative;
     top: var(--offset-top-wrapper);
     left: 50%;
-    z-index: $z-5;
+    z-index: @z-5;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -327,17 +327,17 @@ export default {
     height: var(--height);
     max-height: 100%;
     overflow: hidden;
-    background-color: $white;
+    background-color: @white;
     border-radius: 24px;
     transform: translate(-50%, -50%);
 
     &:not(&_is-result-modal) {
-      @include tablet-max {
+      .tablet-max({
         top: 50%;
         max-width: 100%;
         height: 100%;
         border-radius: unset;
-      }
+      });
     }
   }
 
@@ -347,14 +347,14 @@ export default {
     justify-content: space-between;
     padding: 20px 30px 0;
 
-    @include tablet-max {
+    .tablet-max({
       align-items: center;
       padding: 16px 30px 0;
-    }
+    });
 
-    @include mobile-max {
+    .mobile-max({
       padding: 16px 16px 0;
-    }
+    });
   }
 
   &__header-close-button {
@@ -364,7 +364,7 @@ export default {
   }
 
   &__header-close-button-icon {
-    @include square(30px);
+    .square(30px);
   }
 
   &__body {
@@ -383,7 +383,7 @@ export default {
 
   @keyframes app-modal-fade-out {
     0% {
-      background: rgba($black, 80%);
+      background: rgba(@black, 80%);
     }
 
     100% {
@@ -409,7 +409,7 @@ export default {
     }
 
     100% {
-      background: rgba($black, 80%);
+      background: rgba(@black, 80%);
     }
   }
 

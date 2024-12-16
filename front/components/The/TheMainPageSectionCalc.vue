@@ -69,23 +69,20 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="less">
 .the-main-page-section-calc {
   position: relative;
-
-  // top: 0;
-  // left: 0;
   z-index: 10;
   width: 100%;
   height: 100vh;
-  background-color: $purple;
+  background-color: @purple;
 
-  @include tablet-max {
+  .tablet-max({
     position: relative;
-  }
+  });
 
   &__inner {
-    @include container;
+    .container();
     position: relative;
     display: flex;
     align-items: center;
@@ -93,20 +90,20 @@ export default {
     height: 100%;
     padding-left: 40px;
 
-    @include tablet-max {
+    .tablet-max({
       align-items: flex-start;
       padding: 100px 40px 60px;
-    }
+    });
 
-    @include mobile-max {
+    .mobile-max({
       padding: 100px 10px 60px;
-    }
+    });
   }
 
   &__info {
     position: relative;
-    z-index: $z-3;
-    color: $white;
+    z-index: @z-3;
+    color: @white;
   }
 
   &__info-title {
@@ -116,13 +113,13 @@ export default {
     line-height: 135%;
     text-transform: uppercase;
 
-    @include tablet-max {
+    .tablet-max({
       font-size: 30px;
-    }
+    });
 
-    @include mobile-max {
+    .mobile-max({
       font-size: 16px;
-    }
+    });
   }
 
   &__info-text {
@@ -132,16 +129,16 @@ export default {
     font-size: 20px;
     line-height: 135%;
 
-    @include tablet-max {
+    .tablet-max({
       max-width: 5600px;
       margin-top: 6px;
       font-size: 16px;
-    }
+    });
 
-    @include mobile-max {
+    .mobile-max({
       max-width: 325px;
       font-size: 12px;
-    }
+    });
   }
 
   &__info-button {
@@ -155,71 +152,71 @@ export default {
     inset: 0;
     pointer-events: none;
 
-    @include tablet-max {
+    .tablet-max({
       top: 68%;
-    }
+    });
   }
 
   &__image-hands {
     position: absolute;
     top: 85%;
     right: 39px;
-    z-index: $z-3;
+    z-index: @z-3;
     width: 230px;
     transform: translateY(-50%);
     pointer-events: none;
 
-    @include tablet-max {
+    .tablet-max({
       top: 88%;
       right: 0;
       width: 219px;
-    }
+    });
 
-    @include mobile-max {
+    .mobile-max({
       right: 17px;
       width: 102px;
-    }
+    });
   }
 
   &__image-drone {
     position: absolute;
     top: 39%;
     right: 80px;
-    z-index: $z-2;
+    z-index: @z-2;
     width: 400px;
     transform: translateY(-50%);
     animation: drone-fly 5s infinite;
     pointer-events: none;
 
-    @include tablet-max {
+    .tablet-max({
       top: 55%;
       right: 25%;
       width: 353px;
-    }
+    });
 
-    @include mobile-max {
+    .mobile-max({
       width: 156px;
-    }
+    });
   }
 
   &__image-clouds {
     position: absolute;
     top: 43%;
     right: 6px;
-    z-index: $z-1;
+    z-index: @z-1;
     width: 50%;
     transform: translateY(-50%);
     pointer-events: none;
 
-    @include tablet-max {
+    .tablet-max({
       top: 55%;
       right: 0;
       width: 100%;
-    }
+    });
 
-    @include mobile-max {
+    .mobile-max({
       right: 0;
-    }
+    });
   }
 }
 

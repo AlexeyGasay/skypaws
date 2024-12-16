@@ -347,7 +347,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="less">
 .ui-input {
   &__label {
     position: relative;
@@ -356,19 +356,19 @@ export default {
     width: 100%;
     border-radius: 10px;
 
-    @include gradient-border-mask(
+    .gradient-border-mask(
       1px,
       linear-gradient(90deg, #03a7c8 0%, #732fff 50%, #ac1f51 100%)
     );
 
     &_theme {
       &_white {
-        background-color: $white;
+        background-color: @white;
       }
 
-      @include hover {
-        background-color: rgba($black, 10%);
-      }
+      .hover({
+        background-color: rgba(@black, 10%);
+      });
 
       &_transparent {
         background: transparent;
@@ -377,21 +377,21 @@ export default {
 
     &_focused-filled {
       &:not(.ui-input__label_theme_transparent) {
-        background-color: $white;
+        background-color: @white;
 
-        @include hover {
-          background-color: $white;
-        }
+        .hover({
+          background-color: @white;
+        });
       }
     }
 
     &_error {
-      background-color: rgba($purple, 10%);
+      background-color: rgba(@purple, 10%);
       box-shadow: unset;
 
-      @include hover {
-        background-color: rgba($purple, 20%);
-      }
+      .hover({
+        background-color: rgba(@purple, 20%);
+      });
     }
   }
 
@@ -405,7 +405,7 @@ export default {
     outline: none;
 
     &_error {
-      color: $purple;
+      color: @purple;
     }
   }
 
@@ -419,14 +419,14 @@ export default {
     left: 10px;
     display: block;
     transform: translateY(-50%);
-    transition: $transition-default;
+    transition: @transition-default;
 
     &_focus {
       opacity: 1;
     }
 
     &_filled {
-      color: rgba($black, 40%);
+      color: rgba(@black, 40%);
       opacity: 0;
     }
 
@@ -442,12 +442,12 @@ export default {
   }
 
   &__suffix {
-    @include square(18px);
+    .square(18px);
     display: block;
     margin-right: 16px;
 
     &_error {
-      color: rgba($purple, 60%);
+      color: rgba(@purple, 60%);
     }
   }
 
@@ -457,12 +457,12 @@ export default {
 
   &__notifications-advice {
     margin-top: 8px;
-    color: rgba($black, 60%);
+    color: rgba(@black, 60%);
   }
 
   &__notifications-error {
     margin-top: 8px;
-    color: rgba($purple, 60%);
+    color: rgba(@purple, 60%);
   }
 
   input::-webkit-outer-spin-button,

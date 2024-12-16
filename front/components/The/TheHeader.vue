@@ -197,23 +197,23 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="less">
 .the-header {
   &__inner {
-    @include container;
+    .container();
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 12px 40px;
     background: linear-gradient(180deg, #180b2c 0%, rgb(24 11 44 / 0%) 100%);
 
-    @include tablet-max {
+    .tablet-max({
       padding: 12px 30px;
-    }
+    });
 
-    @include mobile-max {
+    .mobile-max({
       padding: 10px;
-    }
+    });
   }
 
   &__logo {
@@ -224,22 +224,22 @@ export default {
   &__logo-icon {
     width: 80px;
 
-    @include mobile-max {
+    .mobile-max({
       width: 67px;
-    }
+    });
   }
 
   &__logo-text {
     max-width: 151px;
     margin-left: 5px;
-    color: $white;
+    color: @white;
     font-weight: 500;
     font-size: 15px;
     line-height: 135%;
 
-    @include tablet-max {
+    .tablet-max({
       font-size: 11px;
-    }
+    });
   }
 
   &__menu {
@@ -247,16 +247,16 @@ export default {
     align-items: stretch;
     justify-content: space-between;
 
-    @include tablet-max {
+    .tablet-max({
       display: none;
-    }
+    });
   }
 
   &__menu-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: $white;
+    color: @white;
     font-weight: 500;
     text-align: center;
     cursor: pointer;
@@ -265,7 +265,7 @@ export default {
       margin-left: 50px;
     }
 
-    @include hover {
+    .hover({
       .svg {
         opacity: 0;
       }
@@ -273,7 +273,7 @@ export default {
       .svg-gradient {
         opacity: 1;
       }
-    }
+    });
   }
 
   &__menu-item-icon {
@@ -294,7 +294,7 @@ export default {
 
       .svg,
       .svg-gradient {
-        transition: $transition-default ease;
+        transition: @transition-default ease;
       }
     }
   }
@@ -303,17 +303,17 @@ export default {
     display: flex;
     align-items: center;
 
-    @include tablet-max {
+    .tablet-max({
       margin-left: auto;
-    }
+    });
 
-    @include mobile-max {
+    .mobile-max({
       display: none;
-    }
+    });
   }
 
   &__contacts-phone {
-    color: $white;
+    color: @white;
     font-weight: 900;
     font-size: 16px;
     line-height: 120%;
@@ -323,38 +323,38 @@ export default {
   &__contacts-button {
     margin-left: 20px;
 
-    @include tablet-max {
+    .tablet-max({
       display: none !important;
-    }
+    });
   }
 
   &__burger {
-    @include square(41px);
+    .square(41px);
     display: none;
     margin-left: 30px;
     cursor: pointer;
 
-    @include tablet-max {
+    .tablet-max({
       display: block;
-    }
+    });
   }
 
   &__inner-mobile {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: $z-6;
+    z-index: @z-6;
     display: none;
     width: 100%;
     height: 100vh;
-    background-color: $purple;
+    background-color: @purple;
     transform: translateX(100%);
-    transition: transform $transition-default ease-in-out;
+    transition: transform @transition-default ease-in-out;
 
-    @include tablet-max {
+    .tablet-max({
       display: flex;
       flex-direction: column;
-    }
+    });
 
     &_open {
       transform: translateX(0);
@@ -367,12 +367,12 @@ export default {
     cursor: pointer;
 
     svg {
-      @include square(41px);
+      .square(41px);
     }
 
-    @include mobile-max {
+    .mobile-max({
       margin: 10px 10px 0 auto;
-    }
+    });
   }
 
   &__inner-mobile-menu {
@@ -382,7 +382,7 @@ export default {
   &__inner-mobile-menu-item {
     display: flex;
     align-items: center;
-    color: $white;
+    color: @white;
     font-weight: 500;
     font-size: 20px;
     text-transform: uppercase;
@@ -396,7 +396,7 @@ export default {
     margin-right: 10px;
 
     svg {
-      @include square(30px);
+      .square(30px);
     }
   }
 
@@ -404,7 +404,7 @@ export default {
     display: block;
     margin-top: 20px;
     padding: 0 10px;
-    color: $white;
+    color: @white;
     font-weight: 500;
     font-size: 20px;
     text-decoration: none;
