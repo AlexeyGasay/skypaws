@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import gsap from "gsap";
+// import gsap from "gsap";
 import TheMainPageSectionHero from "@/components/The/TheMainPageSectionHero.vue";
 import TheMainPageSectionDiscount from "@/components/The/TheMainPageSectionDiscount.vue";
 import TheMainPageSectionCalc from "@/components/The/TheMainPageSectionCalc.vue";
@@ -54,7 +54,7 @@ import TheCalcForm from "@/components/The/TheCalcForm.vue";
 import AppModal from "@/components/App/AppModal.vue";
 import AppEcosystemModalInner from "@/components/App/AppEcosystemModalInner .vue";
 import AppResultModal from "@/components/App/AppResultModal.vue";
-import { animation, animationMobile } from "../animation/main-page";
+// import { animation, animationMobile } from "../animation/main-page";
 
 export default {
   components: {

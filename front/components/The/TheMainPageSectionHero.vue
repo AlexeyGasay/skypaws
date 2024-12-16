@@ -65,6 +65,9 @@ export default {
     gsap.set(this.$refs.quote2, {
       x: "-50rem",
     });
+    gsap.set("body", {
+      opacity: 1,
+    });
 
     const tlChangeQuote = gsap.timeline({ repeat: -1, repeatDelay: 0 });
     tlChangeQuote.to(
