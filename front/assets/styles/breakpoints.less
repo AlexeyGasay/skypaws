@@ -1,19 +1,13 @@
 @import "@/assets/styles/variables.less";
 
-.mobile-min(@params) {
-  @media @mobile-min {
-    @params();
-  }
-}
-
 .mobile-max(@params) {
-  @media @mobile-max {
+  @media @tablet-max {
     @params();
   }
 }
 
 .tablet-max(@params) {
-  @media @tablet-max {
+  @media @desktop-max {
     @params();
   }
 }
@@ -26,13 +20,6 @@
 
 .desktop-min(@params) {
   @media @desktop-min {
-    @params();
-  }
-}
-
-
-.desktop-max(@params) {
-  @media @desktop-max {
     @params();
   }
 }
