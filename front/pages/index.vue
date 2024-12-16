@@ -89,9 +89,9 @@ export default {
   },
 
   mounted() {
-    const mm = gsap.matchMedia();
-    mm.add("(min-width: 1024px)", animation);
-    mm.add("(max-width: 1023px)", animationMobile);
+    // const mm = gsap.matchMedia();
+    // mm.add("(min-width: 1024px)", animation);
+    // mm.add("(max-width: 1023px)", animationMobile);
   },
 };
 </script>

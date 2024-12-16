@@ -71,9 +71,10 @@ export default {
 
 <style lang="scss">
 .the-main-page-section-calc {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
+
+  // top: 0;
+  // left: 0;
   z-index: 10;
   width: 100%;
   height: 100vh;

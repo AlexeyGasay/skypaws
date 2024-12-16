@@ -67,7 +67,7 @@ export default {
 <style lang="scss">
 .the-main-page-section-ecosystem {
   @include container;
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   z-index: 110;

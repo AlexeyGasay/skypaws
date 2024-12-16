@@ -76,7 +76,7 @@ export default {
 
 <style lang="scss">
 .the-main-page-section-discount {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   z-index: 10;
