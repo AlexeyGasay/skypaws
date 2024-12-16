@@ -211,6 +211,10 @@ export default {
       background-size: cover;
       transform: translate(-50%, -50%);
       content: "";
+
+      // .tablet-max({
+      //   // left: -10px;
+      // })
     }
 
     &::after {

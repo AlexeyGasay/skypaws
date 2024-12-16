@@ -317,9 +317,9 @@ export default {
     &:not(&_is-result-modal) {
       .tablet-max({
         top: 50%;
-        max-width: 100%;
-        height: 100%;
+        max-width: calc(100%-16px);
         border-radius: unset;
+        border-radius: 8px
       });
     }
   }

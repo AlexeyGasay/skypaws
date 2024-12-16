@@ -240,7 +240,7 @@ export default {
   }
 
   50% {
-    transform: translate(-50px, -50px) rotate(15deg);
+    transform: translate(-30px, -30px) rotate(15deg);
   }
 
   100% {

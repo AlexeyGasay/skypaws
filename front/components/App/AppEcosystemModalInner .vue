@@ -245,7 +245,7 @@ export default {
 
     openRequestModal() {
       this.SET_DATA({ title: "откройте бизнес вместе со skypaws" });
-      this.SHOW_MODAL(this.$MODAL_NAMES.RESULT_MODAL);
+      this.SHOW_MODAL(this.$MODAL_NAMES.REQUEST_MODAL);
     },
 
     slideHandler(nav) {

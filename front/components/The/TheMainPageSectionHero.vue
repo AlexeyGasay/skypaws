@@ -37,6 +37,18 @@
       alt="Ключевой образ"
     />
 
+    <img
+      class="the-main-page-section-hero__kv the-main-page-section-hero__kv_tablet"
+      src="@/assets/images/boy-tablet.png"
+      alt="Ключевой образ"
+    />
+
+    <img
+      class="the-main-page-section-hero__kv the-main-page-section-hero__kv_mobile"
+      src="@/assets/images/boy-mobile.png"
+      alt="Ключевой образ"
+    />
+
     <div class="the-main-page-section-hero__gradient" />
   </div>
 </template>
@@ -153,11 +165,11 @@ export default {
   .tablet-max({
     align-items: flex-start;
     padding: 84px 20px 60px;
-    height: 800px;
   });
 
   .mobile-max({
     padding: 100px 10px 60px;
+    height: 100vh;
   });
 
   &__kv {
@@ -171,14 +183,31 @@ export default {
     pointer-events: none;
 
     .tablet-max({
-      bottom: 30px;
-      height: 500px;
-    });
+        display: none;
+      });
 
-    .mobile-max({
-      bottom: 30px;
-      height: 400px;
-    });
+    &_tablet {
+      display: none;
+      height: 80vh;
+
+      .tablet-max({
+        display: block;
+      });
+
+      .mobile-max({
+        display: none;
+      });
+    }
+
+    &_mobile {
+      display: none;
+      height: auto;
+      width: 100vw;
+
+      .mobile-max({
+        display: block ;
+      });
+    }
   }
 
   &__info {
@@ -224,6 +253,10 @@ export default {
       left: 0;
       z-index: 1;
       transition: none;
+
+      .tablet-max({
+      width: 90%;
+    });
     }
 
     .tablet-max({
