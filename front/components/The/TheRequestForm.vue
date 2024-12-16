@@ -198,7 +198,7 @@ export default {
     text-transform: uppercase;
 
     .tablet-max({
-      font-size: 20px;
+      font-size: 22px;
     });
 
     &::before {

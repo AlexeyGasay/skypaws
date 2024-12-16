@@ -18,6 +18,20 @@
             :class="bem('app-modal__wrapper', { isResultModal })"
             :style="`--offset-top-wrapper: ${offsetTopWrapper}%; --height: ${height}`"
           >
+            <div class="app-modal__header">
+              <slot
+                v-if="$slots.header"
+                name="header"
+              />
+
+              <div
+                v-if="haveCloseButton"
+                class="app-modal__header-close-button"
+                @click="closeModal($event, true)"
+              >
+                <div class="app-modal__header-close-button-icon" />
+              </div>
+            </div>
             <div class="app-modal__body">
               <perfect-scrollbar
                 v-if="isDesktop"
@@ -40,8 +54,8 @@
 </template>
 
 <script>
-import { pixelsToRem, scrollLock } from "@/tools";
 import { mapGetters, mapMutations } from "vuex";
+import { pixelsToRem, scrollLock } from "@/tools";
 import compensateScrollbar from "@/tools/compensateScrollbar";
 
 export default {
@@ -247,6 +261,12 @@ export default {
   height: 100%;
   transform: scale(0);
 
+  &_name_calc-modal {
+    .app-modal__header {
+      display: flex !important;
+    }
+  }
+
   &_visible {
     transform: scale(1);
 
@@ -325,10 +345,14 @@ export default {
   }
 
   &__header {
-    display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    padding: 20px 30px 0;
+    padding: 40px;
+    position: absolute;
+    z-index: 999999;
+    top: 0;
+    right: 0;
+    display: none;
 
     .tablet-max({
       align-items: center;
@@ -423,6 +447,14 @@ export default {
       transform: translate(-50%, -50%);
       opacity: 1;
     }
+  }
+}
+
+.app-modal_name_calc-modal {
+  .app-modal__wrapper {
+    .tablet-max({
+      max-width: 100% !important;
+    });
   }
 }
 </style>

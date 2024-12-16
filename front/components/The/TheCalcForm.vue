@@ -429,7 +429,7 @@ export default {
   &__inner {
     display: flex;
     align-items: stretch;
-    padding: 40px;
+    padding: 42px;
 
     .tablet-max({
       flex-direction: column;
@@ -475,9 +475,13 @@ export default {
     line-height: 130%;
     text-transform: uppercase;
 
+    .tablet-max ({
+      width: max-content !important;
+    });;
+
     .mobile-max({
       font-size: 14px;
-
+      width: 70% !important;
     });
 
     &_desktop {
