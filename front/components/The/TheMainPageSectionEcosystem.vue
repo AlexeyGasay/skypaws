@@ -5,13 +5,6 @@
         <h2 class="the-main-page-section-ecosystem__header-title">
           Экосистема для вашего бизнеса
         </h2>
-        <ui-button
-          class="the-main-page-section-ecosystem__header-button"
-          :size="isDesktop ? 'm' : 's'"
-          @click="openRequestModal"
-        >
-          подробнее
-        </ui-button>
       </div>
       <div class="the-main-page-section-ecosystem__list">
         <app-card-ecosystem
@@ -77,7 +70,7 @@ export default {
   left: 0;
   z-index: 110;
   width: 100%;
-  padding: 20px 40px 40px;
+  padding: 100px 40px 24px;
 
   .tablet-max({
     position: relative;
@@ -109,8 +102,6 @@ export default {
     font-size: 40px;
     line-height: 135%;
     text-transform: uppercase;
-    padding-right: 15px;
-    max-width: 450px;
 
     .tablet-max({
       font-size: 30px;
@@ -128,7 +119,7 @@ export default {
 
   &__list {
     display: grid;
-    margin-top: 40px;
+    margin-top: 27px;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 40px;
 

@@ -37,20 +37,6 @@ export default {
     localStorage.removeItem("firstModal");
     localStorage.removeItem("modalCount");
     localStorage.removeItem("first-scroll-locked");
-
-    if (
-      "ontouchstart" in window ||
-      navigator.maxTouchPoints > 0 ||
-      navigator.msMaxTouchPoints > 0
-    ) {
-      window.addEventListener("orientationchange", () => {
-        window.location.reload();
-      });
-    } else {
-      window.addEventListener("resize", () => {
-        window.location.reload();
-      });
-    }
   },
 
   methods: {

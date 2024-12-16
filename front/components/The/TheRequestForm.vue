@@ -179,10 +179,10 @@ export default {
 
 <style lang="less">
 .the-request-form {
-  padding: 10px 58px 30px;
+  padding: 30px 58px 30px;
 
   .mobile-max({
-    padding: 10px 30px 30px;
+    padding: 30px;
   });
 
   &__body {
@@ -204,7 +204,7 @@ export default {
     &::before {
       .square(46px);
       position: absolute;
-      top: 20px;
+      top: 0px;
       left: 0;
       display: block;
       background-image: url("@/assets/images/handset-phone-gradient.svg");

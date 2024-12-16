@@ -3,7 +3,7 @@
     <div class="the-main-page-section-stats__inner">
       <div class="the-main-page-section-stats__info">
         <h2 class="the-main-page-section-stats__info-title">
-          присоединяйся к skypaws!
+          присоединяйся к&nbsp;skypaws!
         </h2>
 
         <div class="the-main-page-section-stats__info-stats">
@@ -99,7 +99,7 @@ export default {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 20px 40px 55px;
+    padding: 90px 40px 21px;
 
     .tablet-max({
       flex-direction: column;
@@ -141,7 +141,7 @@ export default {
   }
 
   &__info-stats-item {
-    padding: 20px;
+    padding: 18px;
     font-weight: 900;
     font-size: 32px;
     line-height: 135%;
@@ -151,7 +151,7 @@ export default {
     border-radius: 10px;
 
     &:not(&:first-child) {
-      margin-top: 30px;
+      margin-top: 27px;
 
       .tablet-max({
         margin-top: 20px;
@@ -186,7 +186,7 @@ export default {
 
   &__map {
     width: 90%;
-    margin-left: 12px;
+    margin-left: 18px;
 
     .tablet-max({
       height: auto;

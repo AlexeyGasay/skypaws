@@ -18,21 +18,6 @@
             :class="bem('app-modal__wrapper', { isResultModal })"
             :style="`--offset-top-wrapper: ${offsetTopWrapper}%; --height: ${height}`"
           >
-            <div class="app-modal__header">
-              <slot
-                v-if="$slots.header"
-                name="header"
-              />
-
-              <div
-                v-if="haveCloseButton"
-                class="app-modal__header-close-button"
-                @click="closeModal($event, true)"
-              >
-                <div class="app-modal__header-close-button-icon" />
-              </div>
-            </div>
-
             <div class="app-modal__body">
               <perfect-scrollbar
                 v-if="isDesktop"

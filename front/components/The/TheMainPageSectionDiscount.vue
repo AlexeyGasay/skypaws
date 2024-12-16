@@ -3,7 +3,7 @@
     <div class="the-main-page-section-discount__inner">
       <div class="the-main-page-section-discount__info">
         <h2 class="the-main-page-section-discount__info-title">
-          получите скидку на&nbsp;наш пакет для бизнеса
+          получите скидку на&nbsp;наш пакет для&nbsp;бизнеса
         </h2>
 
         <p class="the-main-page-section-discount__info-text">
@@ -82,7 +82,8 @@ export default {
   z-index: 10;
   width: 100vw;
   height: 500px;
-  background-color: @purple;
+  background-image: url("@/assets/images/gradient.png");
+  background-size: cover;
 
   .tablet-max({
     position: relative;
@@ -171,8 +172,8 @@ export default {
 
   &__image-hands {
     position: absolute;
-    right: 0;
-    bottom: 60px;
+    right: 5px;
+    bottom: 0;
     z-index: @z-2;
     width: 400px;
     pointer-events: none;
@@ -190,7 +191,7 @@ export default {
 
   &__image-drone {
     position: absolute;
-    top: 20.5%;
+    top: 15%;
     right: 120px;
     z-index: @z-3;
     width: 400px;

@@ -1,9 +1,16 @@
 <template>
   <div class="app-card-ecosystem">
     <div class="app-card-ecosystem__wrapper">
-      <h3 class="app-card-ecosystem__title">{{ title }}</h3>
+      <h3
+        class="app-card-ecosystem__title"
+        v-html="title"
+      />
       <img
         class="app-card-ecosystem__icon"
+        :src="require(`@/assets/images/ecosystem/${icon}.png`)"
+      />
+      <img
+        class="app-card-ecosystem__gif"
         :src="require(`@/assets/images/ecosystem/${icon}.gif`)"
       />
 
@@ -47,7 +54,7 @@ export default {
   position: relative;
   z-index: 1;
   width: 426px;
-  height: 302px;
+  height: 280px;
   padding: 20px 0 20px 20px;
   border-radius: 10px;
   cursor: pointer;
@@ -79,6 +86,15 @@ export default {
   .hover({
     background: linear-gradient(90deg, #03a7c8 0%, #732fff 50%, #ac1f51 100%);
 
+    .app-card-ecosystem__gif {
+      display: block;
+    }
+
+    .app-card-ecosystem__icon {
+      display: none;
+    }
+
+
     &::before {
       opacity: 0;
     }
@@ -96,6 +112,7 @@ export default {
     font-weight: 900;
     font-size: 24px;
     text-transform: uppercase;
+    line-height: 133%;
 
     .tablet-max({
       font-size: 20px;
@@ -107,17 +124,22 @@ export default {
     });
   }
 
-  &__icon {
+  &__icon,
+  &__gif {
     position: absolute;
-    top: -40px;
+    top: -24px;
     right: 16px;
-    width: 100px;
+    width: 80px;
     object-fit: cover;
 
     .tablet-max({
       .square(50px);
       top: -10px;
     });
+  }
+
+  &__gif {
+    display: none;
   }
 
   &__list {

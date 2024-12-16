@@ -3,7 +3,7 @@
     <div class="the-main-page-section-calc__inner">
       <div class="the-main-page-section-calc__info">
         <h2 class="the-main-page-section-calc__info-title">
-          откройте свой бизнес с&nbsp;минимальными вложениями
+          откройте свой бизнес с&nbsp;минимальными<br/> вложениями
           от&nbsp;599&nbsp;000&nbsp;₽
         </h2>
 
@@ -77,6 +77,8 @@ export default {
   background-color: @purple;
   overflow: hidden;
   height: 500px;
+  background-image: url("@/assets/images/gradient.png");
+  background-size: cover;
 
   .tablet-max({
     position: relative;
@@ -187,7 +189,7 @@ export default {
 
   &__image-drone {
     position: absolute;
-    top: 39%;
+    top: 20%;
     right: 80px;
     z-index: @z-2;
     width: 400px;
