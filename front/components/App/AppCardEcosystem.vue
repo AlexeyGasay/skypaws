@@ -52,6 +52,11 @@ export default {
   border-radius: 10px;
   cursor: pointer;
 
+  .tablet-max({
+    width: 100%;
+    height: 244px;
+  });
+
   &::before {
     position: absolute;
     top: 0;
@@ -92,6 +97,10 @@ export default {
     font-size: 24px;
     text-transform: uppercase;
 
+    .tablet-max({
+      font-size: 20px;
+    });
+
     .mobile-max({
       max-width: 200px;
       font-size: 18px;
@@ -104,6 +113,11 @@ export default {
     right: 16px;
     width: 100px;
     object-fit: cover;
+
+    .tablet-max({
+      .square(50px);
+      top: -10px;
+    });
   }
 
   &__list {
@@ -121,7 +135,7 @@ export default {
     border: 2px solid @white;
     border-radius: 8px;
 
-    .mobile-max({
+    .tablet-max({
       padding: 6px;
       font-size: 11px;
     });

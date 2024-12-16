@@ -8,7 +8,7 @@
 
       <p class="the-main-page-section-hero__info-text">
         Откройте уникальную школу, где дети смогут развивать свои навыки в
-        пилотировании дронов, программировании и&nbsp;дизайне<br />
+        пилотировании дронов, программировании и&nbsp;дизайне!<br />
         Присоединяйтесь к&nbsp;нам и&nbsp;начните свой прибыльный бизнес уже
         сегодня &mdash; мы&nbsp;обеспечим Вас всем необходимым для успешного
         старта!
@@ -42,13 +42,13 @@ export default {
   .container();
   position: relative;
   z-index: 1;
-  display: flex;
-  align-items: center;
+  height: 860px;
   padding: 140px 40px 60px;
 
   .tablet-max({
     align-items: flex-start;
-    padding: 100px 40px 60px;
+    padding: 84px 20px 60px;
+    height: 800px;
   });
 
   .mobile-max({
@@ -61,20 +61,18 @@ export default {
     bottom: 0;
     z-index: 2;
     width: auto;
-    height: 100vh;
+    height: 848px;
     object-fit: cover;
     pointer-events: none;
 
     .tablet-max({
-      top: 30vh;
-      bottom: unset;
-      height: 70vh;
+      bottom: 30px;
+      height: 500px;
     });
 
     .mobile-max({
-      top: 40vh;
-      bottom: unset;
-      height: 60vh;
+      bottom: 30px;
+      height: 400px;
     });
   }
 
@@ -86,15 +84,15 @@ export default {
   &__info-title {
     font-weight: 900;
     font-size: 40px;
-    line-height: 130%;
+    line-height: 137%;
     text-transform: uppercase;
 
     .tablet-max({
-      font-size: 32px;
+      font-size: 30px;
     });
 
     .mobile-max({
-      font-size: 20px;
+      font-size: 16px;
     });
   }
 
@@ -102,7 +100,7 @@ export default {
     margin-top: 20px;
     font-weight: 500;
     font-size: 20px;
-    line-height: 130%;
+    line-height: 135%;
 
     .tablet-max({
       font-size: 18px;

@@ -29,9 +29,7 @@
                 class="app-modal__header-close-button"
                 @click="closeModal($event, true)"
               >
-                <div class="app-modal__header-close-button-icon">
-                  <svg-icon name="cross-icon" />
-                </div>
+                <div class="app-modal__header-close-button-icon" />
               </div>
             </div>
 
@@ -365,6 +363,9 @@ export default {
 
   &__header-close-button-icon {
     .square(30px);
+    background-image: url("@/assets/images/icons/cross-icon.svg");
+    background-position: center;
+    background-size: cover;
   }
 
   &__body {

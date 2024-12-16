@@ -4,13 +4,9 @@
       Спасибо! Данные успешно отправлены. наш менеджер скоро свяжется с вами!
     </div>
 
-    <div class="app-result-modal__icon app-result-modal__icon_1">
-      <svg-icon name="thumbs-up-filled-icon" />
-    </div>
+    <div class="app-result-modal__icon app-result-modal__icon_1" />
 
-    <div class="app-result-modal__icon app-result-modal__icon_2">
-      <svg-icon name="slide-6/add-business-icon" />
-    </div>
+    <div class="app-result-modal__icon app-result-modal__icon_2" />
   </div>
 </template>
 
@@ -48,21 +44,21 @@ export default {
     position: absolute;
 
     &_1 {
+      .square(63px);
       top: 34px;
       left: 36px;
-
-      * {
-        .square(63px);
-      }
+      background-image: url("@/assets/images/icons/thumbs-up-filled-icon.svg");
+      background-position: center;
+      background-size: cover;
     }
 
     &_2 {
+      .square(85px);
       right: 30px;
       bottom: 30px;
-
-      * {
-        .square(85px);
-      }
+      background-image: url("@/assets/images/icons/slide-6/add-business-icon.svg");
+      background-position: center;
+      background-size: cover;
     }
   }
 }

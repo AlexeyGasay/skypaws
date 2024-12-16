@@ -74,11 +74,17 @@ export default {
   position: relative;
   z-index: 10;
   width: 100%;
-  height: 100vh;
   background-color: @purple;
+  overflow: hidden;
+  height: 500px;
 
   .tablet-max({
     position: relative;
+    height: 677px;
+  });
+
+  .mobile-max({
+    height: 398px;
   });
 
   &__inner {
@@ -88,15 +94,15 @@ export default {
     align-items: center;
     width: 100%;
     height: 100%;
-    padding-left: 40px;
+    padding: 60px 40px;
 
     .tablet-max({
       align-items: flex-start;
-      padding: 100px 40px 60px;
+      padding: 0 30px;
     });
 
     .mobile-max({
-      padding: 100px 10px 60px;
+      padding: 0 10px;
     });
   }
 
@@ -150,6 +156,8 @@ export default {
     z-index: 0;
     width: 100%;
     inset: 0;
+    object-fit: contain;
+    height: 160%;
     pointer-events: none;
 
     .tablet-max({
@@ -159,17 +167,16 @@ export default {
 
   &__image-hands {
     position: absolute;
-    top: 85%;
     right: 39px;
     z-index: @z-3;
     width: 230px;
-    transform: translateY(-50%);
     pointer-events: none;
+    bottom: 50px;
 
     .tablet-max({
-      top: 88%;
-      right: 0;
+      right: 20px;
       width: 219px;
+      bottom: 0;
     });
 
     .mobile-max({
@@ -201,21 +208,24 @@ export default {
 
   &__image-clouds {
     position: absolute;
-    top: 43%;
+    top: 75px;
     right: 6px;
     z-index: @z-1;
-    width: 50%;
-    transform: translateY(-50%);
+    width: 621px;
     pointer-events: none;
 
     .tablet-max({
-      top: 55%;
       right: 0;
-      width: 100%;
+      top: unset;
+      bottom: 174px;
+      width: 596px;
     });
 
     .mobile-max({
       right: 0;
+      top: unset;
+      width: 280px;
+      bottom: 80px;
     });
   }
 }

@@ -63,18 +63,14 @@
       <div
         class="the-header__burger"
         @click="mobileMenuHandler"
-      >
-        <svg-icon name="burger-icon" />
-      </div>
+      />
     </div>
 
     <div :class="bem('the-header__inner-mobile', { open: isOpen })">
       <div
         class="the-header__inner-mobile-close-button"
         @click="mobileMenuHandler"
-      >
-        <svg-icon name="cross-icon" />
-      </div>
+      />
 
       <perfect-scrollbar>
         <!-- <nav class="the-header__inner-mobile-menu">
@@ -224,8 +220,8 @@ export default {
   &__logo-icon {
     width: 80px;
 
-    .mobile-max({
-      width: 67px;
+    .tablet-max({
+      width: 68px;
     });
   }
 
@@ -331,6 +327,9 @@ export default {
   &__burger {
     .square(41px);
     display: none;
+    background-image: url("@/assets/images/icons/burger-icon.svg");
+    background-size: cover;
+    background-position: center;
     margin-left: 30px;
     cursor: pointer;
 
@@ -365,10 +364,10 @@ export default {
     width: max-content;
     margin: 16px 40px 0 auto;
     cursor: pointer;
-
-    svg {
-      .square(41px);
-    }
+    background-image: url("@/assets/images/icons/cross-icon.svg");
+    background-position: center;
+    background-size: cover;
+    .square(41px);
 
     .mobile-max({
       margin: 10px 10px 0 auto;

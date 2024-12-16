@@ -6,21 +6,23 @@
         class="app-ecosystem-modal-inner__slider-handlers-item"
         @click="slideHandler('prev')"
       >
-        <svg-icon name="arrow-left-icon" />
+        <div
+          class="app-ecosystem-modal-inner__slider-handlers-item-icon app-ecosystem-modal-inner__slider-handlers-item-icon_arrow-left"
+        />
       </div>
 
       <div
         class="app-ecosystem-modal-inner__slider-handlers-item"
         @click="slideHandler('next')"
       >
-        <svg-icon
+        <div
           v-if="currentSlide < slides.length - 1"
-          name="arrow-right-icon"
+          class="app-ecosystem-modal-inner__slider-handlers-item-icon app-ecosystem-modal-inner__slider-handlers-item-icon_arrow-right"
         />
 
-        <svg-icon
+        <div
           v-else
-          name="cross-icon"
+          class="app-ecosystem-modal-inner__slider-handlers-item-icon app-ecosystem-modal-inner__slider-handlers-item-icon_cross"
           @click="HIDE_ALL_MODALS"
         />
       </div>
@@ -68,8 +70,6 @@
             --square: ${pixelsToRem(icon.square)};
             --img: url(${require(`@/assets/images/icons/${icon.name}.svg`)})`"
           />
-          <!--            <svg-icon :name="icon.name" />-->
-          <!--          </div>-->
         </template>
       </swiper-slide>
     </swiper>
@@ -245,7 +245,7 @@ export default {
 
     openRequestModal() {
       this.SET_DATA({ title: "откройте бизнес вместе со skypaws" });
-      this.SHOW_MODAL(this.$MODAL_NAMES.REQUEST_MODAL);
+      this.SHOW_MODAL(this.$MODAL_NAMES.RESULT_MODAL);
     },
 
     slideHandler(nav) {
@@ -295,6 +295,25 @@ export default {
       .mobile-max({
         margin-left: 10px;
       });
+    }
+  }
+
+  &__slider-handlers-item-icon {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+
+    &_arrow-left {
+      background-image: url("@/assets/images/icons/arrow-left-icon.svg");
+    }
+
+    &_arrow-right {
+      background-image: url("@/assets/images/icons/arrow-right-icon.svg");
+    }
+
+    &_cross {
+      background-image: url("@/assets/images/icons/cross-icon.svg");
     }
   }
 
@@ -355,7 +374,7 @@ export default {
     background-size: cover;
 
     .mobile-max({
-    .square(40 px);
+      .square(40px);
     });
 
     &_index {

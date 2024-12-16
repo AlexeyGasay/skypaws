@@ -3,12 +3,11 @@
     <div class="the-main-page-section-ecosystem__wrapper">
       <div class="the-main-page-section-ecosystem__header">
         <h2 class="the-main-page-section-ecosystem__header-title">
-          Экосистема для<br />
-          вашего бизнеса
+          Экосистема для вашего бизнеса
         </h2>
         <ui-button
           class="the-main-page-section-ecosystem__header-button"
-          size="m"
+          :size="isDesktop ? 'm' : 's'"
           @click="openRequestModal"
         >
           подробнее
@@ -29,7 +28,7 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 import cards from "@/data/ecosystemCards";
 import AppCardEcosystem from "../App/AppCardEcosystem.vue";
 
@@ -43,6 +42,12 @@ export default {
     return {
       cards,
     };
+  },
+
+  computed: {
+    ...mapGetters({
+      isDesktop: "mqHelper/isDesktop",
+    }),
   },
 
   methods: {
@@ -72,12 +77,15 @@ export default {
   left: 0;
   z-index: 110;
   width: 100%;
-  height: 100vh;
-  padding: 60px 40px;
+  padding: 20px 40px 40px;
 
   .tablet-max({
     position: relative;
-    padding: 0;
+    padding: 30px;
+  });
+
+  .mobile-max({
+    padding: 20px 10px;
   });
 
   &__wrapper {
@@ -93,14 +101,6 @@ export default {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-
-    .tablet-max({
-      padding: 0 40px;
-    });
-
-    .mobile-max({
-      padding: 0 10px;
-    });
   }
 
   &__header-title {
@@ -109,49 +109,42 @@ export default {
     font-size: 40px;
     line-height: 135%;
     text-transform: uppercase;
+    padding-right: 15px;
+    max-width: 450px;
 
     .tablet-max({
       font-size: 30px;
+      max-width: 385px;
     });
 
     .mobile-max({
-      font-size: 18px;
+      font-size: 16px;
     });
   }
 
+  &__header-button {
+    min-width: 120px;
+  }
+
   &__list {
-    display: flex;
-    width: max-content;
+    display: grid;
     margin-top: 40px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 40px;
 
     .tablet-max({
       width: 100%;
-      margin-top: 0;
-      padding: 40px 40px 0;
-      overflow-x: scroll;
-      -ms-overflow-style: none; /* IE и Edge */
-      scrollbar-width: none; /* Firefox */
-
-      &::-webkit-scrollbar {
-        display: none;
-      }
+      margin-top: 20px;
+      grid-gap: 20px;
+      grid-template-columns: 1fr 1fr;
     });
 
     .mobile-max({
-      padding: 40px 10px 0;
+      grid-template-columns: 1fr;
     });
   }
 
   &__list-item {
-    flex-shrink: 0;
-
-    &:not(:first-child) {
-      margin-left: 32px;
-
-      .tablet-max({
-        margin-left: 12px;
-      });
-    }
   }
 }
 </style>
