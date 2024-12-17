@@ -265,6 +265,12 @@ export default {
     .app-modal__header {
       display: flex !important;
     }
+
+    .app-modal__wrapper {
+      width: 100%;
+      max-width: 100%;
+      padding: 0;
+    }
   }
 
   &_visible {
@@ -388,7 +394,8 @@ export default {
     display: flex;
     flex: 1;
     flex-direction: column;
-    overflow: scroll;
+    overflow: auto;
+    padding: 0;
   }
 
   @keyframes app-modal-fade-out {

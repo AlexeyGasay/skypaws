@@ -1,5 +1,8 @@
 <template>
-  <div class="app-card-ecosystem">
+  <div
+    class="app-card-ecosystem"
+    :class="{ active: active }"
+  >
     <div class="app-card-ecosystem__wrapper">
       <h3
         class="app-card-ecosystem__title"
@@ -41,6 +44,11 @@ export default {
       type: Array,
       required: true,
     },
+
+    active: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>
@@ -79,18 +87,17 @@ export default {
     padding: 13px 16px;
   });
 
-  .hover({
+  &.active {
     background: linear-gradient(90deg, #03a7c8 0%, #732fff 50%, #ac1f51 100%);
 
     .app-card-ecosystem__gif {
       opacity: 1;
     }
 
-
     &::before {
       opacity: 0;
     }
-  });
+  }
 
   &__wrapper {
     display: flex;

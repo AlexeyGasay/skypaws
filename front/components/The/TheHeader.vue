@@ -1,5 +1,8 @@
 <template>
-  <div class="the-header">
+  <div
+    class="the-header"
+    :class="{ 'the-header--hidden': isHeaderHidden }"
+  >
     <div class="the-header__inner">
       <div class="the-header__logo">
         <img
@@ -12,7 +15,6 @@
           ШКОЛА ДОПОЛНИТЕЛЬНОГО ОБРАЗОВАНИЯ
         </div>
       </div>
-
       <!-- <nav class="the-header__menu">
         <div class="the-header__menu-item">
           <div class="the-header__menu-item-icon">
@@ -148,6 +150,8 @@ export default {
     return {
       isOpen: false,
       uid: Math.random(),
+      isHeaderHidden: false,
+      lastScrollY: 0,
     };
   },
 
@@ -161,6 +165,14 @@ export default {
     isDesktop() {
       this.forceCloseHeader();
     },
+  },
+
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.handleScroll);
   },
 
   methods: {
@@ -189,12 +201,29 @@ export default {
       scrollLock(this.isOpen, this.uid);
       compensateScrollbar(this.isOpen);
     },
+
+    handleScroll() {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > this.lastScrollY) {
+        this.isHeaderHidden = true;
+      } else {
+        this.isHeaderHidden = false;
+      }
+      this.lastScrollY = currentScrollY;
+    },
   },
 };
 </script>
 
 <style lang="less">
 .the-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+
   &__inner {
     .container();
     display: flex;
@@ -411,6 +440,10 @@ export default {
 
   &__inner-mobile-menu-button {
     margin: 20px 0 0 10px;
+  }
+
+  &--hidden {
+    transform: translateY(-100%);
   }
 }
 </style>

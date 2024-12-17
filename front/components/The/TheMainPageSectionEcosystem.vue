@@ -8,12 +8,16 @@
       </div>
       <div class="the-main-page-section-ecosystem__list">
         <app-card-ecosystem
-          v-for="card in cards"
+          v-for="(card, index) in cards"
+          :key="index"
           class="the-main-page-section-ecosystem__list-item"
           :icon="card.icon"
           :title="card.title"
           :list="card.list"
-          @click.native="openEcosystemModal(+card.icon - 1)"
+          :active="activeCardIndex === index"
+          @mouseenter.native="handleMouseEnter(index)"
+          @mouseleave.native="handleMouseLeave"
+          @click.native="openEcosystemModal(index)"
         />
       </div>
     </div>
@@ -22,6 +26,7 @@
 
 <script>
 import { mapGetters, mapMutations } from "vuex";
+// eslint-disable-next-line import/no-unresolved, import/extensions
 import cards from "@/data/ecosystemCards";
 import AppCardEcosystem from "../App/AppCardEcosystem.vue";
 
@@ -34,6 +39,8 @@ export default {
   data: () => {
     return {
       cards,
+      activeCardIndex: null,
+      randomInterval: null,
     };
   },
 
@@ -43,20 +50,50 @@ export default {
     }),
   },
 
+  mounted() {
+    this.randomizeActiveCard();
+  },
+
+  beforeDestroy() {
+    clearInterval(this.randomInterval);
+  },
+
   methods: {
     ...mapMutations({
       SHOW_MODAL: "modals/SHOW_MODAL",
       SET_DATA: "modals/SET_DATA",
     }),
 
-    openEcosystemModal(initialSlide) {
-      this.SET_DATA({ initialSlide });
+    openEcosystemModal(index) {
+      this.activeCardIndex = index;
+      this.SET_DATA({ initialSlide: index });
       this.SHOW_MODAL(this.$MODAL_NAMES.ECOSYSTEM_MODAL);
     },
 
     openRequestModal() {
       this.SET_DATA({ title: "откройте бизнес вместе со skypaws" });
       this.SHOW_MODAL(this.$MODAL_NAMES.REQUEST_MODAL);
+    },
+
+    handleMouseEnter(index) {
+      this.activeCardIndex = index;
+      clearInterval(this.randomInterval);
+    },
+
+    handleMouseLeave() {
+      this.randomizeActiveCard();
+    },
+
+    randomizeActiveCard() {
+      const indices = this.cards.map((_, index) => index);
+      let shuffledIndices = indices.sort(() => 0.5 - Math.random());
+      this.randomInterval = setInterval(() => {
+        if (shuffledIndices.length === 0) {
+          clearInterval(this.randomInterval);
+          return;
+        }
+        this.activeCardIndex = shuffledIndices.pop();
+      }, 6000);
     },
   },
 };
