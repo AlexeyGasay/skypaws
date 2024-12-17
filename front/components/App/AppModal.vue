@@ -347,7 +347,7 @@ export default {
   &__header {
     align-items: flex-start;
     justify-content: space-between;
-    padding: 40px;
+    padding: 36px;
     position: absolute;
     z-index: 999999;
     top: 0;

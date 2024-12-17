@@ -20,6 +20,11 @@
           Откройте уникальную школу, где дети смогут развивать свои навыки
           в&nbsp;пилотировании дронов, программировании и&nbsp;дизайне!
         </div>
+        <div ref="quote4">
+          Присоединяйтесь к&nbsp;нам и&nbsp;начните свой прибыльный бизнес уже
+          сегодня &mdash; мы&nbsp;обеспечим Вас всем необходимым для успешного
+          старта!
+        </div>
       </div>
     </div>
     <video
@@ -65,13 +70,16 @@ export default {
     gsap.set(this.$refs.quote2, {
       x: "-50rem",
     });
+    gsap.set(this.$refs.quote3, {
+      x: "-50rem",
+    });
     gsap.set("body", {
       opacity: 1,
     });
 
     const tlChangeQuote = gsap.timeline({ repeat: -1, repeatDelay: 0 });
     tlChangeQuote.to(
-      this.$refs.quote3,
+      this.$refs.quote4,
       {
         opacity: 0,
         filter: "blur(12px)",
@@ -80,7 +88,7 @@ export default {
       },
       "<",
     );
-    tlChangeQuote.set(this.$refs.quote3, {
+    tlChangeQuote.set(this.$refs.quote4, {
       x: "-50rem",
       opacity: 1,
       filter: "blur(0)",
@@ -100,7 +108,7 @@ export default {
         filter: "blur(12px)",
         x: "50rem",
         duration: 0.6,
-        delay: 3,
+        delay: 6,
       },
       "<",
     );
@@ -119,7 +127,7 @@ export default {
         filter: "blur(12px)",
         x: "50rem",
         duration: 0.6,
-        delay: 3,
+        delay: 6,
       },
       "<",
     );
@@ -134,7 +142,26 @@ export default {
     tlChangeQuote.to(
       this.$refs.quote3,
       {
-        delay: 3,
+        opacity: 0,
+        filter: "blur(12px)",
+        x: "50rem",
+        duration: 0.6,
+        delay: 6,
+      },
+      "<",
+    );
+    tlChangeQuote.to(
+      this.$refs.quote4,
+      {
+        x: 0,
+        duration: 0.6,
+      },
+      "<",
+    );
+    tlChangeQuote.to(
+      this.$refs.quote4,
+      {
+        delay: 6,
       },
       "<",
     );

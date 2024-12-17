@@ -357,7 +357,7 @@ export default {
     border-radius: 10px;
 
     .gradient-border-mask(
-      1px,
+      2px,
       linear-gradient(90deg, #03a7c8 0%, #732fff 50%, #ac1f51 100%)
     );
 

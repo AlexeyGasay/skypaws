@@ -181,6 +181,11 @@ export default {
 
     .mobile-max({
       margin-top: 10px;
+
+      .ui-button__text {
+        font-size: 14px;
+        line-height: 150%
+      }
     });
   }
 
@@ -219,6 +224,7 @@ export default {
     font-weight: 900;
     font-size: 16px;
     line-height: 135%;
+    text-transform: uppercase;
 
     .mobile-max({
       font-size: 14px;

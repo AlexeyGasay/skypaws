@@ -163,7 +163,7 @@ export default {
     pointer-events: none;
 
     .tablet-max({
-      top: 68%;
+      top: -10%;
     });
   }
 

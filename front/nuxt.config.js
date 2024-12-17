@@ -97,15 +97,7 @@ module.exports = {
         },
 
         "postcss-pxtorem": {
-          propList: [
-            "*",
-            "!border-left",
-            "!border-right",
-            "!border-top",
-            "!border-bottom",
-            "!border",
-            "!outline",
-          ],
+          propList: ["*"],
         },
       },
       preset: {
@@ -173,10 +165,10 @@ module.exports = {
 
   styleResources: {
     less: [
-        "@/assets/styles/breakpoints.less",
-        "@/assets/styles/variables.less",
-        "@/assets/styles/tools.less",
-        "@/assets/styles/utils.less",
+      "@/assets/styles/breakpoints.less",
+      "@/assets/styles/variables.less",
+      "@/assets/styles/tools.less",
+      "@/assets/styles/utils.less",
     ],
   },
 
@@ -250,7 +242,8 @@ module.exports = {
       },
       {
         property: "og:description",
-        content: "Откройте уникальную школу, где дети смогут развивать свои навыки в пилотировании дронов, программировании и дизайне! Присоединяйтесь к нам и начните свой прибыльный бизнес уже сегодня — мы обеспечим Вас всем необходимым для успешного старта!",
+        content:
+          "Откройте уникальную школу, где дети смогут развивать свои навыки в пилотировании дронов, программировании и дизайне! Присоединяйтесь к нам и начните свой прибыльный бизнес уже сегодня — мы обеспечим Вас всем необходимым для успешного старта!",
       },
     ],
   },

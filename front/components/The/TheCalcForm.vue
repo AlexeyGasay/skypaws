@@ -206,18 +206,18 @@
             <div class="the-calc-form__packages-list-item">
               <ui-radio-button
                 v-model="selectedPackage"
-                :value="PACKAGES.PRO.value"
+                :value="PACKAGES.BASE.value"
               >
-                PREMIUM пакет услуг
+                базовый пакет услуг
               </ui-radio-button>
             </div>
 
             <div class="the-calc-form__packages-list-item">
               <ui-radio-button
                 v-model="selectedPackage"
-                :value="PACKAGES.BASE.value"
+                :value="PACKAGES.PRO.value"
               >
-                базовый пакет услуг
+                PREMIUM пакет услуг
               </ui-radio-button>
             </div>
           </div>
@@ -429,7 +429,7 @@ export default {
   &__inner {
     display: flex;
     align-items: stretch;
-    padding: 42px;
+    padding: 38px;
 
     .tablet-max({
       flex-direction: column;
@@ -509,7 +509,7 @@ export default {
   }
 
   &__handlers {
-    margin-top: 30px;
+    margin-top: 20px;
 
     .tablet-max({
       margin: 20px 0;
@@ -520,11 +520,10 @@ export default {
     width: 100% !important;
 
     &:not(&:first-child) {
-      margin-top: 30px;
+      margin-top: 20px;
 
       .tablet-max({
         margin-top: 20px;
-
       });
 
       .mobile-max({
@@ -536,6 +535,18 @@ export default {
 
   &__form {
     margin-top: 20px;
+
+    .el-input__inner {
+      color: #c6c6c6 !important;
+      opacity: 1; /* Firefox */
+      font-family: Nunito !important;
+
+      &::placeholder {
+        color: #c6c6c6 !important;
+        opacity: 1; /* Firefox */
+        font-family: Nunito !important;
+      }
+    }
   }
 
   &__form-item {
@@ -560,8 +571,19 @@ export default {
     });
   }
 
+  &__packages-sum-equipment-purchase {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    z-index: 2;
+
+    .tablet-max ({
+      bottom: -8px;
+    });;
+  }
+
   &__form-item-input {
-    margin-top: 20px;
+    margin-top: 10px;
 
     .mobile-max({
       margin-top: 10px;
@@ -588,7 +610,7 @@ export default {
   }
 
   &__slider {
-    margin-top: 30px;
+    margin-top: 20px;
 
     .tablet-max({
       display: none;
@@ -648,10 +670,10 @@ export default {
     text-transform: uppercase;
 
     &:not(&:first-child) {
-      margin-left: 30px;
+      margin-left: 20px;
 
-      .tablet-max({
-        margin: 20px 0 0;
+      .mobile-max({
+        margin-left: 0;
       });
     }
 
@@ -670,6 +692,9 @@ export default {
 
   &__packages-sum {
     margin-top: auto;
+
+    position: relative;
+    z-index: 1;
 
     .tablet-max({
       margin: 0;

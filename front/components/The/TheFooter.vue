@@ -51,7 +51,7 @@ export default {
 
   .mobile-max({
     flex-direction: column-reverse;
-    padding: 10px 16px;
+    padding: 16px 16px;
   });
 
   &__credential {
@@ -62,7 +62,7 @@ export default {
     });
 
     .mobile-max({
-      margin-top: 10px;
+      text-align: center;
     });
   }
 }

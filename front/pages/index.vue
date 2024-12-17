@@ -77,16 +77,16 @@ export default {
     };
   },
 
-  async fetch() {
-    try {
-      const response = await this.$api.stats.getStats();
+  // async fetch() {
+  //   try {
+  //     const response = await this.$api.stats.getStats();
 
-      this.plannedOpening = response.data.plannedOpening;
-      this.negotiationStage = response.data.negotiationStage;
-    } catch (error) {
-      console.error("Ошибка при получении данных:", error);
-    }
-  },
+  //     this.plannedOpening = response.data.plannedOpening;
+  //     this.negotiationStage = response.data.negotiationStage;
+  //   } catch (error) {
+  //     console.error("Ошибка при получении данных:", error);
+  //   }
+  // },
 
   mounted() {
     // const mm = gsap.matchMedia();

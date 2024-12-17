@@ -204,17 +204,17 @@ export default {
     &::before {
       .square(46px);
       position: absolute;
-      top: 0px;
-      left: 0;
+      top: 0;
+      left: -14px;
       display: block;
       background-image: url("@/assets/images/handset-phone-gradient.svg");
       background-size: cover;
       transform: translate(-50%, -50%);
       content: "";
 
-      // .tablet-max({
-      //   // left: -10px;
-      // })
+      .tablet-max({
+        left: 0px;
+      });
     }
 
     &::after {

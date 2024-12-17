@@ -205,7 +205,7 @@ export default {
     });
 
     .mobile-max({
-      width: 200px;
+      width: 150px;
     });
   }
 

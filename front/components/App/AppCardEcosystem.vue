@@ -6,10 +6,6 @@
         v-html="title"
       />
       <img
-        class="app-card-ecosystem__icon"
-        :src="require(`@/assets/images/ecosystem/${icon}.png`)"
-      />
-      <img
         class="app-card-ecosystem__gif"
         :src="require(`@/assets/images/ecosystem/${icon}.gif`)"
       />
@@ -78,7 +74,7 @@ export default {
   }
 
   .mobile-max({
-    width: 345px;
+    width: 100%;
     height: 250px;
     padding: 13px 16px;
   });
@@ -87,11 +83,7 @@ export default {
     background: linear-gradient(90deg, #03a7c8 0%, #732fff 50%, #ac1f51 100%);
 
     .app-card-ecosystem__gif {
-      display: block;
-    }
-
-    .app-card-ecosystem__icon {
-      display: none;
+      opacity: 1;
     }
 
 
@@ -124,22 +116,19 @@ export default {
     });
   }
 
-  &__icon,
   &__gif {
     position: absolute;
     top: -24px;
     right: 16px;
     width: 80px;
     object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.3s;
 
     .tablet-max({
       .square(50px);
       top: -10px;
     });
-  }
-
-  &__gif {
-    display: none;
   }
 
   &__list {
