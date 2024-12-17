@@ -39,26 +39,7 @@ export default {
   }
 }
 
-/* .el-tooltip__popper.is-light {
-  padding: 0 !important;
-  background-color: unset;
-  border: unset !important;
-} */
-
 .el-tooltip__popper {
   z-index: @z-overmodals !important;
-
-  /* .popper__arrow {
-    @include square(12px);
-    background-color: @white;
-    border: unset !important;
-    border-radius: 2px;
-    transform: rotate(45deg);
-  }
-
-  .popper__arrow::after {
-    display: none;
-  }
-   */
 }
 </style>

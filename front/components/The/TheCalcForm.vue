@@ -6,15 +6,6 @@
           способ приобретения оборудования
           <div class="the-calc-form__title-tooltip">
             <ui-tooltip>
-              <template #content>
-                Выбирая аренду оборудования под выкуп<br />
-                Вы платите фиксированный ежемесячный<br />
-                платеж в течение года<br />
-                выбирая выкуп оборудования <br />
-                Вы сможете приобрести его, <br />
-                заплатив полную стоимость<br />
-              </template>
-
               <div class="the-calc-form__title-tooltip-icon">
                 <svg-icon name="tooltip-icon" />
               </div>
@@ -81,18 +72,18 @@
           <div class="the-calc-form__packages-list-item">
             <ui-radio-button
               v-model="selectedPackage"
-              :value="PACKAGES.PRO.value"
+              :value="PACKAGES.BASE.value"
             >
-              PREMIUM пакет услуг
+              <i>базовый</i> пакет услуг
             </ui-radio-button>
           </div>
 
           <div class="the-calc-form__packages-list-item">
             <ui-radio-button
               v-model="selectedPackage"
-              :value="PACKAGES.BASE.value"
+              :value="PACKAGES.PRO.value"
             >
-              базовый пакет услуг
+              <i>PREMIUM</i> пакет услуг
             </ui-radio-button>
           </div>
         </div>
@@ -208,7 +199,7 @@
                 v-model="selectedPackage"
                 :value="PACKAGES.BASE.value"
               >
-                базовый пакет услуг
+                <i>базовый</i> пакет услуг
               </ui-radio-button>
             </div>
 
@@ -217,7 +208,7 @@
                 v-model="selectedPackage"
                 :value="PACKAGES.PRO.value"
               >
-                PREMIUM пакет услуг
+                <i>PREMIUM</i> пакет услуг
               </ui-radio-button>
             </div>
           </div>
@@ -226,22 +217,26 @@
             v-if="selectedPackage === 'BASE'"
             class="the-calc-form__packages-info"
           >
-            Что входит в базовый пакет?<br />
-            -трасса для полетов<br />
-            -рекламные материалы<br />
-            -демонстационное оборудование<br />
-            -все преимущества экосистемы SKYPAWS<br />
+            <h4>Что входит в базовый пакет?</h4>
+            <ul>
+              <li>трасса для полетов</li>
+              <li>рекламные материалы</li>
+              <li>демонстационное оборудование</li>
+              <li>все преимущества экосистемы SKYPAWS</li>
+            </ul>
           </div>
           <div
             v-else
             class="the-calc-form__packages-info"
           >
-            Что входит в PREMIUM пакет?<br />
-            -индивидуальные права на город<br />
-            -3 месяца без роялти<br />
-            -открытие до 3-х площадок<br />
-            -выезд наших специалистов к Вам в город<br />
-            -все преимущества базового пакета <br />
+            <h4>Что входит в PREMIUM пакет?</h4>
+            <ul>
+              <li>индивидуальные права на город</li>
+              <li>3 месяца без роялти</li>
+              <li>открытие до 3-х площадок</li>
+              <li>выезд наших специалистов к Вам в город</li>
+              <li>все преимущества базового пакета</li>
+            </ul>
           </div>
 
           <div class="the-calc-form__packages-sum">
@@ -455,6 +450,10 @@ export default {
     &:not(&:first-child) {
       margin-left: 30px;
 
+      .tablet-max({
+        margin-left: 0;
+      });
+
       .mobile-max({
         margin: 0 0 10px;
 
@@ -576,6 +575,7 @@ export default {
     bottom: 0px;
     left: 0;
     z-index: 2;
+    font-weight: 900;
 
     .tablet-max ({
       bottom: -8px;
@@ -656,7 +656,7 @@ export default {
       });
 
       .mobile-max({
-        flex-direction: column-reverse;
+        flex-direction: column;
         align-items: flex-start;
         width: 100%;
       });
@@ -668,6 +668,12 @@ export default {
     font-size: 20px;
     line-height: 170%;
     text-transform: uppercase;
+
+    i {
+      border-bottom: 1px solid #fff;
+      width: max-content;
+      font-style: normal;
+    }
 
     &:not(&:first-child) {
       margin-left: 20px;
@@ -683,11 +689,45 @@ export default {
   }
 
   &__packages-info {
-    margin-top: 30px;
+    margin-top: 15px;
+    height: 200px;
+    width: 604px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 10px;
+    padding-left: 50px;
 
     .tablet-max({
-      display: none;
+      margin-top: 0;
+      margin-bottom: 20px;
+      width: 100%;
+      height: 140px;
+      padding-left: 48px;
     });
+
+    h4 {
+      font-size: 24px;
+      color: #000;
+      margin-left: -20px;
+      text-transform: uppercase;
+      font-weight: 900 !important;
+
+      .tablet-max({
+      font-size: 16px;
+    });
+    }
+
+    ul {
+      color: #000;
+      font-size: 24px;
+      list-style-type: disc;
+
+      .tablet-max({
+      font-size: 14px;
+    });
+    }
   }
 
   &__packages-sum {

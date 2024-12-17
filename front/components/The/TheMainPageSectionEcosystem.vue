@@ -93,7 +93,7 @@ export default {
           return;
         }
         this.activeCardIndex = shuffledIndices.pop();
-      }, 6000);
+      }, 4000);
     },
   },
 };
@@ -173,6 +173,11 @@ export default {
   }
 
   &__list-item {
+    &:nth-child(4) {
+      .app-card-ecosystem__list {
+        padding-right: 60px;
+      }
+    }
   }
 }
 </style>

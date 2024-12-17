@@ -209,6 +209,7 @@ export default {
     z-index: 2;
     width: auto;
     height: 100vh;
+    max-height: 1000px;
     object-fit: cover;
     pointer-events: none;
 

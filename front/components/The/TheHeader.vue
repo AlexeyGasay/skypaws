@@ -393,7 +393,7 @@ export default {
     width: max-content;
     margin: 16px 40px 0 auto;
     cursor: pointer;
-    background-image: url("@/assets/images/icons/cross-icon.svg");
+    background-image: url("@/assets/images/icons/cross-icon-white.svg");
     background-position: center;
     background-size: cover;
     .square(41px);

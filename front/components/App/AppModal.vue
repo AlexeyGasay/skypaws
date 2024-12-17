@@ -378,7 +378,7 @@ export default {
 
   &__header-close-button-icon {
     .square(30px);
-    background-image: url("@/assets/images/icons/cross-icon.svg");
+    background-image: url("@/assets/images/icons/cross-icon-white.svg");
     background-position: center;
     background-size: cover;
   }
