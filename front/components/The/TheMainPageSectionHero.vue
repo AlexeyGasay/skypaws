@@ -195,11 +195,12 @@ export default {
   .tablet-max({
     align-items: flex-start;
     padding: 84px 20px 60px;
+    height: 750px;
   });
 
   .mobile-max({
-    padding: 100px 10px 60px;
-    height: 100vh;
+    padding: 80px 10px 60px;
+    height: 578px;
   });
 
   &__kv {
@@ -215,6 +216,7 @@ export default {
 
     .tablet-max({
         display: none;
+
       });
 
     &_tablet {
@@ -223,6 +225,7 @@ export default {
 
       .tablet-max({
         display: block;
+        height: 750px;
       });
 
       .mobile-max({
@@ -261,10 +264,12 @@ export default {
 
     .tablet-max({
       font-size: 30px;
+      max-width: 90%
     });
 
     .mobile-max({
       font-size: 16px;
+      max-width: 100%;
     });
   }
 
@@ -277,6 +282,9 @@ export default {
     z-index: 1;
     transition: none;
 
+    .mobile-max({
+      margin-top: 10px;
+    });
     div {
       width: 720px;
       position: absolute;

@@ -3,7 +3,7 @@
     <div class="the-main-page-section-discount__inner">
       <div class="the-main-page-section-discount__info">
         <h2 class="the-main-page-section-discount__info-title">
-          получите скидку на&nbsp;наш пакет для&nbsp;бизнеса
+          получите скидку на наш пакет для&nbsp;бизнеса
         </h2>
 
         <p class="the-main-page-section-discount__info-text">
@@ -127,6 +127,7 @@ export default {
 
     .tablet-max({
       font-size: 30px;
+      width: 85%;
     });
 
     .mobile-max({
@@ -144,6 +145,7 @@ export default {
     .tablet-max({
       max-width: 460px;
       font-size: 16px;
+      margin-top: 8px;
     });
 
     .mobile-max({

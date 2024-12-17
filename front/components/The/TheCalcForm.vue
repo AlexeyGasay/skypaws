@@ -5,11 +5,9 @@
         <div class="the-calc-form__title">
           способ приобретения оборудования
           <div class="the-calc-form__title-tooltip">
-            <ui-tooltip>
-              <div class="the-calc-form__title-tooltip-icon">
-                <svg-icon name="tooltip-icon" />
-              </div>
-            </ui-tooltip>
+            <div class="the-calc-form__title-tooltip-icon">
+              <svg-icon name="tooltip-icon" />
+            </div>
           </div>
         </div>
 
@@ -39,20 +37,9 @@
         <div class="the-calc-form__title the-calc-form__title_mobile">
           количество рабочих мест для студентов
           <div class="the-calc-form__title-tooltip">
-            <ui-tooltip>
-              <template #content>
-                Уже включено:<br />
-                компьютер рекомендованной конфигурации<br />
-                стол компьютерный<br />
-                стул<br />
-                FPV дрон<br />
-                аппаратура для управления
-              </template>
-
-              <div class="the-calc-form__title-tooltip-icon">
-                <svg-icon name="tooltip-icon" />
-              </div>
-            </ui-tooltip>
+            <div class="the-calc-form__title-tooltip-icon">
+              <svg-icon name="tooltip-icon" />
+            </div>
           </div>
         </div>
 
@@ -165,20 +152,9 @@
         <div class="the-calc-form__title the-calc-form__title_desktop">
           количество рабочих мест для студентов
           <div class="the-calc-form__title-tooltip">
-            <ui-tooltip>
-              <template #content>
-                Уже включено:<br />
-                компьютер рекомендованной конфигурации<br />
-                стол компьютерный<br />
-                стул<br />
-                FPV дрон<br />
-                аппаратура для управления
-              </template>
-
-              <div class="the-calc-form__title-tooltip-icon">
-                <svg-icon name="tooltip-icon" />
-              </div>
-            </ui-tooltip>
+            <div class="the-calc-form__title-tooltip-icon">
+              <svg-icon name="tooltip-icon" />
+            </div>
           </div>
         </div>
 
