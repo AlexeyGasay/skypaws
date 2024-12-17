@@ -239,6 +239,8 @@ export default {
   }
 
   &__item {
+    position: relative;
+    z-index: 1;
     &:not(&:last-child) {
       margin-bottom: 10px;
     }
@@ -258,12 +260,15 @@ export default {
   }
 
   &__item-error {
-    margin-top: 10px;
     color: @red;
-    font-size: 16px;
+    font-size: 12px;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    bottom: -12px;
 
     .mobile-max({
-      font-size: 12px;
+      font-size: 10px;
     });
   }
 

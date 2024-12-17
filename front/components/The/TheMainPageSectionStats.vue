@@ -147,7 +147,7 @@ export default {
     line-height: 135%;
     text-align: center;
     text-transform: uppercase;
-    border: 2px solid @white;
+    border: 2px solid rgba(@white, 0.4);
     border-radius: 10px;
 
     &:not(&:first-child) {

@@ -201,7 +201,7 @@ export default {
     pointer-events: none;
 
     .tablet-max({
-      top: 60%;
+      top: 56%;
       right: 12%;
       width: 240px;
     });
