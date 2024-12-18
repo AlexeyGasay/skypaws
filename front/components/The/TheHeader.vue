@@ -204,6 +204,10 @@ export default {
 
     handleScroll() {
       const currentScrollY = window.scrollY;
+      if (currentScrollY < 20) {
+        this.isHeaderHidden = false;
+        return;
+      }
       if (currentScrollY > this.lastScrollY) {
         this.isHeaderHidden = true;
       } else {
