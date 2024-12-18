@@ -4,10 +4,13 @@
       <div class="the-calc-form__col">
         <div class="the-calc-form__title">
           способ приобретения оборудования
-          <div class="the-calc-form__title-tooltip">
-            <div class="the-calc-form__title-tooltip-icon">
-              <svg-icon name="tooltip-icon" />
-            </div>
+          <div
+            class="the-calc-form__title-tooltip"
+            @mouseover="purchaseVisible = true"
+            @click="purchaseVisible = true"
+            @mouseleave="purchaseVisible = false"
+          >
+            <div class="the-calc-form__title-tooltip-icon" />
           </div>
         </div>
 
@@ -36,10 +39,12 @@
 
         <div class="the-calc-form__title the-calc-form__title_mobile">
           количество рабочих мест для студентов
-          <div class="the-calc-form__title-tooltip">
-            <div class="the-calc-form__title-tooltip-icon">
-              <svg-icon name="tooltip-icon" />
-            </div>
+          <div
+            class="the-calc-form__title-tooltip"
+            @click="countVisible = true"
+            @mouseleave="countVisible = false"
+          >
+            <div class="the-calc-form__title-tooltip-icon" />
           </div>
         </div>
 
@@ -74,6 +79,34 @@
             </ui-radio-button>
           </div>
         </div>
+
+        <template>
+          <div
+            v-if="selectedPackage === 'BASE'"
+            class="the-calc-form__packages-info the-calc-form__packages-info_mobile"
+          >
+            <h4>Что входит в базовый пакет?</h4>
+            <ul>
+              <li>трасса для полетов</li>
+              <li>рекламные материалы</li>
+              <li>демонстационное оборудование</li>
+              <li>все преимущества экосистемы SKYPAWS</li>
+            </ul>
+          </div>
+          <div
+            v-else
+            class="the-calc-form__packages-info the-calc-form__packages-info_mobile"
+          >
+            <h4>Что входит в PREMIUM пакет?</h4>
+            <ul>
+              <li>индивидуальные права на город</li>
+              <li>3 месяца без роялти</li>
+              <li>открытие до 3-х площадок</li>
+              <li>выезд наших специалистов к Вам в город</li>
+              <li>все преимущества базового пакета</li>
+            </ul>
+          </div>
+        </template>
 
         <div class="the-calc-form__form">
           <div class="the-calc-form__form-item">
@@ -151,10 +184,12 @@
       <div class="the-calc-form__col">
         <div class="the-calc-form__title the-calc-form__title_desktop">
           количество рабочих мест для студентов
-          <div class="the-calc-form__title-tooltip">
-            <div class="the-calc-form__title-tooltip-icon">
-              <svg-icon name="tooltip-icon" />
-            </div>
+          <div
+            class="the-calc-form__title-tooltip"
+            @mouseover="countVisible = true"
+            @mouseleave="countVisible = false"
+          >
+            <div class="the-calc-form__title-tooltip-icon" />
           </div>
         </div>
 
@@ -189,31 +224,33 @@
             </div>
           </div>
 
-          <div
-            v-if="selectedPackage === 'BASE'"
-            class="the-calc-form__packages-info"
-          >
-            <h4>Что входит в базовый пакет?</h4>
-            <ul>
-              <li>трасса для полетов</li>
-              <li>рекламные материалы</li>
-              <li>демонстационное оборудование</li>
-              <li>все преимущества экосистемы SKYPAWS</li>
-            </ul>
-          </div>
-          <div
-            v-else
-            class="the-calc-form__packages-info"
-          >
-            <h4>Что входит в PREMIUM пакет?</h4>
-            <ul>
-              <li>индивидуальные права на город</li>
-              <li>3 месяца без роялти</li>
-              <li>открытие до 3-х площадок</li>
-              <li>выезд наших специалистов к Вам в город</li>
-              <li>все преимущества базового пакета</li>
-            </ul>
-          </div>
+          <template>
+            <div
+              v-if="selectedPackage === 'BASE'"
+              class="the-calc-form__packages-info the-calc-form__packages-info_desktop"
+            >
+              <h4>Что входит в базовый пакет?</h4>
+              <ul>
+                <li>трасса для полетов</li>
+                <li>рекламные материалы</li>
+                <li>демонстационное оборудование</li>
+                <li>все преимущества экосистемы SKYPAWS</li>
+              </ul>
+            </div>
+            <div
+              v-else
+              class="the-calc-form__packages-info the-calc-form__packages-info_desktop"
+            >
+              <h4>Что входит в PREMIUM пакет?</h4>
+              <ul>
+                <li>индивидуальные права на город</li>
+                <li>3 месяца без роялти</li>
+                <li>открытие до 3-х площадок</li>
+                <li>выезд наших специалистов к Вам в город</li>
+                <li>все преимущества базового пакета</li>
+              </ul>
+            </div>
+          </template>
 
           <div class="the-calc-form__packages-sum">
             <div class="the-calc-form__packages-sum-cross">
@@ -246,6 +283,46 @@
             узнать точную стоимость
           </ui-button>
         </div>
+      </div>
+
+      <div
+        class="the-calc-form__purchase-info"
+        :class="
+          bem('the-calc-form__tooltip-data', { visible: purchaseVisible })
+        "
+      >
+        <ul>
+          <li>
+            выбирая аренду
+            <strong>оборудования под выкуп</strong>
+
+            <span>
+              Вы&nbsp;платите фиксированный ежемесячный платеж в&nbsp;течение
+              года
+            </span>
+          </li>
+
+          <li>
+            выбирая <strong>выкуп оборудования</strong>
+            <span> Вы сможете приобрести его, заплатив полную стоимость </span>
+          </li>
+        </ul>
+      </div>
+
+      <div
+        class="the-calc-form__count-info"
+        :class="bem('the-calc-form__tooltip-data', { visible: countVisible })"
+        @click="countVisible = false"
+      >
+        <h4>Уже включено:</h4>
+
+        <ul>
+          <li>компьютер рекомендованной конфигурации</li>
+          <li>стол компьютерный</li>
+          <li>стул</li>
+          <li>FPV дрон</li>
+          <li>аппаратура для управления</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -305,6 +382,9 @@ export default {
       date: "",
       time: "",
       count: 5,
+
+      purchaseVisible: false,
+      countVisible: false,
     };
   },
 
@@ -400,7 +480,8 @@ export default {
   &__inner {
     display: flex;
     align-items: stretch;
-    padding: 38px;
+    padding: 40px;
+    position: relative;
 
     .tablet-max({
       flex-direction: column;
@@ -469,18 +550,22 @@ export default {
     &_mobile {
       display: none;
 
-      .mobile-max({
+      .tablet-max({
         display: flex;
       });
     }
   }
 
   &__title-tooltip {
+    cursor: help;
     margin-left: 20px;
   }
 
   &__title-tooltip-icon {
     .square(28px);
+    background-image: url("@/assets/images/icons/tooltip-icon.svg");
+    background-position: center;
+    background-size: cover;
   }
 
   &__handlers {
@@ -550,7 +635,7 @@ export default {
     position: absolute;
     bottom: 0px;
     left: 0;
-    z-index: 2;
+    z-index: @z-2;
     font-weight: 900;
 
     .tablet-max ({
@@ -597,7 +682,7 @@ export default {
 
       .tablet-max({
         display: block;
-        padding: 0 8px;
+        padding: 0 16px;
       });
     }
   }
@@ -656,11 +741,16 @@ export default {
 
       .mobile-max({
         margin-left: 0;
+        margin-top: 10px;
       });
     }
 
     .tablet-max({
       width: 100%;
+    });
+
+    .mobile-max({
+      font-size: 14px;
     });
   }
 
@@ -691,8 +781,8 @@ export default {
       font-weight: 900 !important;
 
       .tablet-max({
-      font-size: 16px;
-    });
+        font-size: 16px;
+      });
     }
 
     ul {
@@ -701,8 +791,24 @@ export default {
       list-style-type: disc;
 
       .tablet-max({
-      font-size: 14px;
-    });
+        font-size: 14px;
+      });
+    }
+
+    &_desktop {
+      .tablet-max({
+        display: none;
+      });
+    }
+
+    &_mobile {
+      display: none;
+
+      .tablet-max({
+        display: flex;
+        margin-top: 20px;
+        margin-bottom: 0;
+      });
     }
   }
 
@@ -710,7 +816,7 @@ export default {
     margin-top: auto;
 
     position: relative;
-    z-index: 1;
+    z-index: @z-1;
 
     .tablet-max({
       margin: 0;
@@ -776,6 +882,88 @@ export default {
     .tablet-max({
       width: 100% !important;
       margin-top: 20px;
+    });
+  }
+
+  &__tooltip-data {
+    background-color: @white;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 135%;
+    padding: 37px 20px 20px 50px;
+    border-radius: 10px;
+    position: absolute;
+    z-index: @z-3;
+    max-width: calc(50% - 54px);
+    display: none;
+    width: 100%;
+
+    .tablet-max({
+      max-width: calc(100% - 60px);
+    });
+
+    .mobile-max({
+      font-size: 12px;
+      max-width: calc(100% - 20px);
+      padding: 28px 20px 28px 45px;
+    });
+
+    &_visible {
+      display: block;
+    }
+
+    h4 {
+      font-size: 24px;
+      color: #000;
+      margin-left: -20px;
+      text-transform: uppercase;
+      font-weight: 900 !important;
+
+      .tablet-max({
+        font-size: 16px;
+      });
+    }
+
+    span {
+      margin-left: -25px;
+      display: block;
+    }
+
+    ul {
+      list-style-type: disc;
+    }
+  }
+
+  &__purchase-info {
+    top: 240px;
+    left: 40px;
+
+    .tablet-max({
+      left: 30px;
+      top: 200px;
+    });
+
+    .mobile-max({
+      left: 10px;
+      top: 170px;
+    });
+  }
+
+  &__count-info {
+    top: 150px;
+    right: 40px;
+    height: 270px;
+
+    .tablet-max({
+      right: 30px;
+      top: 245px;
+      height: 300px;
+    });
+
+    .mobile-max({
+      right: 10px;
+      top: 220px;
+      height: unset;
     });
   }
 }

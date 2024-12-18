@@ -94,6 +94,10 @@ export default {
       color: @white;
     }
 
+    &__button-wrapper {
+      z-index: @z-2;
+    }
+
     &__button {
       .square(24px);
       background: linear-gradient(
