@@ -941,6 +941,7 @@ export default {
   &__purchase-info {
     top: 240px;
     left: 40px;
+    padding-bottom: 28px;
 
     .tablet-max({
       left: 30px;
@@ -954,6 +955,7 @@ export default {
       top: 170px;
       height: unset;
       padding-top: 34px;
+      font-size: 13px;
     });
   }
 
