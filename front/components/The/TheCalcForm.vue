@@ -973,9 +973,9 @@ export default {
 
     .mobile-max({
       right: 10px;
-      top: 220px;
+      top: 216px;
       height: unset;
-      padding-top: 20px;
+      padding-top: 26px;
     });
   }
 }
