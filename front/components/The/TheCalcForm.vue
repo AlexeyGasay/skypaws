@@ -82,7 +82,7 @@
 
         <template>
           <div
-            v-if="selectedPackage === 'BASE'"
+            v-if="selectedPackage === 'BASE' && !shouldHidePackagesInfo"
             class="the-calc-form__packages-info the-calc-form__packages-info_mobile"
           >
             <h4>Что входит в базовый пакет?</h4>
@@ -94,7 +94,7 @@
             </ul>
           </div>
           <div
-            v-else
+            v-else-if="selectedPackage === 'PRO' && !shouldHidePackagesInfo"
             class="the-calc-form__packages-info the-calc-form__packages-info_mobile"
           >
             <h4>Что входит в PREMIUM пакет?</h4>
@@ -413,6 +413,10 @@ export default {
 
     isPurchase() {
       return this.methodOfPurchasing === this.PURCHASING_METHODS.PURCHASE.value;
+    },
+
+    shouldHidePackagesInfo() {
+      return this.isMobile && (this.purchaseVisible || this.countVisible);
     },
   },
 
@@ -941,11 +945,15 @@ export default {
     .tablet-max({
       left: 30px;
       top: 200px;
+      height: 280px;
+      padding-top: 60px;
     });
 
     .mobile-max({
       left: 10px;
       top: 170px;
+      height: unset;
+      padding-top: 34px;
     });
   }
 
@@ -957,13 +965,15 @@ export default {
     .tablet-max({
       right: 30px;
       top: 245px;
-      height: 300px;
+      height: 248px;
+      padding-top: 30px;
     });
 
     .mobile-max({
       right: 10px;
       top: 220px;
       height: unset;
+      padding-top: 20px;
     });
   }
 }
