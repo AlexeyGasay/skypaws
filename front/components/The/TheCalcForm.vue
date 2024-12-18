@@ -561,7 +561,7 @@ export default {
   }
 
   &__title-tooltip {
-    cursor: help;
+    cursor: pointer;
     margin-left: 20px;
   }
 
