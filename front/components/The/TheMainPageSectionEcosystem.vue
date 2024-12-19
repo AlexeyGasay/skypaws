@@ -15,6 +15,8 @@
           :title="card.title"
           :list="card.list"
           :active="activeCardIndex === index"
+          @mouseenter.native="handleMouseEnter(index)"
+          @mouseleave.native="handleMouseLeave"
           @click.native="openEcosystemModal(index)"
         />
       </div>
@@ -70,6 +72,11 @@ export default {
     openRequestModal() {
       this.SET_DATA({ title: "откройте бизнес вместе со skypaws" });
       this.SHOW_MODAL(this.$MODAL_NAMES.REQUEST_MODAL);
+    },
+
+    handleMouseEnter(index) {
+      this.activeCardIndex = index;
+      clearInterval(this.randomInterval);
     },
 
     handleMouseLeave() {
