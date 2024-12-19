@@ -262,6 +262,11 @@ export default {
 <style lang="less">
 .app-ecosystem-modal-inner {
   position: relative;
+  height: 430px;
+
+  .mobile-max({
+    height: 340px;
+  });
 
   &__slider-handlers {
     position: absolute;
@@ -327,9 +332,13 @@ export default {
     flex-shrink: 0;
     width: 100%;
     padding: 30px 40px 40px;
+    height: 430px;
+    display: flex;
+    flex-direction: column;
 
     .mobile-max({
       padding: 10px;
+      height: 340px;
     });
   }
 
@@ -359,7 +368,8 @@ export default {
   }
 
   &__slider-button {
-    margin-top: 20px;
+    margin-top: auto;
+    flex-shrink: 0;
   }
 
   &__slider-slide-icon {
@@ -389,7 +399,7 @@ export default {
       }
 
       &_2 {
-        right: 100px;
+        right: 80px;
         bottom: 20px;
       }
     }

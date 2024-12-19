@@ -15,8 +15,6 @@
           :title="card.title"
           :list="card.list"
           :active="activeCardIndex === index"
-          @mouseenter.native="handleMouseEnter(index)"
-          @mouseleave.native="handleMouseLeave"
           @click.native="openEcosystemModal(index)"
         />
       </div>
@@ -39,7 +37,7 @@ export default {
   data: () => {
     return {
       cards,
-      activeCardIndex: null,
+      activeCardIndex: 0,
       randomInterval: null,
     };
   },
@@ -65,7 +63,6 @@ export default {
     }),
 
     openEcosystemModal(index) {
-      this.activeCardIndex = index;
       this.SET_DATA({ initialSlide: index });
       this.SHOW_MODAL(this.$MODAL_NAMES.ECOSYSTEM_MODAL);
     },
@@ -75,24 +72,17 @@ export default {
       this.SHOW_MODAL(this.$MODAL_NAMES.REQUEST_MODAL);
     },
 
-    handleMouseEnter(index) {
-      this.activeCardIndex = index;
-      clearInterval(this.randomInterval);
-    },
-
     handleMouseLeave() {
       this.randomizeActiveCard();
     },
 
     randomizeActiveCard() {
-      const indices = this.cards.map((_, index) => index);
-      let shuffledIndices = indices.sort(() => 0.5 - Math.random());
       this.randomInterval = setInterval(() => {
-        if (shuffledIndices.length === 0) {
-          clearInterval(this.randomInterval);
-          return;
+        if (this.activeCardIndex === 5) {
+          this.activeCardIndex = 0;
+        } else {
+          this.activeCardIndex += 1;
         }
-        this.activeCardIndex = shuffledIndices.pop();
       }, 4000);
     },
   },
