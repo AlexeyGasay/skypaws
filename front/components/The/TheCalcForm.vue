@@ -108,6 +108,29 @@
           </div>
         </template>
 
+        <div
+          class="the-calc-form__packages-sum the-calc-form__packages-sum_mobile"
+        >
+          <div class="the-calc-form__packages-sum-cross">
+            старт от
+            <span class="the-calc-form__packages-sum-cross-price">
+              {{ roundNumber(sum / 0.7) | formatNumber }} &#8381;
+            </span>
+          </div>
+
+          <div class="the-calc-form__packages-sum-real">
+            {{ roundNumber(sum) | formatNumber }} &#8381;
+          </div>
+
+          <div
+            v-if="methodOfPurchasing === PURCHASING_METHODS.PURCHASE.value"
+            class="the-calc-form__packages-sum-equipment-purchase"
+          >
+            + стоимость оборудования ≈
+            {{ (count * studentPrice) | formatNumber }} &#8381;
+          </div>
+        </div>
+
         <div class="the-calc-form__form">
           <div class="the-calc-form__form-item">
             <div class="the-calc-form__form-item-name">Имя</div>
@@ -252,7 +275,9 @@
             </div>
           </template>
 
-          <div class="the-calc-form__packages-sum">
+          <div
+            class="the-calc-form__packages-sum the-calc-form__packages-sum_desktop"
+          >
             <div class="the-calc-form__packages-sum-cross">
               старт от
               <span class="the-calc-form__packages-sum-cross-price">
@@ -822,8 +847,24 @@ export default {
     position: relative;
     z-index: @z-1;
 
+    color: #fff;
+
+    display: block;
+
+    &_mobile {
+      display: none;
+    }
+
     .tablet-max({
       margin: 0;
+
+      &_desktop {
+        display: none;
+      }
+
+      &_mobile {
+      display: block;
+    }
     });
   }
 

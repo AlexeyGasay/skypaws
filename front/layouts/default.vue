@@ -40,6 +40,7 @@
 
 <script>
 import { mapMutations } from "vuex";
+import gsap from "gsap";
 import { useDebounce } from "@/tools/useDebounce";
 import TheHeader from "@/components/The/TheHeader.vue";
 import UiButton from "@/components/Ui/UiButton.vue";
@@ -74,6 +75,10 @@ export default {
     localStorage.removeItem("firstModal");
     localStorage.removeItem("modalCount");
     localStorage.removeItem("first-scroll-locked");
+    gsap.set("body", {
+      opacity: 1,
+      delay: 0.6,
+    });
   },
 
   methods: {
