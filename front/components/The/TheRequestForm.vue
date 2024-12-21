@@ -95,10 +95,10 @@
       <p class="the-request-form__footer-policy">
         Нажимая на&nbsp;кнопку &laquo;Отправить&raquo;, Вы&nbsp;даете согласие
         на&nbsp;обработку персональных данных. Подробнее об&nbsp;обработке
-        данных в&nbsp;<a
-          href="/confidentiality.pdf"
+        данных в&nbsp;<nuxt-link
+          to="/confidentiality"
           target="_blank"
-          >Политике</a
+          >Политике</nuxt-link
         >.
       </p>
     </div>

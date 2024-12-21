@@ -6,10 +6,10 @@
     <div class="app-cookie-plate__title">
       сайт использует cookie для персонализации сервисов и удобства
       пользователей.<br />
-      <a
-        href="/cookie.pdf"
+      <nuxt-link
+        to="/cookie"
         target="_blank"
-        >политика использования cookie-файлов</a
+        >политика использования cookie-файлов</nuxt-link
       >.
     </div>
 

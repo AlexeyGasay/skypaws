@@ -4,7 +4,10 @@
     :class="{ 'the-header--hidden': isHeaderHidden }"
   >
     <div class="the-header__inner">
-      <div class="the-header__logo">
+      <nuxt-link
+        to="/"
+        class="the-header__logo"
+      >
         <img
           src="@/assets/images/logo.svg"
           alt="logo"
@@ -14,7 +17,7 @@
         <div class="the-header__logo-text">
           ШКОЛА ДОПОЛНИТЕЛЬНОГО ОБРАЗОВАНИЯ
         </div>
-      </div>
+      </nuxt-link>
       <!-- <nav class="the-header__menu">
         <div class="the-header__menu-item">
           <div class="the-header__menu-item-icon">
@@ -129,11 +132,11 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from "vuex";
 import MenuDesignIcon from "@/assets/images/icons/MenuDesignIcon.vue";
 import MenuDevelopIcon from "@/assets/images/icons/MenuDevelopIcon.vue";
 import MenuDronesIcon from "@/assets/images/icons/MenuDronesIcon.vue";
 import MenuExamsIcon from "@/assets/images/icons/MenuExamsIcon.vue";
-import { mapGetters, mapMutations } from "vuex";
 import { scrollLock } from "@/tools";
 import compensateScrollbar from "@/tools/compensateScrollbar";
 
@@ -248,6 +251,8 @@ export default {
   &__logo {
     display: flex;
     align-items: center;
+    width: max-content;
+    text-decoration: none;
   }
 
   &__logo-icon {
