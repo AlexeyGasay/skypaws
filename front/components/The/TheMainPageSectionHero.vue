@@ -1,16 +1,26 @@
 <template>
   <div class="the-main-page-section-hero">
     <div class="the-main-page-section-hero__info">
+      <h2 class="the-main-page-section-hero__info-title">
+        Начните прибыльный бизнес: откройте школу пилотирования дронов для
+        детей!
+      </h2>
+
       <div class="the-main-page-section-hero__info-text">
         <div ref="quote1">
-          Начните прибыльный бизнес: откройте школу пилотирования дронов для
-          детей!
-        </div>
-        <div ref="quote2">
           Откройте уникальную школу, где дети смогут развивать свои навыки
           в&nbsp;пилотировании дронов, программировании и&nbsp;дизайне!
         </div>
+        <div ref="quote2">
+          Присоединяйтесь к&nbsp;нам и&nbsp;начните свой прибыльный бизнес уже
+          сегодня &mdash; мы&nbsp;обеспечим Вас всем необходимым для успешного
+          старта!
+        </div>
         <div ref="quote3">
+          Откройте уникальную школу, где дети смогут развивать свои навыки
+          в&nbsp;пилотировании дронов, программировании и&nbsp;дизайне!
+        </div>
+        <div ref="quote4">
           Присоединяйтесь к&nbsp;нам и&nbsp;начните свой прибыльный бизнес уже
           сегодня &mdash; мы&nbsp;обеспечим Вас всем необходимым для успешного
           старта!
@@ -63,10 +73,13 @@ export default {
     gsap.set(this.$refs.quote3, {
       x: "-50rem",
     });
+    gsap.set("body", {
+      opacity: 1,
+    });
 
     const tlChangeQuote = gsap.timeline({ repeat: -1, repeatDelay: 0 });
     tlChangeQuote.to(
-      this.$refs.quote3,
+      this.$refs.quote4,
       {
         opacity: 0,
         filter: "blur(12px)",
@@ -75,7 +88,7 @@ export default {
       },
       "<",
     );
-    tlChangeQuote.set(this.$refs.quote3, {
+    tlChangeQuote.set(this.$refs.quote4, {
       x: "-50rem",
       opacity: 1,
       filter: "blur(0)",
@@ -128,6 +141,25 @@ export default {
     );
     tlChangeQuote.to(
       this.$refs.quote3,
+      {
+        opacity: 0,
+        filter: "blur(12px)",
+        x: "50rem",
+        duration: 0.6,
+        delay: 6,
+      },
+      "<",
+    );
+    tlChangeQuote.to(
+      this.$refs.quote4,
+      {
+        x: 0,
+        duration: 0.6,
+      },
+      "<",
+    );
+    tlChangeQuote.to(
+      this.$refs.quote4,
       {
         delay: 6,
       },
@@ -242,14 +274,17 @@ export default {
   }
 
   &__info-text {
-    font-weight: 900;
-    font-size: 40px;
-    line-height: 137%;
+    margin-top: 20px;
+    font-weight: 500;
+    font-size: 20px;
     line-height: 135%;
     position: relative;
     z-index: 1;
     transition: none;
 
+    .mobile-max({
+      margin-top: 10px;
+    });
     div {
       width: 720px;
       position: absolute;
@@ -264,11 +299,11 @@ export default {
     }
 
     .tablet-max({
-      font-size: 30px;
+      font-size: 18px;
     });
 
     .mobile-max({
-      font-size: 16px;
+      font-size: 12px;
     });
   }
 
