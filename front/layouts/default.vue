@@ -120,8 +120,15 @@ export default {
     width: 60px;
     height: 60px;
 
+    @media (max-width: 1200px) {
+      width: 90px;
+      height: 90px;
+    }
+
     .mobile-max({
       right: 4px;
+      width: 60px;
+      height: 60px;
     });
   }
 
