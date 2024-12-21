@@ -34,6 +34,18 @@
       <app-result-modal />
     </app-modal>
 
+    <a
+      href="https://t.me/+jyYtUDbQz9VmZTUy"
+      target="_blank"
+      class="default-layout__tg"
+    >
+      <img
+        src="@/assets/images/telegram.gif"
+        alt="Телеграм"
+        class="default-layout__tg-img"
+      />
+    </a>
+
     <the-footer class="default-layout__footer" />
   </div>
 </template>
@@ -99,6 +111,25 @@ export default {
 .default-layout {
   min-height: 100vh;
   overflow: hidden;
+
+  &__tg {
+    position: fixed;
+    z-index: 9999;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+
+    .mobile-max({
+      right: 4px;
+    });
+  }
+
+  &__tg-img {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
 
   &__inner {
     position: relative;
