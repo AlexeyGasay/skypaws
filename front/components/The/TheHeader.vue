@@ -18,35 +18,44 @@
           ШКОЛА ДОПОЛНИТЕЛЬНОГО ОБРАЗОВАНИЯ
         </div>
       </nuxt-link>
-      <!-- <nav class="the-header__menu">
-        <div class="the-header__menu-item">
+      <nav class="the-header__menu">
+        <nuxt-link
+          to="/services/fpv"
+          class="the-header__menu-item"
+        >
           <div class="the-header__menu-item-icon">
             <menu-drones-icon />
           </div>
           дроны
-        </div>
+        </nuxt-link>
 
-        <div class="the-header__menu-item">
+        <nuxt-link
+          to="/services/design"
+          class="the-header__menu-item"
+        >
           <div class="the-header__menu-item-icon">
             <menu-design-icon />
           </div>
           дизайн
-        </div>
+        </nuxt-link>
 
-        <div class="the-header__menu-item">
+        <nuxt-link
+          to="/services/dev"
+          class="the-header__menu-item"
+        >
           <div class="the-header__menu-item-icon">
             <menu-develop-icon />
           </div>
-          Разработка
-        </div>
-
+          разработка
+        </nuxt-link>
+        <!-- 
         <div class="the-header__menu-item">
           <div class="the-header__menu-item-icon">
             <menu-exams-icon />
           </div>
           огэ/егэ
-        </div>
-      </nav> -->
+        </div> -->
+      </nav>
 
       <div class="the-header__contacts">
         <a
@@ -78,39 +87,48 @@
       />
 
       <perfect-scrollbar>
-        <!-- <nav class="the-header__inner-mobile-menu">
-          <div class="the-header__inner-mobile-menu-item">
+        <nav class="the-header__inner-mobile-menu">
+          <nuxt-link
+            to="/services/fpv"
+            class="the-header__inner-mobile-menu-item"
+          >
             <div class="the-header__inner-mobile-menu-item-icon">
               <menu-drones-icon />
             </div>
 
             Дроны
-          </div>
+          </nuxt-link>
 
-          <div class="the-header__inner-mobile-menu-item">
+          <nuxt-link
+            to="/services/design"
+            class="the-header__inner-mobile-menu-item"
+          >
             <div class="the-header__inner-mobile-menu-item-icon">
               <menu-design-icon />
             </div>
 
             Дизайн
-          </div>
+          </nuxt-link>
 
-          <div class="the-header__inner-mobile-menu-item">
+          <nuxt-link
+            to="/services/dev"
+            class="the-header__inner-mobile-menu-item"
+          >
             <div class="the-header__inner-mobile-menu-item-icon">
               <menu-develop-icon />
             </div>
 
             Разработка
-          </div>
+          </nuxt-link>
 
-          <div class="the-header__inner-mobile-menu-item">
+          <!-- <div class="the-header__inner-mobile-menu-item">
             <div class="the-header__inner-mobile-menu-item-icon">
               <menu-exams-icon />
             </div>
 
             огэ/егэ
-          </div>
-        </nav> -->
+          </div> -->
+        </nav>
         <a
           href="tel:+7(800) 777-21-32"
           class="the-header__inner-mobile-contact-phone"
@@ -294,6 +312,7 @@ export default {
     font-weight: 500;
     text-align: center;
     cursor: pointer;
+    text-decoration: none;
 
     &:not(&:first-child) {
       margin-left: 50px;
@@ -423,6 +442,7 @@ export default {
     font-weight: 500;
     font-size: 20px;
     text-transform: uppercase;
+    text-decoration: none;
 
     &:not(&:first-child) {
       margin-top: 20px;
