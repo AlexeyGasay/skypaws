@@ -65,7 +65,17 @@
           +7(800) 777-21-32
         </a>
 
+        <button
+          v-if="$route.params.slug"
+          class="the-header__course-btn the-header__course-btn_desk"
+          :style="{ border: `2px solid ${accent}` }"
+          @click="openModalCourse"
+        >
+          записаться на&nbsp;курс
+        </button>
+
         <ui-button
+          v-else
           class="the-header__contacts-button"
           size="s"
           @click="openModal"
@@ -91,6 +101,7 @@
           <nuxt-link
             to="/services/fpv"
             class="the-header__inner-mobile-menu-item"
+            @click.native="isOpen = false"
           >
             <div class="the-header__inner-mobile-menu-item-icon">
               <menu-drones-icon />
@@ -102,6 +113,7 @@
           <nuxt-link
             to="/services/design"
             class="the-header__inner-mobile-menu-item"
+            @click.native="isOpen = false"
           >
             <div class="the-header__inner-mobile-menu-item-icon">
               <menu-design-icon />
@@ -113,6 +125,7 @@
           <nuxt-link
             to="/services/dev"
             class="the-header__inner-mobile-menu-item"
+            @click.native="isOpen = false"
           >
             <div class="the-header__inner-mobile-menu-item-icon">
               <menu-develop-icon />
@@ -136,7 +149,17 @@
           +7(800) 777-21-32
         </a>
 
+        <button
+          v-if="$route.params.slug"
+          class="the-header__course-btn"
+          :style="{ border: `2px solid ${accent}` }"
+          @click="openModalCourse"
+        >
+          записаться на&nbsp;курс
+        </button>
+
         <ui-button
+          v-else
           type="outlined"
           class="the-header__inner-mobile-menu-button"
           size="s"
@@ -157,6 +180,7 @@ import MenuDronesIcon from "@/assets/images/icons/MenuDronesIcon.vue";
 import MenuExamsIcon from "@/assets/images/icons/MenuExamsIcon.vue";
 import { scrollLock } from "@/tools";
 import compensateScrollbar from "@/tools/compensateScrollbar";
+import slugs from "../../data/slugs";
 
 export default {
   name: "TheHeader",
@@ -180,6 +204,13 @@ export default {
     ...mapGetters({
       isDesktop: "mqHelper/isDesktop",
     }),
+
+    accent() {
+      if (this.$route.params.slug) {
+        return slugs.find((el) => el.type === this.$route.params.slug).accent;
+      }
+      return "";
+    },
   },
 
   watch: {
@@ -214,6 +245,13 @@ export default {
       this.forceCloseHeader();
 
       this.SET_DATA({ title: "откройте бизнес вместе со skypaws" });
+      this.SHOW_MODAL(this.$MODAL_NAMES.REQUEST_MODAL);
+    },
+
+    openModalCourse() {
+      this.forceCloseHeader();
+
+      this.SET_DATA({ title: "записаться на курс" });
       this.SHOW_MODAL(this.$MODAL_NAMES.REQUEST_MODAL);
     },
 
@@ -473,6 +511,28 @@ export default {
 
   &--hidden {
     transform: translateY(-100%);
+  }
+
+  &__course-btn {
+    padding: 11px 18px;
+    font-weight: 900;
+    font-size: 14px;
+    color: @white;
+    text-transform: uppercase;
+    background: none;
+    border-radius: 10px;
+    margin-left: 19px;
+
+    .tablet-max({
+      margin-left: 0;
+      margin-top: 20px;
+    });
+
+    &_desk {
+      .tablet-max({
+        display: none;
+      });
+    }
   }
 }
 </style>
