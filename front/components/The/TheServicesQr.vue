@@ -126,12 +126,20 @@ export default {
     width: 209px;
     height: 209px;
     margin-top: 40px;
+
+    .tablet-max({
+      display: none;
+    });
   }
 
   &__soc {
-    display: flex;
+    display: none;
     gap: 20px;
     margin-top: 20px;
+
+    .tablet-max({
+      display: flex;
+    });
 
     svg {
       padding: 13px;
