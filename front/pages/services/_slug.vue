@@ -1198,6 +1198,7 @@
 <script>
 import gsap from "gsap";
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import TheServicesHero from "../../components/The/TheServicesHero.vue";
 import TheServicesList from "../../components/The/TheServicesList.vue";
 import slugs from "../../data/slugs";
@@ -1225,7 +1226,6 @@ export default {
   },
 
   async mounted() {
-    const { ScrollTrigger } = await import("gsap/ScrollTrigger");
     gsap.registerPlugin(ScrollTrigger);
     gsap.registerPlugin(DrawSVGPlugin);
     gsap.set(".slug__decor svg path", {
