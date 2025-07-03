@@ -64,6 +64,11 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    .tablet-max({
+      flex-direction: column;
+      justify-content: center
+    });
   }
 
   &__kv {
@@ -71,6 +76,16 @@ export default {
     height: 500px;
     position: relative;
     z-index: 2;
+
+    .tablet-max({
+      width: 300px;
+      height: 300px;
+    });
+
+    .mobile-max({
+      width: 150px;
+      height: 150px;
+    });
 
     &_fpv {
       animation: drone-fly 3s infinite linear;
@@ -83,14 +98,32 @@ export default {
     width: 566px;
     background: @white;
 
+    .tablet-max({
+      width: 500px;
+      padding: 30px
+    });
+
+    .mobile-max({
+      width: 340px;
+      padding: 20px 10px
+    });
+
     &-item {
       display: flex;
       align-items: center;
       padding-bottom: 20px;
 
+      .mobile-max({
+          padding-bottom: 10px;
+        });
+
       &:not(:first-child) {
         border-top: 1px solid @black;
         padding-top: 20px;
+
+        .mobile-max({
+          padding-top: 10px;
+        });
       }
 
       &-num {
@@ -103,6 +136,18 @@ export default {
         font-size: 32px;
         font-weight: 900;
         color: @white;
+
+        .tablet-max({
+          font-size: 30px;
+          width: 42px;
+          height: 42px;
+        });
+
+        .mobile-max({
+          font-size: 24px;
+          width: 34px;
+          height: 34px;
+        });
       }
 
       &-text {
@@ -111,6 +156,15 @@ export default {
         color: @black;
         text-transform: uppercase;
         font-weight: 900;
+
+        .tablet-max({
+          margin-left: 15px;
+          font-size: 18px;
+        });
+
+        .mobile-max({
+          font-size: 13px;
+        });
       }
     }
 
@@ -125,6 +179,11 @@ export default {
       font-weight: 900;
       transition: transform 0.2s;
       text-transform: uppercase;
+
+      .mobile-max({
+        font-size: 16px;
+        padding: 9px;
+      });
 
       &:hover {
         transform: scale(0.95);

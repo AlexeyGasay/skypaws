@@ -101,7 +101,7 @@
           <nuxt-link
             to="/services/fpv"
             class="the-header__inner-mobile-menu-item"
-            @click.native="isOpen = false"
+            @click.native="mobileMenuHandler"
           >
             <div class="the-header__inner-mobile-menu-item-icon">
               <menu-drones-icon />
@@ -113,7 +113,7 @@
           <nuxt-link
             to="/services/design"
             class="the-header__inner-mobile-menu-item"
-            @click.native="isOpen = false"
+            @click.native="mobileMenuHandler"
           >
             <div class="the-header__inner-mobile-menu-item-icon">
               <menu-design-icon />
@@ -125,7 +125,7 @@
           <nuxt-link
             to="/services/dev"
             class="the-header__inner-mobile-menu-item"
-            @click.native="isOpen = false"
+            @click.native="mobileMenuHandler"
           >
             <div class="the-header__inner-mobile-menu-item-icon">
               <menu-develop-icon />

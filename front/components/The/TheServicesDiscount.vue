@@ -2,8 +2,15 @@
   <section class="the-services-discount">
     <div class="the-services-discount__wrapper">
       <img
+        v-if="isDesktop"
         class="the-services-discount__kv"
         :src="require('@/assets/images/slug/discount-kv.png')"
+        alt="kv"
+      />
+      <img
+        v-else
+        class="the-services-discount__kv"
+        :src="require('@/assets/images/slug/discount-kv-adapt.png')"
         alt="kv"
       />
       <div class="the-services-discount__content">
@@ -40,7 +47,7 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapMutations, mapGetters } from "vuex";
 
 export default {
   name: "TheServicesDiscount",
@@ -49,6 +56,12 @@ export default {
       type: String,
       required: true,
     },
+  },
+
+  computed: {
+    ...mapGetters({
+      isDesktop: "mqHelper/isDesktop",
+    }),
   },
 
   methods: {
@@ -77,18 +90,33 @@ export default {
     padding-left: 78px;
     position: relative;
     z-index: 1;
+
+    .tablet-max({
+      flex-direction: column;
+      justify-content: center;
+      padding: 0;
+    });
   }
 
   &__kv {
     width: 620px;
     height: 493px;
     object-fit: cover;
+
+    .tablet-max({
+      width: 90%;
+      height: auto;
+    });
   }
 
   &__title {
     font-size: 36px;
     font-weight: 900;
     text-transform: uppercase;
+
+    .mobile-max({
+      font-size: 20px;
+    });
   }
 
   &__subtitle {
@@ -97,6 +125,10 @@ export default {
     color: @white;
     margin-top: 10px;
     text-transform: uppercase;
+
+    .mobile-max({
+      font-size: 30px;
+    });
   }
 
   &__cloud {
@@ -107,10 +139,24 @@ export default {
     object-fit: cover;
     z-index: 1;
     pointer-events: none;
+
+    .tablet-max({
+      display: none;
+    });
   }
 
   &__content {
     margin-left: 100px;
+
+    .tablet-max({
+      width: 455px;
+      margin-left: 0;
+    });
+
+    .mobile-max({
+      width: 100%;
+      padding: 0 10px;
+    });
   }
 
   &__btn {
@@ -124,6 +170,13 @@ export default {
     border: none;
     margin-top: 20px;
     transition: transform 0.2s;
+
+    .mobile-max({
+      width: 100%;
+      font-size: 16px;
+      padding: 9px;
+      margin-top: 12px;
+    });
 
     .hover({
       transform: scale(0.95);

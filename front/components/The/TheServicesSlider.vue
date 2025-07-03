@@ -5,9 +5,15 @@
         ref="slider"
         class="the-services-slider__slider"
         :options="{
-          spaceBetween: 60,
+          spaceBetween: 20,
           slidesPerView: 'auto',
           centeredSlides: true,
+          breakpoints: {
+            1023: {
+              slidesPerView: 'auto',
+              spaceBetween: 60,
+            },
+          },
         }"
       >
         <swiper-slide
@@ -99,11 +105,32 @@ export default {
     max-height: 600px;
     height: 70vh;
 
+    .tablet-max({
+      display: flex;
+      justify-content: center;
+      width: 708px;
+      max-height: 474px
+    });
+
+    .mobile-max({
+      max-height: 228px;
+      width: 350px;
+    });
+
     img {
       height: 100%;
       object-fit: cover;
       border-radius: 30px;
       transition: transform 0.3s, filter 0.3s;
+
+      .tablet-max({
+        height: auto;
+        width: 708px;
+      });
+
+      .mobile-max({
+        width: 340px;
+      });
     }
   }
 
@@ -125,6 +152,16 @@ export default {
     top: calc(50% - (54px / 2));
     left: 190px;
     pointer-events: none;
+
+    .tablet-max({
+      width: 126px;
+      left: calc(50% - (126px / 2));
+      top: 76vh;
+    });
+
+    .mobile-max({
+      top: 69vh;
+    });
 
     &-button {
       width: 54px;
