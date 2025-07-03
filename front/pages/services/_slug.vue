@@ -19,6 +19,12 @@
       />
 
       <h2 class="slug__title-3">с&nbsp;нами весело и&nbsp;интересно!</h2>
+
+      <the-services-slider
+        class="slug__slider"
+        :slides="page.slides"
+        :accent="page.accent"
+      />
     </div>
 
     <div class="slug__decor">
@@ -458,7 +464,7 @@ export default {
       duration: 0.5,
     });
 
-    gsap.set(".the-services-list", {
+    gsap.set([".the-services-list", ".the-services-slider"], {
       opacity: 0,
       y: "30vh",
       pointerEvents: "none",
@@ -514,6 +520,7 @@ export default {
       ".the-services-hero__kv",
       {
         opacity: 0,
+        pointerEvents: "none",
         duration: 10,
       },
       "<",
@@ -527,6 +534,7 @@ export default {
     tl.to(".slug__title-2", {
       opacity: 0,
       delay: 4,
+      pointerEvents: "none",
       y: -60,
       duration: 3,
     });
@@ -562,7 +570,21 @@ export default {
       opacity: 0,
       delay: 4,
       y: -60,
+      pointerEvents: "none",
       duration: 3,
+    });
+    tl.to(
+      ".the-services-slider",
+      {
+        pointerEvents: "all",
+        duration: 1,
+      },
+      "<",
+    );
+    tl.to(".the-services-slider", {
+      opacity: 1,
+      y: 0,
+      duration: 5,
     });
   },
 };
@@ -589,6 +611,7 @@ export default {
       left: 0;
       width: 100vw;
       height: 100vh;
+      z-index: 1;
     }
   }
 

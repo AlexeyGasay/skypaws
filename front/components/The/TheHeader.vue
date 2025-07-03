@@ -251,7 +251,7 @@ export default {
     openModalCourse() {
       this.forceCloseHeader();
 
-      this.SET_DATA({ title: "записаться на курс" });
+      this.SET_DATA({ title: "Ваши контактные данные" });
       this.SHOW_MODAL(this.$MODAL_NAMES.REQUEST_MODAL);
     },
 
