@@ -1298,7 +1298,7 @@ export default {
       scrollTrigger: {
         trigger: ".slug__pin",
         start: "top top",
-        end: "+=5000px",
+        end: "+=7000px",
         pin: true,
         scrub: 1,
       },
