@@ -22,20 +22,13 @@
         <h2 class="slug__title-3">с&nbsp;нами весело и&nbsp;интересно!</h2>
 
         <the-services-slider
-          class="slug__slider"
           :slides="page.slides"
           :accent="page.accent"
         />
 
-        <the-services-discount
-          class="slug__discount"
-          :accent="page.accent"
-        />
+        <the-services-discount :accent="page.accent" />
 
-        <the-services-qr
-          class="slug__qr"
-          :accent="page.accent"
-        />
+        <the-services-qr :accent="page.accent" />
       </div>
 
       <div class="slug__decor">
@@ -1199,12 +1192,18 @@
 import gsap from "gsap";
 import TheServicesHero from "../../components/The/TheServicesHero.vue";
 import TheServicesList from "../../components/The/TheServicesList.vue";
+import TheServicesSlider from "../../components/The/TheServicesSlider.vue";
+import TheServicesDiscount from "../../components/The/TheServicesDiscount.vue";
+import TheServicesQr from "../../components/The/TheServicesQr.vue";
 import slugs from "../../data/slugs";
 
 export default {
   components: {
     TheServicesHero,
     TheServicesList,
+    TheServicesSlider,
+    TheServicesDiscount,
+    TheServicesQr,
   },
 
   data: () => {
