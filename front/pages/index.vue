@@ -16,13 +16,11 @@
 </template>
 
 <script>
-// import gsap from "gsap";
 import TheMainPageSectionHero from "@/components/The/TheMainPageSectionHero.vue";
 import TheMainPageSectionDiscount from "@/components/The/TheMainPageSectionDiscount.vue";
 import TheMainPageSectionCalc from "@/components/The/TheMainPageSectionCalc.vue";
 import TheMainPageSectionStats from "@/components/The/TheMainPageSectionStats.vue";
 import TheMainPageSectionEcosystem from "@/components/The/TheMainPageSectionEcosystem.vue";
-// import { animation, animationMobile } from "../animation/main-page";
 
 export default {
   components: {
@@ -49,12 +47,6 @@ export default {
     } catch (error) {
       console.error("Ошибка при получении данных:", error);
     }
-  },
-
-  mounted() {
-    // const mm = gsap.matchMedia();
-    // mm.add("(min-width: 1024px)", animation);
-    // mm.add("(max-width: 1023px)", animationMobile);
   },
 };
 </script>
