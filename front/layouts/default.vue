@@ -64,6 +64,7 @@ import TheFooter from "@/components/The/TheFooter.vue";
 import AppCookiePlate from "@/components/App/AppCookiePlate.vue";
 import AppModal from "@/components/App/AppModal.vue";
 import TheRequestForm from "@/components/The/TheRequestForm.vue";
+import TheRequestFormCourse from "@/components/The/TheRequestFormCourse.vue";
 import TheCalcForm from "@/components/The/TheCalcForm.vue";
 import AppEcosystemModalInner from "@/components/App/AppEcosystemModalInner .vue";
 import AppResultModal from "@/components/App/AppResultModal.vue";
@@ -79,6 +80,7 @@ export default {
     TheCalcForm,
     AppEcosystemModalInner,
     AppResultModal,
+    TheRequestFormCourse,
   },
 
   created() {
