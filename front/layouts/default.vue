@@ -11,6 +11,10 @@
       <the-request-form />
     </app-modal>
 
+    <app-modal :name="$MODAL_NAMES.REQUEST_MODAL_COURSE">
+      <the-request-form-course />
+    </app-modal>
+
     <app-modal
       :name="$MODAL_NAMES.CALC_MODAL"
       width="100%"

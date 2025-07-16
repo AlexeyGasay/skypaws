@@ -1,5 +1,19 @@
 <template>
   <section class="the-services-list">
+    <teleport to="body">
+      <div
+        v-if="isShowVideo"
+        class="video-modal"
+        @click="handlerShowVideo"
+      >
+        <video
+          src="/kv.mov"
+          playsiline
+          controls
+          @click.stop
+        />
+      </div>
+    </teleport>
     <div class="the-services-list__wrapper">
       <img
         class="the-services-list__kv"
@@ -29,6 +43,7 @@
         <button
           :style="{ background: accent }"
           class="the-services-list__list-content-button"
+          @click="handlerShowVideo"
         >
           посмотреть видео
         </button>
@@ -49,6 +64,19 @@ export default {
     accent: {
       type: String,
       required: true,
+    },
+  },
+
+  data() {
+    return {
+      isShowVideo: false,
+    };
+  },
+
+  methods: {
+    handlerShowVideo() {
+      this.isShowVideo = !this.isShowVideo;
+      document.querySelector("html, body").classList.toggle("scroll-lock");
     },
   },
 };
@@ -189,6 +217,28 @@ export default {
         transform: scale(0.95);
       }
     }
+  }
+}
+
+.video-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: @z-4;
+  background: rgba(#000, 0.5);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  video {
+    height: 70vh;
+
+    .tablet-max({
+      height: auto;
+      width: 90%;
+    });
   }
 }
 

@@ -19,14 +19,16 @@
           :list="page.list"
         />
 
-        <h2 class="slug__title-3">с&nbsp;нами весело и&nbsp;интересно!</h2>
-
         <the-services-slider
           :slides="page.slides"
           :accent="page.accent"
         />
 
         <the-services-discount :accent="page.accent" />
+        <the-services-courses
+          :accent="page.accent"
+          :list="page.courses"
+        />
 
         <the-services-qr :accent="page.accent" />
       </div>
@@ -1194,6 +1196,7 @@ import TheServicesHero from "../../components/The/TheServicesHero.vue";
 import TheServicesList from "../../components/The/TheServicesList.vue";
 import TheServicesSlider from "../../components/The/TheServicesSlider.vue";
 import TheServicesDiscount from "../../components/The/TheServicesDiscount.vue";
+import TheServicesCourses from "../../components/The/TheServicesCourses.vue";
 import TheServicesQr from "../../components/The/TheServicesQr.vue";
 import slugs from "../../data/slugs";
 
@@ -1203,6 +1206,7 @@ export default {
     TheServicesList,
     TheServicesSlider,
     TheServicesDiscount,
+    TheServicesCourses,
     TheServicesQr,
   },
 
@@ -1230,7 +1234,7 @@ export default {
     gsap.set(".slug__decor svg path", {
       drawSVG: "0% 0%",
     });
-    gsap.set([".slug__title-2", ".slug__title-3"], {
+    gsap.set([".slug__title-2", ".the-services-courses"], {
       opacity: 0,
       pointerEvents: "none",
       y: 60,
@@ -1353,19 +1357,6 @@ export default {
       pointerEvents: "none",
       delay: 4,
     });
-    tl.to(".slug__title-3", {
-      opacity: 1,
-      y: 0,
-      pointerEvents: "all",
-      duration: 3,
-    });
-    tl.to(".slug__title-3", {
-      opacity: 0,
-      delay: 4,
-      y: -60,
-      pointerEvents: "none",
-      duration: 3,
-    });
     tl.to(
       ".the-services-slider",
       {
@@ -1415,6 +1406,19 @@ export default {
     tl.to(".the-services-discount", {
       pointerEvents: "none",
       duration: 1,
+    });
+    tl.to(".the-services-courses", {
+      opacity: 1,
+      y: 0,
+      pointerEvents: "all",
+      duration: 3,
+    });
+    tl.to(".the-services-courses", {
+      opacity: 0,
+      delay: 4,
+      y: -60,
+      pointerEvents: "none",
+      duration: 3,
     });
     tl.to(".the-services-qr", {
       opacity: 1,
@@ -1482,8 +1486,7 @@ export default {
     }
   }
 
-  &__title-2,
-  &__title-3 {
+  &__title-2 {
     color: @white;
     font-size: 64px;
     font-weight: 900;
@@ -1502,11 +1505,6 @@ export default {
       font-size: 24px;
       width: 95%;
     });
-  }
-
-  &__title-3 {
-    width: 100%;
-    top: 47vh;
   }
 
   .desktop {

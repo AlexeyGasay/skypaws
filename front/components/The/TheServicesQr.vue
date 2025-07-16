@@ -13,7 +13,7 @@
       />
       <div class="the-services-qr__soc">
         <a
-          href="https://t.me/+jyYtUDbQz9VmZTUy"
+          href="https://t.me/SkyPaws_pro"
           target="_blank"
         >
           <svg

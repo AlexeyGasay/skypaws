@@ -23,6 +23,20 @@ export default [
       "/fpv/4.jpg",
       "/fpv/5.jpg",
     ],
+    courses: [
+      {
+        link: "/services/dev",
+        img: "/slugs/dev-fpv.svg",
+        title: "курс “hacker cats”",
+        text: "обучение основам<br/> программирования",
+      },
+      {
+        link: "/services/design",
+        img: "/slugs/design-fpv.svg",
+        title: "курс “designer fox”",
+        text: "обучение основам<br/> дизайна",
+      },
+    ],
   },
   {
     type: "design",
@@ -48,6 +62,20 @@ export default [
       "/design/4.jpg",
       "/design/5.jpg",
     ],
+    courses: [
+      {
+        link: "/services/fpv",
+        img: "/slugs/fpv-design.svg",
+        title: "курс “air monkey”",
+        text: "обучение пилотированию<br/> fpv-дронов",
+      },
+      {
+        link: "/services/dev",
+        img: "/slugs/dev-design.svg",
+        title: "курс “hacker cats”",
+        text: "обучение основам<br/> программирования",
+      },
+    ],
   },
   {
     type: "dev",
@@ -72,6 +100,20 @@ export default [
       "/dev/3.jpg",
       "/dev/4.jpg",
       "/dev/5.jpg",
+    ],
+    courses: [
+      {
+        link: "/services/fpv",
+        img: "/slugs/fpv-dev.svg",
+        title: "курс “air monkey”",
+        text: "обучение пилотированию<br/> fpv-дронов",
+      },
+      {
+        link: "/services/design",
+        img: "/slugs/design-dev.svg",
+        title: "курс “designer fox”",
+        text: "обучение основам<br/> дизайна",
+      },
     ],
   },
 ];

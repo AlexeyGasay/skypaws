@@ -8,6 +8,7 @@
           spaceBetween: 20,
           slidesPerView: 'auto',
           centeredSlides: true,
+          loop: true,
           breakpoints: {
             1023: {
               slidesPerView: 'auto',
@@ -134,11 +135,17 @@ export default {
     }
   }
 
-  .swiper-slide-prev,
-  .swiper-slide-next {
+  .swiper-slide {
     img {
       filter: brightness(0.5);
-      transform: scale(0.8);
+      transform: scale(0.66);
+    }
+
+    &-active {
+      img {
+        filter: brightness(1);
+        transform: scale(1);
+      }
     }
   }
 

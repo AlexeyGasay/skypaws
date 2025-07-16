@@ -96,7 +96,7 @@
       />
 
       <perfect-scrollbar>
-        <!-- <nav class="the-header__inner-mobile-menu">
+        <nav class="the-header__inner-mobile-menu">
           <nuxt-link
             to="/services/fpv"
             class="the-header__inner-mobile-menu-item"
@@ -140,7 +140,7 @@
 
             огэ/егэ
           </div> -->
-        </nav> -->
+        </nav>
         <a
           href="tel:+7(800) 777-21-32"
           class="the-header__inner-mobile-contact-phone"
@@ -250,8 +250,8 @@ export default {
     openModalCourse() {
       this.forceCloseHeader();
 
-      this.SET_DATA({ title: "Ваши контактные данные" });
-      this.SHOW_MODAL(this.$MODAL_NAMES.REQUEST_MODAL);
+      this.SET_DATA({ accent: this.accent });
+      this.SHOW_MODAL(this.$MODAL_NAMES.REQUEST_MODAL_COURSE);
     },
 
     mobileMenuHandler() {
@@ -523,7 +523,7 @@ export default {
     margin-left: 19px;
 
     .tablet-max({
-      margin-left: 0;
+      margin-left: 12px;
       margin-top: 20px;
     });
 

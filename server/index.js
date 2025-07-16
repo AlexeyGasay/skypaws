@@ -56,7 +56,31 @@ app.post('/api/feedback', (req, res) => {
       });
   });
 
+  res.status(200).send('Сообщение отправлено');
+});
+
+app.post('/api/feedback-course', (req, res) => {
+  const { slug, name, phone, nameStudent, city  } = req.body;
+
+  const mapSlugToName = {
+    design: 'Дизайн',
+    fpv: 'Дроны',
+    dev: 'Программирование'
+  }
+
+  let message = `
+    Запись на курс ${mapSlugToName[slug]}.
+    Имя: ${name}. Номер: ${phone}. Имя студента: ${nameStudent}. Город: ${city}
+  `;
+
   console.log(message)
+
+  chatIds.forEach((chatId) => {
+    bot.sendMessage(chatId, message)
+      .catch((error) => {
+        console.error(`Ошибка при отправке сообщения на ${chatId}:`, error);
+      });
+  });
 
   res.status(200).send('Сообщение отправлено');
 });

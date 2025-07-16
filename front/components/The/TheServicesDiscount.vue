@@ -30,12 +30,12 @@
         >
           записаться на курс
         </button>
-        <button
+        <!-- <button
           class="the-services-discount__btn the-services-discount__btn_transparent"
           :style="{ border: `2px solid ${accent}` }"
         >
           посмотреть другие курсы
-        </button>
+        </button> -->
       </div>
       <img
         class="the-services-discount__cloud"
@@ -71,8 +71,8 @@ export default {
     }),
 
     openModal() {
-      this.SET_DATA({ title: "Ваши контактные данные" });
-      this.SHOW_MODAL(this.$MODAL_NAMES.REQUEST_MODAL);
+      this.SET_DATA({ accent: this.$props.accent });
+      this.SHOW_MODAL(this.$MODAL_NAMES.REQUEST_MODAL_COURSE);
     },
   },
 };
