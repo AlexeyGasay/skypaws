@@ -172,12 +172,14 @@ export default {
       width: 100%;
       height: 540px;
       margin-top: 112px;
+      object-fit: contain;
     });
 
     .mobile-max({
       height: 338px;
       margin-top: 60px;
       width: 80%;
+      object-fit: contain;
     });
   }
 
