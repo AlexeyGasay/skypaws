@@ -18,7 +18,7 @@
           ШКОЛА ДОПОЛНИТЕЛЬНОГО ОБРАЗОВАНИЯ
         </div>
       </nuxt-link>
-      <!-- <nav class="the-header__menu">
+      <nav class="the-header__menu">
         <nuxt-link
           to="/services/fpv"
           class="the-header__menu-item"
@@ -48,13 +48,13 @@
           </div>
           разработка
         </nuxt-link>
-        <div class="the-header__menu-item">
+        <!-- <div class="the-header__menu-item">
           <div class="the-header__menu-item-icon">
             <menu-exams-icon />
           </div>
           огэ/егэ
-        </div>
-      </nav> -->
+        </div> -->
+      </nav>
 
       <div class="the-header__contacts">
         <a
@@ -83,10 +83,10 @@
         </ui-button>
       </div>
 
-      <!-- <div
+      <div
         class="the-header__burger"
         @click="mobileMenuHandler"
-      /> -->
+      />
     </div>
 
     <div :class="bem('the-header__inner-mobile', { open: isOpen })">
