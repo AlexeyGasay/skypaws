@@ -37,18 +37,23 @@
     >
       <app-result-modal />
     </app-modal>
-
-    <a
-      href="https://t.me/+jyYtUDbQz9VmZTUy"
-      target="_blank"
-      class="default-layout__tg"
-    >
-      <img
-        src="@/assets/images/telegram.gif"
-        alt="Телеграм"
-        class="default-layout__tg-img"
-      />
-    </a>
+    <client-only>
+      <a
+        :href="
+          $route.name === 'index'
+            ? 'https://t.me/+jyYtUDbQz9VmZTUy'
+            : 'https://t.me/SkyPaws_pro'
+        "
+        target="_blank"
+        class="default-layout__tg"
+      >
+        <img
+          src="@/assets/images/telegram.gif"
+          alt="Телеграм"
+          class="default-layout__tg-img"
+        />
+      </a>
+    </client-only>
 
     <the-footer class="default-layout__footer" />
   </div>

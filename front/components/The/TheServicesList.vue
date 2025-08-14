@@ -1,19 +1,17 @@
 <template>
   <section class="the-services-list">
-    <teleport to="body">
-      <div
-        v-if="isShowVideo"
-        class="video-modal"
-        @click="handlerShowVideo"
-      >
-        <video
-          src="/kv.mov"
-          playsiline
-          controls
-          @click.stop
-        />
-      </div>
-    </teleport>
+    <div
+      v-if="isShowVideo"
+      class="video-modal"
+      @click="handlerShowVideo"
+    >
+      <video
+        src="/kv.mov"
+        playsiline
+        controls
+        @click.stop
+      />
+    </div>
     <div class="the-services-list__wrapper">
       <img
         class="the-services-list__kv"
@@ -207,6 +205,7 @@ export default {
       font-weight: 900;
       transition: transform 0.2s;
       text-transform: uppercase;
+      font-family: Nunito;
 
       .mobile-max({
         font-size: 16px;

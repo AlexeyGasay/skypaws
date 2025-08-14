@@ -290,12 +290,12 @@ export default {
     .container();
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 12px 40px;
     background: linear-gradient(180deg, #180b2c 0%, rgb(24 11 44 / 0%) 100%);
 
     .tablet-max({
       padding: 12px 30px;
+      justify-content: space-between;
     });
 
     .mobile-max({
@@ -335,6 +335,7 @@ export default {
     display: flex;
     align-items: stretch;
     justify-content: space-between;
+    margin-left: 250px;
 
     .tablet-max({
       display: none;
@@ -392,6 +393,7 @@ export default {
   &__contacts {
     display: flex;
     align-items: center;
+    margin-left: auto;
 
     .tablet-max({
       margin-left: auto;
@@ -521,6 +523,7 @@ export default {
     background: none;
     border-radius: 10px;
     margin-left: 19px;
+    font-family: Nunito;
 
     .tablet-max({
       margin-left: 12px;

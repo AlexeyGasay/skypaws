@@ -170,6 +170,7 @@ export default {
     border: none;
     margin-top: 20px;
     transition: transform 0.2s;
+    font-family: Nunito;
 
     .mobile-max({
       width: 100%;
