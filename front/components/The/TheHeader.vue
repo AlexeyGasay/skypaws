@@ -52,6 +52,8 @@
 
       <div
         class="the-header__burger"
+        :class="{ 'the-header__burger_no-border': $route.params.slug }"
+        :style="{ '--accent': accent }"
         @click="mobileMenuHandler"
       />
     </div>
@@ -59,6 +61,10 @@
     <div :class="bem('the-header__inner-mobile', { open: isOpen })">
       <div
         class="the-header__inner-mobile-close-button"
+        :class="{
+          'the-header__inner-mobile-close-button_no-border': $route.params.slug,
+        }"
+        :style="{ '--accent': accent }"
         @click="mobileMenuHandler"
       />
 
@@ -399,6 +405,14 @@ export default {
     margin-left: 30px;
     cursor: pointer;
 
+    &_no-border {
+      .square(48px);
+      background-image: none;
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      background-image: url("@/assets/images/icons/burger-icon-no-border.svg");
+    }
+
     .tablet-max({
       display: block;
     });
@@ -435,6 +449,14 @@ export default {
     background-position: center;
     background-size: cover;
     .square(41px);
+
+    &_no-border {
+      .square(48px);
+      background-image: none;
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      background-image: url("@/assets/images/icons/cross-icon-white-no-border.svg");
+    }
 
     .mobile-max({
       margin: 10px 10px 0 auto;
