@@ -18,43 +18,6 @@
           ШКОЛА ДОПОЛНИТЕЛЬНОГО ОБРАЗОВАНИЯ
         </div>
       </nuxt-link>
-      <nav class="the-header__menu">
-        <nuxt-link
-          to="/services/fpv"
-          class="the-header__menu-item"
-        >
-          <div class="the-header__menu-item-icon">
-            <menu-drones-icon />
-          </div>
-          дроны
-        </nuxt-link>
-
-        <nuxt-link
-          to="/services/design"
-          class="the-header__menu-item"
-        >
-          <div class="the-header__menu-item-icon">
-            <menu-design-icon />
-          </div>
-          дизайн
-        </nuxt-link>
-
-        <nuxt-link
-          to="/services/dev"
-          class="the-header__menu-item"
-        >
-          <div class="the-header__menu-item-icon">
-            <menu-develop-icon />
-          </div>
-          разработка
-        </nuxt-link>
-        <!-- <div class="the-header__menu-item">
-          <div class="the-header__menu-item-icon">
-            <menu-exams-icon />
-          </div>
-          огэ/егэ
-        </div> -->
-      </nav>
 
       <div class="the-header__contacts">
         <a
@@ -70,7 +33,11 @@
           :style="{ border: `2px solid ${accent}` }"
           @click="openModalCourse"
         >
-          записаться на&nbsp;курс
+          <span>записаться на&nbsp;курс</span>
+          <div
+            class="the-header__course-btn-bg"
+            :style="{ '--accent': accent }"
+          />
         </button>
 
         <ui-button
@@ -150,11 +117,15 @@
 
         <button
           v-if="$route.params.slug"
-          class="the-header__course-btn"
+          class="the-header__course-btn the-header__course-btn_menu"
           :style="{ border: `2px solid ${accent}` }"
           @click="openModalCourse"
         >
-          записаться на&nbsp;курс
+          <span>записаться на&nbsp;курс</span>
+          <div
+            class="the-header__course-btn-bg"
+            :style="{ '--accent': accent }"
+          />
         </button>
 
         <ui-button
@@ -422,7 +393,6 @@ export default {
 
   &__burger {
     .square(41px);
-    display: none;
     background-image: url("@/assets/images/icons/burger-icon.svg");
     background-size: cover;
     background-position: center;
@@ -439,17 +409,18 @@ export default {
     top: 0;
     left: 0;
     z-index: @z-6;
-    display: none;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100vh;
     background-color: @purple;
     transform: translateX(100%);
     transition: transform @transition-default ease-in-out;
 
-    .tablet-max({
-      display: flex;
-      flex-direction: column;
-    });
+    // .tablet-max({
+    //   display: flex;
+    //   flex-direction: column;
+    // });
 
     &_open {
       transform: translateX(0);
@@ -524,7 +495,34 @@ export default {
     border-radius: 10px;
     margin-left: 19px;
     font-family: Nunito;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
 
+    span {
+      position: relative;
+      z-index: 2;
+    }
+
+    &-bg {
+      content: "";
+      background: var(--accent);
+      width: 102%;
+      height: 102%;
+      position: absolute;
+      z-index: 1;
+      top: -1%;
+      left: 0;
+      transform: translateX(-100%);
+      transition: transform 0.3s;
+      border-radius: 4px;
+    }
+
+    .hover({
+      .the-header__course-btn-bg {
+        transform: translateX(0);
+      }
+    });
     .tablet-max({
       margin-left: 12px;
       margin-top: 20px;

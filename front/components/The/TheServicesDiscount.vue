@@ -25,10 +25,16 @@
         </h4>
         <button
           class="the-services-discount__btn"
-          :style="{ background: accent }"
+          :style="{
+            '--accent': accent,
+          }"
           @click="openModal"
         >
-          записаться на курс
+          <span>записаться на курс</span>
+          <div
+            class="the-services-discount__btn-bg"
+            :style="{ '--accent': accent }"
+          />
         </button>
         <!-- <button
           class="the-services-discount__btn the-services-discount__btn_transparent"
@@ -167,10 +173,30 @@ export default {
     color: @white;
     font-size: 24px;
     text-transform: uppercase;
-    border: none;
+    border: 2px solid var(--accent);
     margin-top: 20px;
-    transition: transform 0.2s;
+    transition: transform 0.2s, color 0.2s;
     font-family: Nunito;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    background: none;
+
+    span {
+      position: relative;
+      z-index: 2;
+    }
+
+    &-bg {
+      position: absolute;
+      top: -1%;
+      left: 0;
+      width: 102%;
+      height: 102%;
+      z-index: 1;
+      background: var(--accent);
+      transition: transform 0.3s;
+    }
 
     .mobile-max({
       width: 100%;
@@ -180,7 +206,12 @@ export default {
     });
 
     .hover({
-      transform: scale(0.95);
+      .the-services-discount__btn-bg {
+        transform: translateX(-101%)
+      }
+
+        color: var(--accent);
+        background: none;
     });
 
     &_transparent {

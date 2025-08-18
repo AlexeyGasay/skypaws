@@ -39,11 +39,15 @@
           />
         </div>
         <button
-          :style="{ background: accent }"
+          :style="{ '--accent': accent }"
           class="the-services-list__list-content-button"
           @click="handlerShowVideo"
         >
-          посмотреть видео
+          <span> посмотреть видео</span>
+          <div
+            class="the-services-list__list-content-button-bg"
+            :style="{ '--accent': accent }"
+          />
         </button>
       </div>
     </div>
@@ -196,7 +200,7 @@ export default {
 
     &-button {
       color: @white;
-      border: none;
+      border: 2px solid var(--accent);
       margin-top: 10px;
       padding: 12px;
       width: 100%;
@@ -206,15 +210,40 @@ export default {
       transition: transform 0.2s;
       text-transform: uppercase;
       font-family: Nunito;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      background: none;
+
+      span {
+        position: relative;
+        z-index: 2;
+      }
+
+      &-bg {
+        position: absolute;
+        top: -1%;
+        left: 0;
+        width: 102%;
+        height: 102%;
+        z-index: 1;
+        background: var(--accent);
+        transition: transform 0.3s;
+      }
+
+      .hover({
+      .the-services-list__list-content-button-bg {
+        transform: translateX(-101%)
+      }
+
+        color: var(--accent);
+        background: none;
+    });
 
       .mobile-max({
         font-size: 16px;
         padding: 9px;
       });
-
-      &:hover {
-        transform: scale(0.95);
-      }
     }
   }
 }
