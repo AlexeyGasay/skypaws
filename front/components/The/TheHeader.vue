@@ -411,6 +411,10 @@ export default {
       border: 2px solid var(--accent);
       border-radius: 50%;
       background-image: url("@/assets/images/icons/burger-icon-no-border.svg");
+
+      .tablet-max ({
+        .square(41px);
+      });;
     }
 
     .tablet-max({
@@ -456,6 +460,10 @@ export default {
       border: 2px solid var(--accent);
       border-radius: 50%;
       background-image: url("@/assets/images/icons/cross-icon-white-no-border.svg");
+
+      .tablet-max ({
+        .square(41px);
+      });;
     }
 
     .mobile-max({
@@ -520,6 +528,11 @@ export default {
     position: relative;
     z-index: 1;
     overflow: hidden;
+
+    &_menu {
+      margin-top: 20px;
+      margin-left: 0;
+    }
 
     span {
       position: relative;
