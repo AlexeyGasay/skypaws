@@ -60,91 +60,94 @@
     </div>
 
     <div :class="bem('the-header__inner-mobile', { open: isOpen })">
-      <div
-        class="the-header__inner-mobile-close-button"
-        :class="{
-          'the-header__inner-mobile-close-button_no-border': $route.params.slug,
-        }"
-        :style="{ '--accent': accent }"
-        @click="mobileMenuHandler"
-      />
+      <div class="the-header__inner-mobile-holder">
+        <div
+          class="the-header__inner-mobile-close-button"
+          :class="{
+            'the-header__inner-mobile-close-button_no-border':
+              $route.params.slug,
+          }"
+          :style="{ '--accent': accent }"
+          @click="mobileMenuHandler"
+        />
 
-      <perfect-scrollbar>
-        <nav class="the-header__inner-mobile-menu">
-          <nuxt-link
-            to="/services/fpv"
-            class="the-header__inner-mobile-menu-item"
-            @click.native="mobileMenuHandler"
-          >
-            <div class="the-header__inner-mobile-menu-item-icon">
-              <menu-drones-icon />
-            </div>
+        <perfect-scrollbar>
+          <nav class="the-header__inner-mobile-menu">
+            <nuxt-link
+              to="/services/fpv"
+              class="the-header__inner-mobile-menu-item"
+              @click.native="mobileMenuHandler"
+            >
+              <div class="the-header__inner-mobile-menu-item-icon">
+                <menu-drones-icon />
+              </div>
 
-            Дроны
-          </nuxt-link>
+              Дроны
+            </nuxt-link>
 
-          <nuxt-link
-            to="/services/design"
-            class="the-header__inner-mobile-menu-item"
-            @click.native="mobileMenuHandler"
-          >
-            <div class="the-header__inner-mobile-menu-item-icon">
-              <menu-design-icon />
-            </div>
+            <nuxt-link
+              to="/services/design"
+              class="the-header__inner-mobile-menu-item"
+              @click.native="mobileMenuHandler"
+            >
+              <div class="the-header__inner-mobile-menu-item-icon">
+                <menu-design-icon />
+              </div>
 
-            Дизайн
-          </nuxt-link>
+              Дизайн
+            </nuxt-link>
 
-          <nuxt-link
-            to="/services/dev"
-            class="the-header__inner-mobile-menu-item"
-            @click.native="mobileMenuHandler"
-          >
-            <div class="the-header__inner-mobile-menu-item-icon">
-              <menu-develop-icon />
-            </div>
+            <nuxt-link
+              to="/services/dev"
+              class="the-header__inner-mobile-menu-item"
+              @click.native="mobileMenuHandler"
+            >
+              <div class="the-header__inner-mobile-menu-item-icon">
+                <menu-develop-icon />
+              </div>
 
-            Разработка
-          </nuxt-link>
+              Разработка
+            </nuxt-link>
 
-          <!-- <div class="the-header__inner-mobile-menu-item">
+            <!-- <div class="the-header__inner-mobile-menu-item">
             <div class="the-header__inner-mobile-menu-item-icon">
               <menu-exams-icon />
             </div>
 
             огэ/егэ
           </div> -->
-        </nav>
-        <a
-          href="https://wa.me/78007772132"
-          class="the-header__inner-mobile-contact-phone"
-        >
-          +7(800) 777-21-32
-        </a>
+          </nav>
+          <a
+            href="https://wa.me/78007772132"
+            class="the-header__inner-mobile-contact-phone"
+          >
+            +7(800) 777-21-32
+          </a>
 
-        <button
-          v-if="$route.params.slug"
-          class="the-header__course-btn the-header__course-btn_menu"
-          :style="{ border: `2px solid ${accent}` }"
-          @click="openModalCourse"
-        >
-          <span>записаться на&nbsp;курс</span>
-          <div
-            class="the-header__course-btn-bg"
-            :style="{ '--accent': accent }"
-          />
-        </button>
+          <button
+            v-if="$route.params.slug"
+            class="the-header__course-btn the-header__course-btn_menu"
+            :style="{ border: `2px solid ${accent}` }"
+            @click="openModalCourse"
+          >
+            <span>записаться на&nbsp;курс</span>
+            <div
+              class="the-header__course-btn-bg"
+              :style="{ '--accent': accent }"
+            />
+          </button>
 
-        <ui-button
-          v-else
-          type="outlined"
-          class="the-header__inner-mobile-menu-button"
-          size="s"
-          @click="openModal"
-        >
-          Открыть бизнес
-        </ui-button>
-      </perfect-scrollbar>
+          <ui-button
+            v-else
+            type="outlined"
+            class="the-header__inner-mobile-menu-button"
+            size="s"
+            @click="openModal"
+          >
+            Открыть бизнес
+          </ui-button>
+        </perfect-scrollbar>
+      </div>
     </div>
   </div>
 </template>
@@ -426,15 +429,32 @@ export default {
   &__inner-mobile {
     position: fixed;
     top: 0;
-    left: 0;
+    right: 0;
     z-index: @z-6;
-    display: flex;
-    flex-direction: column;
     width: 100%;
     height: 100vh;
-    background-color: @purple;
-    transform: translateX(100%);
-    transition: transform @transition-default ease-in-out;
+    background-color: rgba(0, 0, 0, 0);
+    opacity: 0;
+    transition: opacity @transition-default ease-in-out;
+    display: flex;
+    pointer-events: none;
+
+    .tablet-max ({
+      background-color: rgba(0, 0, 0, 0.5);
+    });;
+
+    &-holder {
+      max-width: 433px;
+      width: 100%;
+      padding: 20px 0px 20px 40px;
+      background-color: @purple;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      margin-left: auto;
+      transition: transform @transition-default ease-in-out;
+      transform: translateX(100%);
+    }
 
     // .tablet-max({
     //   display: flex;
@@ -442,7 +462,11 @@ export default {
     // });
 
     &_open {
-      transform: translateX(0);
+      opacity: 1;
+      pointer-events: all;
+      .the-header__inner-mobile-holder {
+        transform: translateX(0);
+      }
     }
   }
 
@@ -473,7 +497,7 @@ export default {
   }
 
   &__inner-mobile-menu {
-    padding: 0 10px;
+    // padding: 0 10px;
   }
 
   &__inner-mobile-menu-item {
