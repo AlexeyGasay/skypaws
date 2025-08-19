@@ -21,8 +21,7 @@
 
       <div class="the-header__contacts">
         <a
-          href="https://wa.me/78007772132"
-          target="_blank"
+          href="tel:78007772132"
           class="the-header__contacts-phone"
         >
           +7(800) 777-21-32
@@ -71,6 +70,12 @@
           @click="mobileMenuHandler"
         />
 
+        <img
+          src="@/assets/images/icons/logo-burger.svg"
+          class="the-header__inner-mobile-holder-logo"
+          alt="logo"
+        />
+
         <perfect-scrollbar>
           <nav class="the-header__inner-mobile-menu">
             <nuxt-link
@@ -82,7 +87,7 @@
                 <menu-drones-icon />
               </div>
 
-              Дроны
+              дроны
             </nuxt-link>
 
             <nuxt-link
@@ -94,7 +99,7 @@
                 <menu-design-icon />
               </div>
 
-              Дизайн
+              дизайн
             </nuxt-link>
 
             <nuxt-link
@@ -106,7 +111,7 @@
                 <menu-develop-icon />
               </div>
 
-              Разработка
+              разработка
             </nuxt-link>
 
             <!-- <div class="the-header__inner-mobile-menu-item">
@@ -117,14 +122,40 @@
             огэ/егэ
           </div> -->
           </nav>
+          <div class="the-header__inner-mobile-contact-links">
+            <a
+              href="https://t.me/SkyPaws_pro"
+              class="the-header__inner-mobile-contact-link"
+            >
+              <img
+                src="@/assets/images/icons/tg-burger.svg"
+                alt="tg"
+              />
+            </a>
+            <a
+              href="https://wa.me/78007772132"
+              class="the-header__inner-mobile-contact-link"
+            >
+              <img
+                src="@/assets/images/icons/wa-burger.svg"
+                alt="wa"
+              />
+            </a>
+          </div>
           <a
-            href="https://wa.me/78007772132"
+            href="tel:78007772132"
             class="the-header__inner-mobile-contact-phone"
           >
             +7(800) 777-21-32
           </a>
+          <a
+            href="mailto:info@skypaws.pro"
+            class="the-header__inner-mobile-contact-mail"
+          >
+            INFO@SKYPAWS.PRO
+          </a>
 
-          <button
+          <!-- <button
             v-if="$route.params.slug"
             class="the-header__course-btn the-header__course-btn_menu"
             :style="{ border: `2px solid ${accent}` }"
@@ -145,7 +176,7 @@
             @click="openModal"
           >
             Открыть бизнес
-          </ui-button>
+          </ui-button> -->
         </perfect-scrollbar>
       </div>
     </div>
@@ -266,6 +297,12 @@ export default {
   width: 100%;
   z-index: 1000;
   transition: transform 0.3s ease-in-out;
+
+  .ps {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
 
   &__inner {
     .container();
@@ -454,6 +491,33 @@ export default {
       margin-left: auto;
       transition: transform @transition-default ease-in-out;
       transform: translateX(100%);
+      position: relative;
+      z-index: 1;
+
+      .tablet-max({
+        max-width: 350px;
+        padding: 20px 0px 20px 30px;
+      });
+
+      .mobile-max({
+        max-width: 250px;
+        padding: 20px 0px 20px 20px;
+      });
+
+      &-logo {
+        position: absolute;
+        z-index: 1;
+        pointer-events: none;
+        height: 57px;
+
+        .tablet-max({
+          height: 45px;
+        });
+
+        .mobile-max({
+          height: 33px;
+        });
+      }
     }
 
     // .tablet-max({
@@ -472,12 +536,13 @@ export default {
 
   &__inner-mobile-close-button {
     width: max-content;
-    margin: 16px 40px 0 auto;
+    margin: 0 40px 0 auto;
     cursor: pointer;
     background-image: url("@/assets/images/icons/cross-icon-white.svg");
     background-position: center;
     background-size: cover;
     .square(41px);
+    flex-shrink: 0;
 
     &_no-border {
       .square(48px);
@@ -492,12 +557,15 @@ export default {
     }
 
     .mobile-max({
-      margin: 10px 10px 0 auto;
+      .square(41px);
+      margin: 0px 10px 0 auto;
     });
   }
 
   &__inner-mobile-menu {
     // padding: 0 10px;
+    margin-top: 20vh;
+    margin-bottom: 100px;
   }
 
   &__inner-mobile-menu-item {
@@ -505,31 +573,108 @@ export default {
     align-items: center;
     color: @white;
     font-weight: 500;
-    font-size: 20px;
-    text-transform: uppercase;
+    font-size: 32px;
+    // text-transform: uppercase;
     text-decoration: none;
 
+    .tablet-max({
+      font-size: 24px;
+    });
+
+    .mobile-max({
+      font-size: 20px;
+    });
+
     &:not(&:first-child) {
-      margin-top: 20px;
+      margin-top: 50px;
+
+      .mobile-max({
+        margin-top: 32px;
+      });
     }
   }
 
   &__inner-mobile-menu-item-icon {
     margin-right: 10px;
+    width: 126px;
+    display: flex;
+    justify-content: center;
+
+    .tablet-max({
+      width: 102px;
+    });
+
+    .mobile-max({
+      width: 72px;
+    });
 
     svg {
-      .square(30px);
+      height: 54px;
+
+      .tablet-max({
+        height: 44px;
+      });
+
+      .mobile-max({
+        height: 32px;
+      });
+    }
+  }
+
+  &__inner-mobile-contact-links {
+    margin-top: auto;
+    display: flex;
+
+    a {
+      width: 44px;
+      height: 44px;
+      margin-right: 11px;
+
+      .mobile-max({
+        width: 28px;
+        height: 28px;
+        margin-right: 7px;
+      });
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 
   &__inner-mobile-contact-phone {
     display: block;
-    margin-top: 20px;
-    padding: 0 10px;
+    margin-top: 10px;
     color: @white;
-    font-weight: 500;
-    font-size: 20px;
+    font-weight: 900;
+    font-size: 24px;
     text-decoration: none;
+
+    .tablet-max({
+      font-size: 20px;
+    });
+
+    .mobile-max({
+      font-size: 16px;
+    });
+  }
+
+  &__inner-mobile-contact-mail {
+    display: block;
+    margin-top: 5px;
+    color: @white;
+    font-weight: 900;
+    font-size: 24px;
+    text-decoration: none;
+
+    .tablet-max({
+      font-size: 20px;
+    });
+
+    .mobile-max({
+      font-size: 16px;
+    });
   }
 
   &__inner-mobile-menu-button {
