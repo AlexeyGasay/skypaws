@@ -21,7 +21,8 @@
 
       <div class="the-header__contacts">
         <a
-          href="tel:+7(800)777-21-32"
+          href="https://wa.me/78007772132"
+          target="_blank"
           class="the-header__contacts-phone"
         >
           +7(800) 777-21-32
@@ -115,7 +116,7 @@
           </div> -->
         </nav>
         <a
-          href="tel:+7(800) 777-21-32"
+          href="https://wa.me/78007772132"
           class="the-header__inner-mobile-contact-phone"
         >
           +7(800) 777-21-32
