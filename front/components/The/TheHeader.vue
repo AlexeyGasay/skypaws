@@ -59,7 +59,12 @@
     </div>
 
     <div :class="bem('the-header__inner-mobile', { open: isOpen })">
-      <div class="the-header__inner-mobile-holder">
+      <div
+        class="the-header__inner-mobile-holder"
+        :style="{
+          '--bg-burger': bgBurger,
+        }"
+      >
         <div
           class="the-header__inner-mobile-close-button"
           :class="{
@@ -221,6 +226,14 @@ export default {
         return slugs.find((el) => el.type === this.$route.params.slug).accent;
       }
       return "";
+    },
+
+    bgBurger() {
+      if (this.$route.params.slug) {
+        return slugs.find((el) => el.type === this.$route.params.slug)
+          .bgBurgerMenu;
+      }
+      return "#2B1252";
     },
   },
 
@@ -484,7 +497,7 @@ export default {
       max-width: 433px;
       width: 100%;
       padding: 20px 0px 20px 40px;
-      background-color: @purple;
+      background-color: var(--bg-burger);
       height: 100vh;
       display: flex;
       flex-direction: column;

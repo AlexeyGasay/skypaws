@@ -3,6 +3,7 @@ export default [
     type: "fpv",
     bg: "linear-gradient(270deg, #11347E 0%, #2B1252 100%)",
     accent: "#0DD6FF",
+    bgBurgerMenu: "#11347E",
     title: "Ваш ребенок мечтает управлять дроном?",
     texts: [
       "мы&nbsp;даем детям<br/> шанс взлететь!",
@@ -42,6 +43,7 @@ export default [
     type: "design",
     bg: "linear-gradient(270deg, #592A74 0%, #2B1252 100%)",
     accent: "#D737FF",
+    bgBurgerMenu: "#592A74",
     title: "Ваш ребенок мечтает научиться дизайну?",
     texts: [
       "мы&nbsp;претворим самые<br/> смелые идеи детей в&nbsp;жизнь!",
@@ -81,6 +83,7 @@ export default [
     type: "dev",
     bg: "linear-gradient(270deg, #077792 0%, #2B1252 100%)",
     accent: "#FFBC4F",
+    bgBurgerMenu: "#077792",
     title: "ваш ребенок хочет&nbsp;научиться программировать?",
     texts: [
       "мы&nbsp;проведем время<br/> с&nbsp;пользой на&nbsp;нашем курсе!",
